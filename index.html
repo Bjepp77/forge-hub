@@ -63,7 +63,8 @@ canvas{image-rendering:pixelated;display:block}
 .stageCard .svplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;text-shadow:0 2px 8px #000}
 .stageCard .svt{font-size:9px;color:#e8e8f0;margin-top:8px;text-align:center;line-height:1.5}
 .stageCard .svby{font-size:7px;color:#8890c8;margin-top:3px;text-align:center;letter-spacing:.08em}
-.stagecta{font-size:7px;color:var(--gold);text-align:center;margin:10px 0 6px;letter-spacing:.1em}
+.stageWrap{position:relative}
+.stagecta{position:absolute;left:0;right:0;bottom:8px;font-size:7px;color:var(--gold);text-align:center;letter-spacing:.1em;pointer-events:none;text-shadow:1px 1px 0 #0e1230}
 .rq{font-size:8px;color:#c8a028;text-align:center;margin:10px 4px 0;line-height:1.9;font-style:italic}
 .slot{border:3px solid #000;background:#fff;padding:4px 2px;text-align:center;position:relative}
 .slot .cnt{font-size:7px;position:absolute;bottom:1px;right:3px}
@@ -356,7 +357,7 @@ canvas{image-rendering:pixelated;display:block}
 <div id="navbar"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button></div>
 <button id="fbbubble" title="Send feedback">&#128172;</button>
 <div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
-<div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
+<div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><button class="btn-red" id="popEquip" style="width:100%;margin-top:8px">EQUIP</button><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
 <div id="evo">
   <div class="msg" id="evoMsg">What?</div>
   <canvas id="evoCanvas" width="192" height="240"></canvas>
@@ -365,7 +366,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260909-2028';
+const BUILD='b20260909-2036';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -409,7 +410,7 @@ const ITEMS=[
   {id:'firstscoop', name:'THE FIRST SCOOP', rar:'mythical', desc:'BRO. THE FIRST SCOOP. They say it fell from the heavens the day the first gym opened, already heaping. Every scoop since is just a tribute act. You were here at the beginning - beta forged, eternally swole.'},
 ];
 
-function defaults(){return {v:4,name:'BRANDON',sex:0,style:0,startStage:1,pose:0,skin:0,hair:1,hairc:0,beard:0,glasses:0,outfit:1,outc:0,items:{},lastSeen:null,evo:0};}
+function defaults(){return {v:4,name:'BRANDON',sex:0,style:0,startStage:1,pose:0,skin:0,hair:1,hairc:0,beard:0,glasses:0,outfit:1,outc:0,items:{},equipped:{},lastSeen:null,evo:0};}
 function loadAv(){try{const s=JSON.parse(localStorage.getItem(AKEY));if(s)return Object.assign(defaults(),s,{items:Object.assign({},s.items||{})});}catch(e){}return null;}
 function saveAv(a){localStorage.setItem(AKEY,JSON.stringify(a));}
 let AV=loadAv()||defaults();
@@ -707,6 +708,10 @@ function showItemPop(it,isBeta){
   p.style.display='flex';
   const cv=document.getElementById('popCv');const ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);
   drawItem(ctx,it.id,4);
+  const eb=document.getElementById('popEquip');
+  const setLbl=()=>{eb.textContent=(AV.equipped&&AV.equipped[it.id])?'UNEQUIP':'EQUIP';};
+  setLbl();
+  eb.onclick=(e)=>{e.stopPropagation();AV.equipped=AV.equipped||{};AV.equipped[it.id]=!AV.equipped[it.id];saveAv(AV);setLbl();renderHome();};
 }
 document.getElementById('pop').addEventListener('click',()=>{document.getElementById('pop').style.display='none';});
 /* --- BETA RELIC: one-time mythical login reward --- */
@@ -816,8 +821,23 @@ function drawAvatar(cid,av,stage){
     const r=Math.min(cv.width/img.naturalWidth,cv.height/img.naturalHeight);
     const w=img.naturalWidth*r,h=img.naturalHeight*r;
     ctx.clearRect(0,0,cv.width,cv.height);
-    ctx.drawImage(img,(cv.width-w)/2,cv.height-h,w,h);};
+    ctx.drawImage(img,(cv.width-w)/2,cv.height-h,w,h);
+    drawGear(ctx,av,(cv.width-w)/2,cv.height-h,w,h);};
   if(img.complete&&img.naturalWidth)draw();else img.onload=draw;
+}
+const GEARCACHE={};
+function gearCanvas(id){let c=GEARCACHE[id];if(!c){c=document.createElement('canvas');c.width=16;c.height=16;drawItem(c.getContext('2d'),id,1);GEARCACHE[id]=c;}return c;}
+const GEARANCH={belt:[.5,.60,1.8],phones:[.5,.12,1.4],wraps:[.5,.32,2.2],sleeves:[.5,.86,2.2],shaker:[.26,.93,1],energy:[.74,.93,1],pre:[.26,.93,1],foam:[.74,.93,1.1],chalk:[.26,.93,1],gymbag:[.74,.93,1.3],gold:[.26,.93,1.3],pizza:[.74,.93,1.2],firstscoop:[.74,.90,1.3]};
+function drawGear(ctx,av,x,y,w,h){
+  const eq=av.equipped||{};const ids=Object.keys(eq).filter(k=>eq[k]&&av.items&&av.items[k]>0);
+  if(!ids.length)return;
+  const pk=['flex','lat','side','crab'][(av.pose|0)%4];
+  ids.forEach(id=>{
+    const a=GEARANCH[id];if(!a)return;
+    if(id==='phones'&&pk==='lat')return;
+    const iw=16*(h/110)*a[2];
+    ctx.drawImage(gearCanvas(id),x+a[0]*w-iw/2,y+a[1]*h-iw/2,iw,iw);
+  });
 }
 /* --- AVATAR LEVEL --- */
 function lvlFor(days){return Math.floor(Math.sqrt(days))+1;}
@@ -1337,7 +1357,8 @@ const THEATER_VIDEOS=[
  {id:'JA7G7AV-LT8',t:'MICHAEL JORDAN - "FAILURE" COMMERCIAL',by:'BRAD D.'},
  {id:'RgDZhQr9dpA',t:'WILL SMITH - NOT AFRAID TO DIE ON A TREADMILL',by:'BRAD D.'},
  {id:'2YY4jwt1qk8',t:'WIN AT ALL COSTS - SPORTS MOTIVATION SPEECH',by:'RACHEL G.'},
- {id:'IdTMDpizis8',t:'JOCKO WILLINK - "GOOD"',by:'JACOB N.'}];
+ {id:'IdTMDpizis8',t:'JOCKO WILLINK - "GOOD"',by:'JACOB N.'},
+ {id:'MN5YnVlDnIQ',t:'KEVIN DURANT - YOU DA REAL MVP (2014 MVP SPEECH)',by:'MASON'}];
 const THEATER_SHELVES=[
  {name:'IRON CHURCH',desc:'Heavy barbell church. Old-school lifting edits.'},
  {name:'GAME DAY',desc:'Sports highlights with cinematic scoring.'},
@@ -1351,8 +1372,8 @@ function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg'}
 function renderStage(){
   const body=document.getElementById('theaterBody');
   let h='<div class="rq">"EVERYBODY WANNA BE A BODYBUILDER, BUT AINT NOBODY WANNA LIFT ALL THIS HEAVY-ASS WEIGHT."<br>- RONNIE COLEMAN, VIA BRAD D.</div>';
-  h+='<div class="stageScroll" id="stageScroll">'+THEATER_VIDEOS.map(v=>'<div class="stageCard"><div class="svfacade" data-id="'+v.id+'"><img src="'+ytThumb(v.id)+'" alt="" loading="lazy"><div class="svplay">&#9654;</div></div><div class="svt">'+v.t+'</div><div class="svby">FROM '+v.by+'</div></div>').join('')+'</div>';
-  h+='<div class="stagecta">SWIPE THE STAGE - TAP TO PLAY</div><button class="btn-red" id="vidShuffle" style="width:100%">SURPRISE ME</button>';
+  h+='<div class="stageWrap"><div class="stageScroll" id="stageScroll">'+THEATER_VIDEOS.map(v=>'<div class="stageCard"><div class="svfacade" data-id="'+v.id+'"><img src="'+ytThumb(v.id)+'" alt="" loading="lazy"><div class="svplay">&#9654;</div></div><div class="svt">'+v.t+'</div><div class="svby">FROM '+v.by+'</div></div>').join('')+'</div><div class="stagecta">SWIPE THE STAGE - TAP TO PLAY</div></div>';
+  h+='<button class="btn-red" id="vidShuffle" style="width:100%">SURPRISE ME</button>';
   body.innerHTML=h;
   body.querySelectorAll('.svfacade').forEach(f=>f.onclick=()=>{
     f.outerHTML='<iframe style="width:100%;aspect-ratio:16/9;border:2px solid #2a3160" src="https://www.youtube-nocookie.com/embed/'+f.dataset.id+'?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
