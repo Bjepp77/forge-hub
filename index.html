@@ -236,24 +236,8 @@ canvas{image-rendering:pixelated;display:block}
         <button class="mapnode" id="node-supp" style="left:16%;top:66%"><span class="pin">SUPP SHOP</span><div class="sub2">WHAT WORKS</div></button>
         <button class="mapnode" id="node-theater" style="left:80%;top:20%"><span class="pin">THEATER</span><div class="sub2">HYPE REELS</div></button>
         <button class="mapnode" id="node-univ" style="left:50%;top:84%"><span class="pin">UNIVERSITY</span><div class="sub2">SCHOOL OF IRON</div></button>
-        <button class="mapnode" id="node-fb" style="left:80%;top:48%"><span class="pin">SUGGESTION BOX</span><div class="sub2">DROP A NOTE</div></button>
       </div>
       <div style="text-align:center;margin-top:10px"><button class="backlink" id="mapBack">&lt; BACK HOME</button></div>
-    </div>
-  </section>
-  <section id="v-fb" style="display:none">
-    <div class="panel">
-      <h2 style="font-size:12px;text-align:center">SUGGESTION BOX</h2>
-      <p class="small" style="text-align:center;margin-top:6px">Bugs, ideas, balance complaints, hype. Straight to the Forge.</p>
-      <div style="margin-top:12px">
-        <label class="small" style="display:block;margin-bottom:4px">NAME (OPTIONAL)</label>
-        <input id="fbName" maxlength="24" placeholder="ANONYMOUS LIFTER" style="width:100%;box-sizing:border-box">
-        <label class="small" style="display:block;margin:10px 0 4px">MESSAGE</label>
-        <textarea id="fbMsg" rows="5" maxlength="2000" placeholder="What's on your mind?" style="width:100%;box-sizing:border-box;resize:vertical"></textarea>
-      </div>
-      <div style="text-align:center;margin-top:12px"><button class="btn-red" id="fbSend" style="width:100%">DROP IT IN THE BOX</button></div>
-      <div id="fbStatus" class="small" style="text-align:center;margin-top:10px;min-height:14px"></div>
-      <div style="text-align:center;margin-top:10px"><button class="backlink" id="fbBack">&lt; BACK TO MAP</button></div>
     </div>
   </section>
   <section id="v-1rm" style="display:none">
@@ -596,7 +580,7 @@ function drawIcon(cid, kind, color){
 }
 
 // --- views ---
-function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university','v-fb'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
+function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
   const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';}
 
 const CROWS=[
@@ -936,9 +920,8 @@ function radioRender(){
     '<div class="small" style="color:#aeb6e8;margin-top:6px">'+(TRACKS.length)+' tracks in the crate - new one every day.</div>';
 }
 /* --- FEEDBACK WIDGET ---
-   FORMSPREE_ENDPOINT empty = save locally (forge.hub.feedback.v1) until his Formspree signup lands.
-   Setup: he makes a free Formspree form with his email, we paste the endpoint here, republish. --- */
-const FORMSPREE_ENDPOINT='';
+   Posts to FormSubmit -> brandonjeppson@mail.instinct.com. Also keeps a local copy (forge.hub.feedback.v1) as backup log. --- */
+const FB_ENDPOINT='https://formsubmit.co/ajax/brandonjeppson@mail.instinct.com';
 const FBKEY='forge.hub.feedback.v1';
 function fbSend(){
   const name=(document.getElementById('fbName').value||'').trim(), msg=(document.getElementById('fbMsg').value||'').trim();
@@ -946,14 +929,12 @@ function fbSend(){
   if(!msg){note.textContent='TYPE SOMETHING FIRST';return;}
   const entry={ts:new Date().toISOString(),name:name,msg:msg,app:'forge-hub'};
   try{const arr=JSON.parse(localStorage.getItem(FBKEY)||'[]');arr.push(entry);localStorage.setItem(FBKEY,JSON.stringify(arr));}catch(e){}
-  if(FORMSPREE_ENDPOINT){
-    fetch(FORMSPREE_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:name||'anonymous',message:msg,_subject:'FORGE feedback'})}).catch(function(){});
-    note.textContent='SENT - THANKS';
-  }else{
-    note.textContent='SAVED - DELIVERY PIPE COMING ONLINE SOON';
-  }
+  note.textContent='SENDING...';
+  fetch(FB_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'FORGE FEEDBACK - '+(name||'ANONYMOUS LIFTER'),name:name||'ANONYMOUS LIFTER',message:msg,_captcha:'false',_template:'box'})})
+  .then(function(r){if(!r.ok)throw 0;note.textContent='RECEIVED - THE FORGE HEARS YOU.';})
+  .catch(function(){note.textContent='NO SIGNAL - SAVED ON DEVICE, WILL HAND OFF LATER';});
   document.getElementById('fbMsg').value='';
-  setTimeout(function(){document.getElementById('fbpanel').classList.remove('open');},1200);
+  setTimeout(function(){document.getElementById('fbpanel').classList.remove('open');},1600);
 }
 /* ================= END BATCH 2 ================= */
 
@@ -1371,23 +1352,6 @@ document.getElementById('suppBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('node-theater').addEventListener('click',()=>{renderVidShelves('theaterBody',THEATER_SHELVES,THEATER_VIDEOS,'Crate empty. The curators are picking records - check back after the first drop.');show('v-theater');});
 document.getElementById('theaterBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('node-univ').addEventListener('click',()=>{renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');});
-document.getElementById('node-fb').addEventListener('click',()=>{document.getElementById('fbStatus').textContent='';show('v-fb');});
-document.getElementById('fbBack').addEventListener('click',()=>show('v-map'));
-document.getElementById('fbSend').addEventListener('click',async()=>{
-  const st=document.getElementById('fbStatus');
-  const name=document.getElementById('fbName').value.trim()||'ANONYMOUS LIFTER';
-  const msg=document.getElementById('fbMsg').value.trim();
-  if(!msg){st.textContent='WRITE SOMETHING FIRST.';return;}
-  st.textContent='DROPPING IT IN...';
-  try{
-    const r=await fetch('https://formsubmit.co/ajax/brandonjeppson@mail.instinct.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'FORGE FEEDBACK - '+name,name:name,message:msg,_captcha:'false',_template:'box'})});
-    if(!r.ok)throw 0;
-    st.textContent='RECEIVED. THE FORGE HEARS YOU.';
-    document.getElementById('fbMsg').value='';
-  }catch(e){
-    st.innerHTML='NO SIGNAL - <a href="mailto:brandonjeppson@mail.instinct.com?subject='+encodeURIComponent('FORGE FEEDBACK - '+name)+'&body='+encodeURIComponent(msg)+'" style="color:#aeb6e8">SEND IT BY MAIL INSTEAD</a>';
-  }
-});
 document.getElementById('univBack').addEventListener('click',()=>show('v-map'));
 hookCalcTargets();
 
