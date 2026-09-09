@@ -56,8 +56,8 @@ canvas{image-rendering:pixelated;display:block}
 .bag{margin-top:14px}
 .baggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
 
-.stageScroll{max-height:52vh;overflow-y:auto;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;border:2px solid #3a3f66;border-radius:8px;background:#0e1230}
-.stageCard{scroll-snap-align:center;scroll-snap-stop:always;min-height:52vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:14px 12px;position:relative}
+.stageScroll{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border:2px solid #3a3f66;border-radius:8px;background:#0e1230;scrollbar-width:none}
+.stageCard{scroll-snap-align:center;scroll-snap-stop:always;flex:0 0 100%;min-height:46vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:14px 12px;position:relative}
 .stageCard .svfacade{width:100%;max-width:290px;cursor:pointer;position:relative}
 .stageCard .svfacade img{width:100%;display:block;border:2px solid #2a3160;border-radius:6px}
 .stageCard .svplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;text-shadow:0 2px 8px #000}
@@ -1343,7 +1343,7 @@ function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg'}
 function renderStage(){
   const body=document.getElementById('theaterBody');
   let h='<div class="rq">"EVERYBODY WANNA BE A BODYBUILDER, BUT AINT NOBODY WANNA LIFT ALL THIS HEAVY-ASS WEIGHT."<br>- RONNIE COLEMAN, VIA BRAD D.</div>';
-  h+='<div class="stagecta">SCROLL THE STAGE - TAP TO PLAY</div>';
+  h+='<div class="stagecta">SWIPE THE STAGE - TAP TO PLAY</div>';
   h+='<div class="stageScroll" id="stageScroll">'+THEATER_VIDEOS.map(v=>'<div class="stageCard"><div class="svfacade" data-id="'+v.id+'"><img src="'+ytThumb(v.id)+'" alt="" loading="lazy"><div class="svplay">&#9654;</div></div><div class="svt">'+v.t+'</div><div class="svby">FROM '+v.by+'</div></div>').join('')+'</div>';
   h+='<button class="btn-red" id="vidShuffle" style="width:100%;margin-top:12px">SURPRISE ME</button>';
   body.innerHTML=h;
