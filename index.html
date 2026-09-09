@@ -58,6 +58,26 @@ canvas{image-rendering:pixelated;display:block}
 .slot{border:3px solid #000;background:#fff;padding:4px 2px;text-align:center;position:relative}
 .slot .cnt{font-size:7px;position:absolute;bottom:1px;right:3px}
 .slot.rare{background:#fff3c0}
+.slot.mythical{background:linear-gradient(135deg,#fff8d8,#ffe8f4 45%,#e8f4ff);border-color:#c8a028;animation:mythglow 1.6s steps(3) infinite}
+@keyframes mythglow{0%,100%{box-shadow:0 0 8px 2px rgba(248,184,0,.55)}50%{box-shadow:0 0 16px 4px rgba(240,110,220,.7)}}
+.weekbar{background:var(--paper);border:4px solid #000;box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 5px #8890a8, 6px 6px 0 rgba(0,0,0,.45);padding:8px 10px;margin-bottom:14px}
+.wk-title{font-size:7px;color:#606880;letter-spacing:2px;margin-bottom:6px;display:flex;justify-content:space-between}
+.wk-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.wk-day{font-size:7px;color:#8890a8}
+.wk-pip{min-height:14px;margin-top:3px;border:2px solid #c8ccdd;background:#fff;display:flex;align-items:center;justify-content:center;font-size:6px;color:#0e1230;overflow:hidden;line-height:1}
+.wk-pip.on{border-color:#000}
+.wk-day.today{color:#0e1230}
+.wk-day.today .wk-pip{outline:2px solid #2848c0;outline-offset:1px}
+#pop{position:fixed;inset:0;background:rgba(10,12,32,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:24px}
+#pop .card{background:var(--paper);border:4px solid #000;box-shadow:6px 6px 0 rgba(0,0,0,.45);padding:14px;max-width:320px;text-align:center}
+#pop .ptitle{font-size:11px;letter-spacing:1px}
+#pop .prar{font-size:7px;letter-spacing:2px;margin-top:2px}
+#pop .pbanner{font-size:8px;letter-spacing:2px;margin-bottom:6px}
+#pop .pdesc{font-size:8px;line-height:1.9;margin-top:10px;color:#3a3f50}
+#pop .phint{font-size:6px;color:#8890a8;margin-top:12px;letter-spacing:1px}
+#pop.myth .card{border-color:#c8a028;box-shadow:0 0 26px 6px rgba(248,184,0,.6),6px 6px 0 rgba(0,0,0,.45)}
+#pop.myth .ptitle{color:#b020a8}
+.rar-mythical{color:#b020a8}
 .slot.uncommon{background:#dde8ff}
 .bagempty{font-size:8px;color:#606880;text-align:center;padding:10px 0;line-height:1.7}
 .homefoot{margin-top:14px;display:flex;justify-content:space-between;align-items:center}
@@ -178,6 +198,7 @@ canvas{image-rendering:pixelated;display:block}
     </div>
   </section>
   <section id="v-home" style="display:none">
+    <div class="weekbar" id="weekBar"></div>
     <div class="panel">
       <div class="heroRow">
         <canvas id="homeAvatar" width="128" height="160" style="flex:none"></canvas>
@@ -325,6 +346,7 @@ canvas{image-rendering:pixelated;display:block}
 <div id="navbar"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button></div>
 <button id="fbbubble" title="Send feedback">&#128172;</button>
 <div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
+<div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
 <div id="evo">
   <div class="msg" id="evoMsg">What?</div>
   <canvas id="evoCanvas" width="192" height="240"></canvas>
@@ -359,18 +381,19 @@ const LEGACY=[
   {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
 ];
 const ITEMS=[
-  {id:'shaker', name:'SHAKER', rar:'common'},
-  {id:'energy', name:'NRG DRINK', rar:'common'},
-  {id:'pre',    name:'PRE-WORKOUT', rar:'common'},
-  {id:'foam',   name:'FOAM ROLLER', rar:'common'},
-  {id:'wraps',  name:'WRIST WRAPS', rar:'uncommon'},
-  {id:'belt',   name:'LIFTING BELT', rar:'uncommon'},
-  {id:'chalk',  name:'CHALK BLOCK', rar:'uncommon'},
-  {id:'sleeves',name:'KNEE SLEEVES', rar:'uncommon'},
-  {id:'gymbag', name:'GYM BAG', rar:'uncommon'},
-  {id:'phones', name:'HEADPHONES', rar:'rare'},
-  {id:'gold',   name:'GOLD DUMBBELL', rar:'rare'},
-  {id:'pizza',  name:'CHEAT MEAL', rar:'rare'},
+  {id:'shaker', name:'SHAKER', rar:'common', desc:'BRO. This chalice has emulsified ten thousand scoops without a single clump. They say the whisk ball was forged from a collapsed neutron plate. Respect the rattle.'},
+  {id:'energy', name:'NRG DRINK', rar:'common', desc:'Liquid electricity, bro. One sip and your eyelids file for divorce. The can is only cold because the gains inside are THAT hot.'},
+  {id:'pre',    name:'PRE-WORKOUT', rar:'common', desc:'Bro this is not a drink, this is a legal potion. The tingles are just your muscles loading. Side effects include PRs, tunnel vision, and reracking plates you do not own.'},
+  {id:'foam',   name:'FOAM ROLLER', rar:'common', desc:'Bro, the pain cylinder. You roll on it, it ruins your life, you crawl back tomorrow. That is love. IT bands fear it. Tears hydrate it.'},
+  {id:'wraps',  name:'WRIST WRAPS', rar:'uncommon', desc:'Bro these are not wraps, these are wrist exoskeletons. Strap in and suddenly the bar feels like it owes YOU money.'},
+  {id:'belt',   name:'LIFTING BELT', rar:'uncommon', desc:'The belt, bro. Four inches of cowhide confidence. Torque it down, brace hard, and your spine becomes a load-bearing legend.'},
+  {id:'chalk',  name:'CHALK BLOCK', rar:'uncommon', desc:'Bro, powdered confidence. Clap twice, white out the room, grip like your ancestors. The dust cloud is just your aura becoming visible.'},
+  {id:'sleeves',name:'KNEE SLEEVES', rar:'uncommon', desc:'Knee sleeves, bro. Neoprene hugs for your joint pension fund. Squat deep, stand up mythical, knees stay twenty-two forever.'},
+  {id:'gymbag', name:'GYM BAG', rar:'uncommon', desc:'Bro this bag has seen things. Chalk storms, a forgotten banana, a shaker from March. It carries the lifestyle so you can carry the plates.'},
+  {id:'phones', name:'HEADPHONES', rar:'rare', desc:'Bro, the focus helmets. Once these go on the gym ceases to exist. Just you, the bar, and a playlist that makes your deadlift sentient.'},
+  {id:'gold',   name:'GOLD DUMBBELL', rar:'rare', desc:'THE GOLD DUMBBELL, bro. Too heavy to lift, too beautiful to sell. It just sits there radiating alpha. Future archaeologists will find it and know a legend trained here.'},
+  {id:'pizza',  name:'CHEAT MEAL', rar:'rare', desc:'Bro. The sacred cheat meal. Eight slices of bulking strategy. Carbs go straight to the quads, that is just science, do not look it up.'},
+  {id:'firstscoop', name:'THE FIRST SCOOP', rar:'mythical', desc:'BRO. THE FIRST SCOOP. They say it fell from the heavens the day the first gym opened, already heaping. Every scoop since is just a tribute act. You were here at the beginning - beta forged, eternally swole.'},
 ];
 
 function defaults(){return {v:3,name:'BRANDON',sex:0,skin:0,hair:1,hairc:0,beard:0,glasses:0,outfit:1,outc:0,items:{},lastSeen:null,evo:0};}
@@ -537,6 +560,7 @@ function drawItem(ctx, id, s){
   else if(id==='gymbag'){P(ctx,2,7,12,6,'#30364a',s);P(ctx,5,4,6,3,'#30364a',s);P(ctx,6,5,4,1,'#0e1230',s);P(ctx,2,7,12,1,'#4a5478',s);P(ctx,2,12,12,1,'#181c28',s);P(ctx,11,8,2,2,'#d03028',s);}
   else if(id==='phones'){P(ctx,4,3,8,2,D,s);P(ctx,3,5,3,6,D,s);P(ctx,10,5,3,6,D,s);P(ctx,4,6,1,3,'#d03028',s);P(ctx,11,6,1,3,'#d03028',s);P(ctx,5,4,6,1,'#4a4a58',s);}
   else if(id==='gold'){P(ctx,2,7,12,2,'#f8b800',s);P(ctx,2,4,3,8,'#d89a00',s);P(ctx,11,4,3,8,'#d89a00',s);P(ctx,2,4,1,2,'#fff0a8',s);P(ctx,12,11,1,1,'#fff',s);P(ctx,13,3,1,1,'#fff',s);}
+  else if(id==='firstscoop'){P(ctx,3,6,7,6,'#f8b800',s);P(ctx,3,6,7,1,'#fff0a8',s);P(ctx,4,11,5,1,'#d89a00',s);P(ctx,10,8,5,2,'#c8a028',s);P(ctx,13,7,1,1,'#fff',s);P(ctx,1,3,1,1,'#fff',s);P(ctx,14,2,1,1,'#fff',s);P(ctx,7,2,1,1,'#fff0a8',s);P(ctx,4,7,5,1,'#e8d080',s);}
   else if(id==='pizza'){P(ctx,3,3,10,3,'#e8b858',s);P(ctx,4,6,8,3,'#e8b858',s);P(ctx,5,9,6,3,'#e8b858',s);P(ctx,7,12,3,2,'#e8b858',s);P(ctx,3,3,10,1,'#c8923a',s);P(ctx,5,4,2,2,'#d03028',s);P(ctx,9,5,2,2,'#d03028',s);P(ctx,7,8,2,2,'#d03028',s);}
 }
 
@@ -621,12 +645,66 @@ function renderBag(){
     const slot=document.createElement('div');
     slot.className='slot '+it.rar;
     slot.innerHTML='<canvas id="bg'+i+'" width="40" height="40"></canvas>'+(AV.items[it.id]>1?'<span class="cnt">x'+AV.items[it.id]+'</span>':'');
+    slot.addEventListener('click',()=>showItemPop(it,false));
     g.appendChild(slot);
   });
   owned.forEach((it,i)=>{const c=document.getElementById('bg'+i);drawItem(c.getContext('2d'),it.id,c.width/16);});
 }
 
+/* --- WEEK TRACKER (hub-side: credits newly-logged days to today, per program) --- */
+const WKKEY='forge.hub.week.v1';
+const WKTAGS={'forge.furnace.v1':['FUR','#ff7a2f'],'forge.ironclad.v1':['IRO','#5fb4ff'],'forge.bedrock.v1':['BED','#9dc88d'],'trenched2.v1':['TRN','#D8F651'],'pbsys-v1':['PWR','#c8262b'],'ess3x-v1':['ESS','#2f7cc4'],'pbbfb-v1':['PBB','#c4372f']};
+function wkLoad(){try{const s=JSON.parse(localStorage.getItem(WKKEY));if(s&&s.v===1)return s;}catch(e){}return null;}
+function wkSave(s){try{localStorage.setItem(WKKEY,JSON.stringify(s));}catch(e){}}
+function isoDay(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function syncWeek(){
+  const keys=PROGRAMS.concat(LEGACY).map(p=>p.key);
+  let w=wkLoad();
+  if(!w){w={v:1,days:{},snap:{}};keys.forEach(k=>w.snap[k]=daysFor(k));wkSave(w);return;}
+  const t=isoDay(new Date());
+  keys.forEach(k=>{const c=daysFor(k),prev=w.snap[k]||0;if(c>prev){w.days[t]=(w.days[t]||[]).concat(Array(c-prev).fill(k));}w.snap[k]=c;});
+  wkSave(w);
+}
+function renderWeek(){
+  const el=document.getElementById('weekBar');if(!el)return;
+  const w=wkLoad()||{days:{}};
+  const now=new Date(),dow=(now.getDay()+6)%7;
+  const mon=new Date(now);mon.setDate(now.getDate()-dow);
+  const names=['M','T','W','T','F','S','S'];
+  let cells='',wcount=0;
+  for(let i=0;i<7;i++){
+    const d=new Date(mon);d.setDate(mon.getDate()+i);
+    const iso=isoDay(d);
+    const entries=w.days[iso]||[];
+    wcount+=entries.length;
+    let inner='';
+    if(entries.length){
+      const counts={};entries.forEach(k=>counts[k]=(counts[k]||0)+1);
+      inner=Object.keys(counts).map(k=>'<span style="background:'+(WKTAGS[k]?WKTAGS[k][1]:'#888')+';color:#0e1230;padding:1px 1px 0;margin-right:1px">'+(WKTAGS[k]?WKTAGS[k][0]:'?')+(counts[k]>1?counts[k]:'')+'</span>').join('');
+    }
+    cells+='<div class="wk-day'+(i===dow?' today':'')+'">'+names[i]+'<div class="wk-pip'+(entries.length?' on':'')+'">'+inner+'</div></div>';
+  }
+  el.innerHTML='<div class="wk-title"><span>THIS WEEK</span><span>'+wcount+' WORKOUT'+(wcount===1?'':'S')+'</span></div><div class="wk-days">'+cells+'</div>';
+}
+/* --- ITEM POPUP (hidden - no affordance, he wants people to find it) --- */
+function showItemPop(it,isBeta){
+  const p=document.getElementById('pop');if(!p||!it)return;
+  p.className=(it.rar==='mythical')?'myth':'';
+  document.getElementById('popBanner').style.display=isBeta?'block':'none';
+  document.getElementById('popTitle').textContent=it.name;
+  const r=document.getElementById('popRar');r.textContent=it.rar.toUpperCase()+' ITEM';r.className='prar rar-'+it.rar;
+  document.getElementById('popDesc').textContent=it.desc||'';
+  p.style.display='flex';
+  const cv=document.getElementById('popCv');const ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);
+  drawItem(ctx,it.id,4);
+}
+document.getElementById('pop').addEventListener('click',()=>{document.getElementById('pop').style.display='none';});
+/* --- BETA RELIC: one-time mythical login reward --- */
+function checkBetaRelic(){if(AV.items&&AV.items.firstscoop>0)return false;AV.items.firstscoop=1;saveAv(AV);return true;}
+
 function renderHome(){
+  syncWeek();
+  const betaGrant=checkBetaRelic();
   const days=totalDays();
   const si=stageFor(days);
   const st=STAGES[si];
@@ -662,9 +740,11 @@ function renderHome(){
   lh.textContent='- LEGACY VAULT -';
   tiles.appendChild(lh);
   LEGACY.forEach(addTile);
+  renderWeek();
   renderLoot();
   renderBag();
   renderTrophies();
+  if(betaGrant){const it=ITEMS.find(x=>x.id==='firstscoop');setTimeout(()=>showItemPop(it,true),700);}
 }
 
 
