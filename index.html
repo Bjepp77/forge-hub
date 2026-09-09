@@ -56,7 +56,7 @@ canvas{image-rendering:pixelated;display:block}
 .bag{margin-top:14px}
 .baggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
 
-.stageScroll{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border:2px solid #3a3f66;border-radius:8px;background:#0e1230;scrollbar-width:none}
+.stageScroll{display:flex;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;border:2px solid #3a3f66;border-radius:8px;background:#0e1230;scrollbar-width:none}
 .stageCard{scroll-snap-align:center;scroll-snap-stop:always;flex:0 0 100%;min-height:46vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:14px 12px;position:relative}
 .stageCard .svfacade{width:100%;max-width:290px;cursor:pointer;position:relative}
 .stageCard .svfacade img{width:100%;display:block;border:2px solid #2a3160;border-radius:6px}
@@ -365,6 +365,9 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
+const BUILD='b20260909-2012';
+(function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
+
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
 const SEXES=['GUY','GIRL'];
 const HAIRS=['BUZZ','SIDE PART','SPIKY','FLOW','MOHAWK','BALD'];
