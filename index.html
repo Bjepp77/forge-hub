@@ -365,7 +365,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260909-2024';
+const BUILD='b20260909-2028';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -601,6 +601,7 @@ const CROWS=[
   {k:'style',lbl:'ART STYLE',kind:'text',vals:['16-BIT COLOR','GBC COLOR']},
   {k:'startStage',lbl:'LIFTING FOR',kind:'text',vals:['JUST STARTING','1-2 YEARS','3-5 YEARS','5+ YEARS']},
   {k:'pose',lbl:'POSE',kind:'text',vals:['DOUBLE BICEPS','LAT SPREAD','SIDE CHEST','MOST MUSCULAR']},
+  {k:'hair',lbl:'HAIR',kind:'text',vals:HAIRS},
 ];
 function buildCreatorRows(){
   const el=document.getElementById('creatorRows');
