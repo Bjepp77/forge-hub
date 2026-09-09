@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0e1230">
+<title>FORGE - Training Hub</title>
+<style>
+@font-face{font-family:'PS2P';src:url(data:font/woff2;base64,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) format('woff2');font-weight:normal;font-style:normal;font-display:swap}
+:root{--paper:#f4f2e8; --red:#d03028; --blue:#2848c0; --gold:#f8b800}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#0e1230;font-family:'PS2P',monospace;color:#0e1230;min-height:100vh;padding:16px 12px 90px;background-image:radial-gradient(circle at 50% 18%, #1c2456 0%, #0e1230 72%)}
+.wrap{max-width:430px;margin:0 auto}
+.panel{background:var(--paper);border:4px solid #000;box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 5px #8890a8, 6px 6px 0 rgba(0,0,0,.45);padding:14px}
+h1,h2,h3{font-weight:normal;letter-spacing:1px}
+.small{font-size:8px;line-height:1.7;color:#404860}
+button{font-family:inherit;cursor:pointer;border:4px solid #000;background:var(--paper);padding:10px 12px;font-size:10px;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+button:active{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(0,0,0,.45)}
+.btn-red{background:var(--red);color:#fff;text-shadow:2px 2px 0 #600}
+canvas{image-rendering:pixelated;display:block}
+#v-title{text-align:center;padding-top:34px}
+.logo{font-size:30px;color:#fff;text-shadow:3px 3px 0 var(--red), 6px 6px 0 #000;line-height:1.4}
+.logo .q{color:var(--gold)}
+.pressstart{margin-top:30px;color:#fff;font-size:11px;animation:blink 1.1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.version{margin-top:22px;color:#8890c8;font-size:8px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:5px;margin:8px 0;font-size:8px}
+.crow .lbl{width:64px;flex:none}
+.arr{width:32px;height:32px;padding:0;font-size:11px;flex:none}
+.swatch{width:32px;height:32px;border:3px solid #000;flex:none}
+.optname{flex:1;text-align:center;font-size:8px;line-height:1.5}
+#nameInput{width:100%;font-family:inherit;font-size:12px;padding:10px;border:4px solid #000;background:#fff;text-transform:uppercase;letter-spacing:2px}
+.creatorprev{display:flex;justify-content:center;margin:6px 0 2px}
+.heroRow{display:flex;gap:12px;align-items:center}
+.heroInfo{flex:1}
+.lvbadge{display:inline-block;background:var(--blue);color:#fff;padding:4px 8px;font-size:8px;margin:6px 0;text-shadow:1px 1px 0 #113}
+.daysbig{font-size:16px;margin-top:2px}
+.meter{height:14px;border:3px solid #000;background:#fff;margin-top:8px}
+.meter>i{display:block;height:100%;background:var(--red)}
+.metertxt{font-size:7px;margin-top:4px;color:#404860}
+.loot{margin-top:14px;background:#fff8d8;border:4px solid #000;box-shadow:5px 5px 0 rgba(0,0,0,.45);padding:10px;animation:lootpop .35s steps(4)}
+@keyframes lootpop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.loot h3{font-size:10px;color:#a02020;margin-bottom:8px}
+.lootrow{display:flex;gap:10px;flex-wrap:wrap}
+.lootitem{text-align:center;font-size:7px;width:64px;line-height:1.5}
+.rar-common{color:#404860}.rar-uncommon{color:#2848c0}.rar-rare{color:#a07800}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tile{background:var(--paper);border:4px solid #000;box-shadow:5px 5px 0 rgba(0,0,0,.45);padding:10px;text-align:center;text-decoration:none;color:#0e1230;display:block}
+.tile:active{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(0,0,0,.45)}
+.tile .tname{font-size:8px;line-height:1.6;margin-top:6px;min-height:28px}
+.tile .tdays{font-size:8px;margin-top:6px;padding:3px 0;border-top:3px solid #000}
+.tile .go{font-size:7px;margin-top:5px;color:#fff;padding:3px 6px;display:inline-block}
+.bag{margin-top:14px}
+.baggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.slot{border:3px solid #000;background:#fff;padding:4px 2px;text-align:center;position:relative}
+.slot .cnt{font-size:7px;position:absolute;bottom:1px;right:3px}
+.slot.rare{background:#fff3c0}
+.slot.uncommon{background:#dde8ff}
+.bagempty{font-size:8px;color:#606880;text-align:center;padding:10px 0;line-height:1.7}
+.homefoot{margin-top:14px;display:flex;justify-content:space-between;align-items:center}
+.htab{background:transparent;border:none;box-shadow:none;font-size:8px;color:#aeb6e8;text-decoration:underline;padding:4px}
+.marq{color:#8890c8;font-size:7px;text-align:center;margin-top:16px;line-height:1.8}
+.stars{color:var(--gold)}
+
+.flybtn{background:var(--gold);color:#0e1230;border:4px solid #000;box-shadow:4px 4px 0 rgba(0,0,0,.45);font-size:9px;padding:8px 12px;text-shadow:none}
+/* evolution overlay */
+#evo{position:fixed;inset:0;background:#000;z-index:50;display:none;text-align:center;padding-top:60px}
+#evo .msg{color:#fff;font-size:13px;line-height:2;margin:14px 24px;text-shadow:2px 2px 0 #224}
+#evo .sub{color:#8890c8;font-size:9px;margin-top:18px;animation:blink 1.1s steps(2,start) infinite}
+#evoCanvas{margin:26px auto 0}
+/* map */
+#v-map .panel{padding:10px}
+.mapbox{position:relative;border:4px solid #000;margin-top:10px}
+.mapnode{position:absolute;transform:translate(-50%,-50%);text-align:center;background:none;border:none;box-shadow:none;padding:0}
+.mapnode:active{transform:translate(-50%,-50%) scale(.94)}
+.mapnode .pin{font-size:9px;background:#fff;border:3px solid #000;padding:5px 6px;box-shadow:3px 3px 0 rgba(0,0,0,.45);display:inline-block;line-height:1.5}
+.mapnode .sub2{font-size:7px;color:#fff;text-shadow:1px 1px 0 #000;margin-top:3px}
+/* calculators */
+.cfield{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:8px 0;font-size:8px}
+.cfield .lbl{flex:none;width:96px;line-height:1.6}
+.cfield input{width:100%;font-family:inherit;font-size:11px;padding:8px;border:3px solid #000;background:#fff}
+.cfield .arr{width:30px;height:30px;padding:0;font-size:10px;flex:none}
+.cres{margin-top:12px;background:#fff;border:3px solid #000;padding:10px;font-size:8px;line-height:2}
+.cres b{font-size:11px}
+.pctable{width:100%;border-collapse:collapse;margin-top:8px;font-size:7px}
+.pctable td{border:2px solid #000;padding:4px 2px;text-align:center}
+.backlink{background:transparent;border:none;box-shadow:none;font-size:8px;color:#404860;text-decoration:underline;padding:4px}
+
+#navbar{position:fixed;bottom:0;left:0;right:0;z-index:40;display:none;justify-content:center;gap:10px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:rgba(14,18,48,.94);border-top:4px solid #000}
+#navbar button{font-size:9px;padding:8px 16px}
+.navhome{background:var(--paper)}
+
+.lvchip{display:inline-block;background:#2848c0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
+.skillchip{display:inline-block;background:#8030a0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
+.trophygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:6px}
+.trophy{text-align:center;padding:6px 2px;border:1px dashed #3a3f66;border-radius:4px}
+.trophy .tname2{font-size:7px;margin-top:3px;color:#aeb6e8;letter-spacing:.04em}
+.trophy.earned{border:1px solid #c8a028;background:#1a1c30}
+.trophy.earned .tname2{color:#e8d080}
+.platevis{display:flex;align-items:flex-end;gap:3px;min-height:56px;margin:8px 0;justify-content:center}
+.plate{width:14px;border-radius:2px;display:inline-block}
+#fbbubble{position:fixed;left:12px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:60;width:44px;height:44px;border-radius:50%;background:#2848c0;color:#fff;border:2px solid #101330;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+#fbpanel{position:fixed;left:12px;bottom:calc(116px + env(safe-area-inset-bottom));z-index:60;width:250px;background:#171a30;border:2px solid #3a3f66;border-radius:6px;padding:10px;display:none}
+#fbpanel.open{display:block}
+#fbpanel textarea{width:100%;height:64px;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:9px;padding:6px;resize:none}
+#fbpanel input{width:100%;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:9px;padding:5px;margin-bottom:6px}
+.scprof{display:block;margin:6px 0;padding:8px;border:1px solid #3a3f66;border-radius:4px;color:#ff5500;text-decoration:none;font-size:9px;text-align:center}
+.scprof:hover{background:#1a1c30}
+#gainsChart{width:100%;image-rendering:pixelated;background:#0e1230;border:1px solid #3a3f66;border-radius:4px}
+#gainsEx{width:100%;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:10px;padding:6px;margin-bottom:8px}
+.cfield select{width:100%;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:10px;padding:6px}
+/* --- BATCH 3: Fuel Town expansion, Supp Shop, Theater, University --- */
+.fueldoors{display:grid;gap:10px;margin-top:12px}
+.fueldoor{display:block;width:100%;text-align:left;padding:12px;border:2px solid #2a3160;background:#141833;box-shadow:4px 4px 0 #0a0c1c;cursor:pointer}
+.fueldoor .t{font-size:11px;color:#ffd23f}
+.fueldoor .d{font-size:8px;color:#aeb6e8;margin-top:4px;line-height:1.4}
+.mbar{margin-top:8px}
+.mbar .mlbl{display:flex;justify-content:space-between;font-size:8px;color:#aeb6e8;margin-bottom:3px}
+.mbar .mtrack{height:12px;background:#0a0c1c;border:2px solid #2a3160}
+.mbar .mfill{height:100%;background:#7cf29c;transition:width .3s}
+.mbar.over .mfill{background:#ff5d5d}
+.foodhit{display:flex;justify-content:space-between;align-items:center;padding:8px;border-bottom:1px solid #2a3160;cursor:pointer;font-size:9px}
+.foodhit:hover{background:#1c2144}
+.foodhit .fm{color:#7cf29c;font-size:8px}
+.logrow{display:flex;justify-content:space-between;align-items:center;padding:7px 4px;border-bottom:1px solid #2a3160;font-size:9px}
+.logrow .del{color:#ff5d5d;cursor:pointer;padding:0 6px;font-size:11px}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{font-size:8px;padding:6px 10px;border:2px solid #2a3160;background:#141833;color:#aeb6e8;cursor:pointer;box-shadow:2px 2px 0 #0a0c1c}
+.chip.on{background:#ffd23f;color:#0a0c1c;border-color:#ffd23f}
+.rcard{border:2px solid #2a3160;background:#141833;box-shadow:4px 4px 0 #0a0c1c;margin-top:10px;padding:10px;cursor:pointer}
+.rcard .rn{font-size:10px;color:#ffd23f}
+.rcard .rm{font-size:8px;color:#7cf29c;margin-top:4px}
+.rcard .rd{display:none;margin-top:8px;font-size:8px;color:#e6e9ff;line-height:1.5}
+.rcard.open .rd{display:block}
+.rcard .rd b{color:#ffd23f}
+.rcard .rd ol{margin:4px 0 8px 16px;padding:0}
+.rcard .rd ul{margin:4px 0 8px 16px;padding:0}
+.scard{border:2px solid #2a3160;background:#141833;box-shadow:4px 4px 0 #0a0c1c;margin-top:10px;padding:10px}
+.scard .sn{font-size:10px;color:#e6e9ff}
+.scard .grade{display:inline-block;font-size:7px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+.g-proven{background:#7cf29c;color:#0a0c1c}
+.g-cond{background:#ffd23f;color:#0a0c1c}
+.g-skip{background:#ff5d5d;color:#0a0c1c}
+.scard .sd{font-size:8px;color:#e6e9ff;margin-top:6px;line-height:1.5}
+.scard .sd b{color:#ffd23f}
+.vidgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.vfacade{position:relative;cursor:pointer;border:2px solid #2a3160;box-shadow:3px 3px 0 #0a0c1c;background:#0a0c1c}
+.vfacade img{width:100%;display:block}
+.vfacade .vplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:#ffd23f;text-shadow:2px 2px 0 #000}
+.vfacade .vt{position:absolute;left:0;right:0;bottom:0;font-size:7px;background:rgba(10,12,28,.85);padding:3px 5px;color:#e6e9ff}
+.crate{border:2px dashed #2a3160;padding:14px;margin-top:8px;text-align:center;font-size:8px;color:#aeb6e8;line-height:1.6}
+.shelfname{font-size:10px;color:#ffd23f;margin-top:14px}
+
+.pagetop h2{color:#e6e9ff;font-size:13px}
+.pagetop .sub{animation:none;display:block;margin-top:4px;color:#aeb6e8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="v-title" style="display:none">
+    <div class="logo">SWOLE<br><span class="q">QUEST</span></div>
+    <div style="display:flex;justify-content:center;margin-top:26px"><canvas id="titleAvatar" width="192" height="240"></canvas></div>
+    <div class="pressstart">- TAP TO START -</div>
+    <div class="version">BRANDON EDITION v3.1 (16-BIT)</div>
+  </section>
+  <section id="v-create" style="display:none">
+    <div class="panel">
+      <h2 style="font-size:12px;text-align:center">NEW TRAINER</h2>
+      <p class="small" style="text-align:center;margin-top:6px">Build your 16-bit self.<br>He gets SWOLE as you log days.</p>
+      <div class="creatorprev"><canvas id="createAvatar" width="192" height="240"></canvas></div>
+      <div id="creatorRows"></div>
+      <div style="margin-top:10px"><input id="nameInput" maxlength="10" placeholder="NAME?"></div>
+      <button class="btn-red" id="startBtn" style="width:100%;margin-top:12px">START ADVENTURE</button>
+      <div style="text-align:center;margin-top:6px"><button class="htab" id="skillBtn2">+ SKILL CHECK (STATS + RANK)</button></div>
+    </div>
+  </section>
+  <section id="v-home" style="display:none">
+    <div class="panel">
+      <div class="heroRow">
+        <canvas id="homeAvatar" width="128" height="160" style="flex:none"></canvas>
+        <div class="heroInfo">
+          <div style="font-size:12px" id="homeName">BRANDON</div>
+          <div class="lvbadge" id="homeStage">ROOKIE</div>
+          <div class="daysbig"><span id="homeDays">0</span> DAYS</div>
+          <div class="meter"><i id="meterFill" style="width:0%"></i></div>
+          <div class="metertxt" id="meterTxt"></div>
+        </div>
+      </div>
+    </div>
+    <div id="lootBox"></div>
+    <div class="tiles" id="tiles"></div>
+    <div class="panel bag"><h3 style="font-size:10px">GYM BAG</h3><div id="bagGrid" class="baggrid"></div></div>
+    <div class="panel bag"><h3 style="font-size:10px">TROPHY CASE</h3><div id="trophyGrid" class="trophygrid"></div></div>
+    <div class="homefoot">
+      <button class="htab" id="editAvatar">EDIT TRAINER</button>
+      <button class="htab" id="skillBtn">SKILL CHECK</button>
+      <button class="htab" id="gainsBtn">GAINS LEDGER</button>
+      <span class="small" style="color:#aeb6e8">3 FORGE + LEGACY VAULT</span>
+    </div>
+    <div class="marq">PROGRESS SAVES ON THIS DEVICE.<br>FINISH WORKOUTS, EARN GEAR.<br>YOUR TRAINER GAINS SIZE WITH EVERY DAY. <span class="stars">*</span></div>
+  </section>
+
+  <section id="v-map" style="display:none">
+    <div class="panel">
+      <h2 style="font-size:12px;text-align:center">EXTRAS</h2>
+      <p class="small" style="text-align:center;margin-top:6px">Pick a spot to FLY to.</p>
+      <div class="mapbox"><canvas id="mapCanvas" width="350" height="300" style="width:100%"></canvas>
+        <button class="mapnode" id="node-1rm" style="left:26%;top:34%"><span class="pin">IRON CITY</span><div class="sub2">1-REP-MAX CALC</div></button>
+        <button class="mapnode" id="node-cal" style="left:72%;top:62%"><span class="pin">FUEL TOWN</span><div class="sub2">3 STATIONS</div></button>
+        <button class="mapnode" id="node-radio" style="left:50%;top:12%"><span class="pin">RADIO TOWER</span><div class="sub2">NOW SPINNING</div></button>
+        <button class="mapnode" id="node-supp" style="left:16%;top:66%"><span class="pin">SUPP SHOP</span><div class="sub2">WHAT WORKS</div></button>
+        <button class="mapnode" id="node-theater" style="left:80%;top:20%"><span class="pin">THEATER</span><div class="sub2">HYPE REELS</div></button>
+        <button class="mapnode" id="node-univ" style="left:50%;top:84%"><span class="pin">UNIVERSITY</span><div class="sub2">SCHOOL OF IRON</div></button>
+      </div>
+      <div style="text-align:center;margin-top:10px"><button class="backlink" id="mapBack">&lt; BACK HOME</button></div>
+    </div>
+  </section>
+  <section id="v-1rm" style="display:none">
+    <div class="panel">
+      <h2 style="font-size:11px;text-align:center">IRON CITY</h2>
+      <p class="small" style="text-align:center;margin-top:4px">1-REP-MAX CALCULATOR</p>
+      <div class="cfield"><span class="lbl">WEIGHT (LB)</span><input id="ormW" inputmode="decimal" placeholder="225"></div>
+      <div class="cfield"><span class="lbl">REPS</span><input id="ormR" inputmode="decimal" placeholder="5"></div>
+      <button class="btn-red" id="ormGo" style="width:100%;margin-top:8px">CALCULATE</button>
+      <div class="cres" id="ormOut" style="display:none"></div>
+      <div style="margin-top:14px"><h3 style="font-size:10px">PLATE MATH</h3>
+      <div class="cfield"><span class="lbl">TARGET (LB, 45 BAR)</span><input id="plW" inputmode="decimal" placeholder="225"></div>
+      <button class="btn-red" id="plGo" style="width:100%;margin-top:8px">LOAD THE BAR</button>
+      <div class="cres" id="plOut" style="display:none"></div></div>
+      <div style="text-align:center;margin-top:8px"><button class="backlink" id="ormBack">&lt; BACK TO MAP</button></div>
+    </div>
+  </section>
+  <section id="v-cal" style="display:none">
+    <div class="panel">
+      <h2 style="font-size:11px;text-align:center">FUEL TOWN</h2>
+      <p class="small" style="text-align:center;margin-top:4px">CALORIE CALCULATOR (MIFFLIN-ST JEOR)</p>
+      <div class="cfield"><span class="lbl">SEX</span><button class="arr" id="calSexL">&#9664;</button><span class="optname" id="calSex">MALE</span><button class="arr" id="calSexR">&#9654;</button></div>
+      <div class="cfield"><span class="lbl">AGE</span><input id="calAge" inputmode="decimal" placeholder="25"></div>
+      <div class="cfield"><span class="lbl">HEIGHT (IN)</span><input id="calH" inputmode="decimal" placeholder="70"></div>
+      <div class="cfield"><span class="lbl">WEIGHT (LB)</span><input id="calW" inputmode="decimal" placeholder="180"></div>
+      <div class="cfield"><span class="lbl">ACTIVITY</span><button class="arr" id="calActL">&#9664;</button><span class="optname" id="calAct">LIFT 3-5X/WK</span><button class="arr" id="calActR">&#9654;</button></div>
+      <button class="btn-red" id="calGo" style="width:100%;margin-top:8px">CALCULATE</button>
+      <div class="cres" id="calOut" style="display:none"></div>
+      <div style="text-align:center;margin-top:8px"><button class="backlink" id="calBack">&lt; BACK TO MAP</button></div>
+    </div>
+  </section>
+</div>
+
+  <section id="v-skill" style="display:none">
+    <div class="pagetop"><h2>SKILL CHECK</h2><span class="sub">OPTIONAL - RANK YOUR BIG 4</span></div>
+    <div class="panel" style="margin-top:10px">
+      <div class="cfield"><span class="lbl">BODYWEIGHT (LB)</span><input id="skBw" inputmode="decimal" placeholder="180"></div>
+      <div id="skLifts"></div>
+      <button class="btn-red" id="skGo" style="width:100%;margin-top:8px">RANK ME</button>
+      <div class="cres" id="skOut" style="display:none"></div>
+      <div style="text-align:center;margin-top:8px"><button class="backlink" id="skBack">&lt; BACK HOME</button></div>
+      <div class="small" style="margin-top:8px;color:#aeb6e8">Skip any lift - unrated lifts count as ROOKIE. Weight x reps is fine, we estimate your max.</div>
+    </div>
+  </section>
+  <section id="v-gains" style="display:none">
+    <div class="pagetop"><h2>GAINS LEDGER</h2><span class="sub">WEIGHT OVER TIME, PER LIFT</span></div>
+    <div class="panel" style="margin-top:10px">
+      <select id="gainsEx"></select>
+      <canvas id="gainsChart" width="350" height="180"></canvas>
+      <div class="small" id="gainsMeta" style="margin-top:6px;color:#aeb6e8"></div>
+      <div style="text-align:center;margin-top:8px"><button class="backlink" id="gainsBack">&lt; BACK HOME</button></div>
+    </div>
+  </section>
+  <section id="v-radio" style="display:none">
+    <div class="pagetop"><h2>RADIO TOWER</h2><span class="sub">WHAT THE CREATORS ARE SPINNING</span></div>
+    <div class="panel" style="margin-top:10px" id="radioBody"></div>
+    <div class="panel" style="margin-top:10px">
+      <h3 style="font-size:10px">THE DJS</h3>
+      <a class="scprof" href="https://soundcloud.com/user-362150608" target="_blank" rel="noopener">&#9835; BRANDON ON SOUNDCLOUD</a>
+      <a class="scprof" href="https://soundcloud.com/tyler-erickson-150348464" target="_blank" rel="noopener">&#9835; TYLER ON SOUNDCLOUD</a>
+    </div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="radioBack">&lt; BACK TO MAP</button></div>
+  </section>
+  <section id="v-fuel" style="display:none">
+    <div class="panel">
+      <h2 style="font-size:11px;text-align:center">FUEL TOWN</h2>
+      <p class="small" style="text-align:center;margin-top:4px">PICK YOUR STATION</p>
+      <div class="fueldoors">
+        <button class="fueldoor" id="doorCalc"><span class="t">CALORIE CALC</span><div class="d">Mifflin-St Jeor targets. Set your numbers once, use them everywhere.</div></button>
+        <button class="fueldoor" id="doorMacros"><span class="t">MACRO TRACK</span><div class="d">Log today's food. Protein bar guilt sold separately.</div></button>
+        <button class="fueldoor" id="doorKitchen"><span class="t">THE KITCHEN</span><div class="d">High-protein house recipes. Bulk, cut, and prep-day specials.</div></button>
+      </div>
+      <div style="text-align:center;margin-top:10px"><button class="backlink" id="fuelBack">&lt; BACK TO MAP</button></div>
+    </div>
+  </section>
+  <section id="v-macros" style="display:none">
+    <div class="pagetop"><h2>MACRO TRACK</h2><span class="sub">TODAY'S FUEL</span></div>
+    <div class="panel" style="margin-top:10px" id="macroBody"></div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="macroBack">&lt; BACK TO FUEL TOWN</button></div>
+  </section>
+  <section id="v-kitchen" style="display:none">
+    <div class="pagetop"><h2>THE KITCHEN</h2><span class="sub">HOUSE RECIPES, MACRO-COUNTED</span></div>
+    <div class="panel" style="margin-top:10px">
+      <div class="chiprow" id="kChips"></div>
+      <div id="kList"></div>
+    </div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="kBack">&lt; BACK TO FUEL TOWN</button></div>
+  </section>
+  <section id="v-supp" style="display:none">
+    <div class="pagetop"><h2>SUPP SHOP</h2><span class="sub">EVIDENCE-GRADED, NO MARKETING</span></div>
+    <div class="panel" style="margin-top:10px" id="suppBody"></div>
+    <div class="panel" style="margin-top:10px"><div class="small" style="color:#aeb6e8;line-height:1.6">Grades follow the evidence hierarchy used by independent references like Examine.com - human randomized trials first, marketing never. Not medical advice; check with a doc if you have conditions.</div></div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="suppBack">&lt; BACK TO MAP</button></div>
+  </section>
+  <section id="v-theater" style="display:none">
+    <div class="pagetop"><h2>THEATER</h2><span class="sub">PRE-WORKOUT FOR YOUR BRAIN</span></div>
+    <div class="panel" style="margin-top:10px" id="theaterBody"></div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="theaterBack">&lt; BACK TO MAP</button></div>
+  </section>
+  <section id="v-university" style="display:none">
+    <div class="pagetop"><h2>UNIVERSITY</h2><span class="sub">SCHOOL OF IRON - LEARN THE WHY</span></div>
+    <div class="panel" style="margin-top:10px" id="univBody"></div>
+    <div style="text-align:center;margin-top:8px"><button class="backlink" id="univBack">&lt; BACK TO MAP</button></div>
+  </section>
+
+<div id="navbar"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button></div>
+<button id="fbbubble" title="Send feedback">&#128172;</button>
+<div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
+<div id="evo">
+  <div class="msg" id="evoMsg">What?</div>
+  <canvas id="evoCanvas" width="192" height="240"></canvas>
+  <div class="sub" id="evoSub">- TAP -</div>
+</div>
+<script>
+// ===== FORGE v2 (16-bit) =====
+const AKEY='forge.hub.v1';
+const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
+const SEXES=['GUY','GIRL'];
+const HAIRS=['BUZZ','SIDE PART','SPIKY','FLOW','MOHAWK','BALD'];
+const FHAIRS=['LONG','PONYTAIL','BUN','BOB','PIGTAILS','BRAIDS'];
+const HAIRCS=['#282828','#5c3a1e','#a06828','#c8c8c8','#d03028','#2848c0'];
+const BEARDS=['NONE','STUBBLE','FULL','GOATEE'];
+const GLASSESN=['NONE','SPECS','SHADES'];
+const OUTFITS=['TANK TOP','TEE','PUMP COVER','HOODIE','STRINGER','LONG SLEEVE'];
+const OUTCS=['#d03028','#2848c0','#188050','#8030a0','#30364a','#c86828'];
+const STAGES=[
+  {min:0,name:'ROOKIE'},{min:7,name:'GYM RAT'},{min:18,name:'REGULAR'},
+  {min:35,name:'BEAST'},{min:60,name:'SWOLE'},{min:100,name:'ULTRA SWOLE'},
+];
+const PROGRAMS=[
+  {name:'FURNACE', url:'/furnace/', key:'forge.furnace.v1', color:'#ff7a2f', icon:'flame'},
+  {name:'IRONCLAD', url:'/ironclad/', key:'forge.ironclad.v1', color:'#5fb4ff', icon:'shield'},
+  {name:'BEDROCK', url:'/bedrock/', key:'forge.bedrock.v1', color:'#9dc88d', icon:'rock'},
+];
+/* === LEGACY LAYER - temporary, quarantined. Rip-cord: delete this block + the legacy repos, republish. === */
+const LEGACY=[
+  {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
+  {name:'POWER- BUILDING', url:'/powerbuilding-system/', key:'pbsys-v1', color:'#c8262b', icon:'barbell'},
+  {name:'ESSENTIALS 3X/WK', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'},
+  {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
+];
+const ITEMS=[
+  {id:'shaker', name:'SHAKER', rar:'common'},
+  {id:'energy', name:'NRG DRINK', rar:'common'},
+  {id:'pre',    name:'PRE-WORKOUT', rar:'common'},
+  {id:'foam',   name:'FOAM ROLLER', rar:'common'},
+  {id:'wraps',  name:'WRIST WRAPS', rar:'uncommon'},
+  {id:'belt',   name:'LIFTING BELT', rar:'uncommon'},
+  {id:'chalk',  name:'CHALK BLOCK', rar:'uncommon'},
+  {id:'sleeves',name:'KNEE SLEEVES', rar:'uncommon'},
+  {id:'gymbag', name:'GYM BAG', rar:'uncommon'},
+  {id:'phones', name:'HEADPHONES', rar:'rare'},
+  {id:'gold',   name:'GOLD DUMBBELL', rar:'rare'},
+  {id:'pizza',  name:'CHEAT MEAL', rar:'rare'},
+];
+
+function defaults(){return {v:3,name:'BRANDON',sex:0,skin:0,hair:1,hairc:0,beard:0,glasses:0,outfit:1,outc:0,items:{},lastSeen:null,evo:0};}
+function loadAv(){try{const s=JSON.parse(localStorage.getItem(AKEY));if(s)return Object.assign(defaults(),s,{items:Object.assign({},s.items||{})});}catch(e){}return null;}
+function saveAv(a){localStorage.setItem(AKEY,JSON.stringify(a));}
+let AV=loadAv()||defaults();
+
+function daysFor(key){
+  try{
+    const s=JSON.parse(localStorage.getItem(key));
+    if(!s)return 0;
+    let n=0;
+    if(Array.isArray(s.sessions))n+=s.sessions.length;
+    if(s.done&&typeof s.done==='object'){for(const v of Object.values(s.done)){if(!v)continue;n+=(typeof v==='number')?v:1;}}
+    if(s.days&&typeof s.days==='object'){for(const dv of Object.values(s.days)){if(dv&&typeof dv==='object'){for(const exv of Object.values(dv)){if(exv&&Array.isArray(exv.sets)&&exv.sets.some(x=>x)){n++;break;}}}}}
+    return n;
+  }catch(e){return 0}
+}
+function totalDays(){return PROGRAMS.concat(LEGACY).reduce((a,p)=>a+daysFor(p.key),0);}
+function stageFor(days){let s=0;STAGES.forEach((st,i)=>{if(days>=st.min)s=i;});return s;}
+
+// --- loot: one roll per newly-logged day since last visit ---
+function rollItem(){
+  const r=Math.random();
+  const rar=r<.6?'common':r<.9?'uncommon':'rare';
+  const lv=lvlFor(totalDays());
+  const pool=ITEMS.filter(i=>i.rar===rar&&(rar!=='rare'||lv>=5));
+  if(!pool.length)return ITEMS[0];
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+let NEWLOOT=[];
+function checkLoot(){
+  const days=totalDays();
+  const seen=AV.lastSeen;
+  if(seen===null||seen===undefined){AV.lastSeen=days;saveAv(AV);return;}
+  if(days>seen){
+    const gains={};
+    for(let i=0;i<days-seen;i++){const it=rollItem();AV.items[it.id]=(AV.items[it.id]||0)+1;gains[it.id]=(gains[it.id]||0)+1;}
+    AV.lastSeen=days;saveAv(AV);
+    NEWLOOT=Object.keys(gains).map(id=>({item:ITEMS.find(x=>x.id===id),n:gains[id]}));
+  }
+}
+
+// --- pixel helpers ---
+function P(ctx,x,y,w,h,c,s){ctx.fillStyle=c;ctx.fillRect(x*s,y*s,w*s,h*s);}
+function shade(hex,f){const n=parseInt(hex.slice(1),16);let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+  r=Math.max(0,Math.min(255,Math.round(r*f)));g=Math.max(0,Math.min(255,Math.round(g*f)));b=Math.max(0,Math.min(255,Math.round(b*f)));
+  return 'rgb('+r+','+g+','+b+')';}
+
+// --- 16-bit trainer on a 32x40 grid ---
+function drawAvatar(cid, av, stage){
+  const cv=(typeof cid==='string')?document.getElementById(cid):cid;if(!cv)return;
+  const ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);
+  const s=cv.width/32;
+  const skin=SKINS[av.skin], skinL=shade(skin,1.08), skinD=shade(skin,.82);
+  const hairc=HAIRCS[av.hairc], hairD=shade(hairc,.7);
+  const oc=OUTCS[av.outc], ocL=shade(oc,1.2), ocD=shade(oc,.72), ocDD=shade(oc,.55);
+  const sw=stage;
+  const fem=av.sex===1;
+  const hoodie=av.outfit===3, pump=av.outfit===2||hoodie;
+
+  if(hoodie){P(ctx,11,1,10,4,ocD,s);P(ctx,10,3,12,7,ocD,s);P(ctx,10,3,2,7,ocDD,s);}
+
+  // head + ears
+  P(ctx,12,3,8,7,skin,s);
+  P(ctx,12,3,8,1,skinL,s);
+  P(ctx,19,4,1,6,skinD,s);
+  P(ctx,11,6,1,2,skin,s);P(ctx,20,6,1,2,skinD,s);
+
+  // hair
+  if(fem){
+    if(av.hair===0){P(ctx,11,1,10,3,hairc,s);P(ctx,11,1,10,1,shade(hairc,1.25),s);P(ctx,11,4,2,12,hairc,s);P(ctx,19,4,2,12,hairD,s);P(ctx,11,15,2,1,hairD,s);}
+    else if(av.hair===1){P(ctx,12,1,8,3,hairc,s);P(ctx,12,1,8,1,shade(hairc,1.25),s);P(ctx,20,3,2,8,hairc,s);P(ctx,21,5,1,6,hairD,s);P(ctx,20,11,2,2,hairD,s);}
+    else if(av.hair===2){P(ctx,12,1,8,3,hairc,s);P(ctx,13,0,6,2,hairc,s);P(ctx,14,0,4,1,shade(hairc,1.25),s);P(ctx,12,4,2,2,hairc,s);P(ctx,18,4,2,2,hairD,s);}
+    else if(av.hair===3){P(ctx,12,1,8,3,hairc,s);P(ctx,12,1,8,1,shade(hairc,1.25),s);P(ctx,11,3,2,6,hairc,s);P(ctx,19,3,2,6,hairD,s);P(ctx,11,8,2,2,hairD,s);P(ctx,19,8,2,2,hairD,s);}
+    else if(av.hair===4){P(ctx,12,1,8,3,hairc,s);P(ctx,12,1,8,1,shade(hairc,1.25),s);P(ctx,10,4,2,7,hairc,s);P(ctx,20,4,2,7,hairc,s);P(ctx,10,10,2,2,hairD,s);P(ctx,20,10,2,2,hairD,s);}
+    else {P(ctx,12,1,8,3,hairc,s);P(ctx,12,1,8,1,shade(hairc,1.25),s);P(ctx,11,4,2,14,hairc,s);P(ctx,19,4,2,14,hairD,s);P(ctx,10,14,2,6,hairc,s);P(ctx,20,14,2,6,hairc,s);}
+  }
+  else if(av.hair===0){P(ctx,12,2,8,2,hairc,s);P(ctx,12,2,8,1,shade(hairc,1.25),s);}
+  else if(av.hair===1){P(ctx,12,1,8,3,hairc,s);P(ctx,12,4,3,1,hairc,s);P(ctx,12,1,8,1,shade(hairc,1.25),s);P(ctx,18,1,2,3,hairD,s);}
+  else if(av.hair===2){P(ctx,12,1,2,2,hairc,s);P(ctx,15,0,2,3,hairc,s);P(ctx,18,1,2,2,hairc,s);P(ctx,13,2,6,2,hairc,s);}
+  else if(av.hair===3){P(ctx,11,1,10,3,hairc,s);P(ctx,11,4,2,6,hairc,s);P(ctx,19,4,2,6,hairD,s);P(ctx,11,1,10,1,shade(hairc,1.25),s);}
+  else if(av.hair===4){P(ctx,14,0,4,3,hairc,s);P(ctx,14,0,4,1,shade(hairc,1.3),s);}
+
+  // eyes + brows
+  if(av.glasses===0){P(ctx,13,6,2,2,'#fff',s);P(ctx,17,6,2,2,'#fff',s);P(ctx,14,6,1,1,'#181820',s);P(ctx,17,6,1,1,'#181820',s);}
+  P(ctx,13,5,2,1,hairD,s);P(ctx,17,5,2,1,hairD,s);
+
+  // beard
+  if(fem){}
+  else if(av.beard===1){P(ctx,12,8,8,2,shade(skin,.9),s);P(ctx,13,9,6,1,shade(skin,.86),s);}
+  else if(av.beard===2){P(ctx,12,8,8,2,hairc,s);P(ctx,13,10,6,2,hairc,s);P(ctx,13,10,6,1,hairD,s);P(ctx,18,8,2,1,hairD,s);}
+  else if(av.beard===3){P(ctx,13,8,6,1,hairc,s);P(ctx,14,9,4,2,hairc,s);P(ctx,14,10,4,1,hairD,s);}
+  // mouth
+  P(ctx,14,8,4,1,'#a04838',s);
+  // glasses
+  if(av.glasses===1){P(ctx,12,5,4,3,'#181820',s);P(ctx,17,5,4,3,'#181820',s);P(ctx,16,6,1,1,'#181820',s);P(ctx,13,6,2,1,'#4a5a70',s);P(ctx,18,6,2,1,'#4a5a70',s);}
+  else if(av.glasses===2){P(ctx,12,5,9,3,'#101018',s);P(ctx,13,5,3,1,'#3a4a66',s);}
+
+  // neck + traps
+  const nw=3+Math.min(sw,2);
+  P(ctx,16-Math.floor(nw/2),10,nw,2,skin,s);P(ctx,16-Math.floor(nw/2)+nw-1,10,1,2,skinD,s);
+  if(sw>=3){P(ctx,12,10,3,2,skin,s);P(ctx,17,10,3,2,skin,s);}
+
+  // torso
+  let tw=10+sw*2; if(pump)tw+=2; if(fem)tw=Math.max(8,tw-2);
+  const tx=16-Math.floor(tw/2);
+  const tlen=pump?15:13;
+  const skinTop=av.outfit===0||av.outfit===4;
+  if(skinTop){
+    P(ctx,tx+1,12,tw-2,3,skin,s);
+    if(av.outfit===4)P(ctx,tx+2,14,tw-4,5,skin,s);
+    if(av.outfit===0){P(ctx,tx+1,14,1,2,skin,s);P(ctx,tx+tw-2,14,1,2,skinD,s);}
+  }
+  if(av.outfit===0){P(ctx,tx+3,12,2,2,oc,s);P(ctx,tx+tw-5,12,2,2,oc,s);P(ctx,tx+1,15,tw-2,tlen-4,oc,s);}
+  else if(av.outfit===4){P(ctx,tx+3,12,1,3,oc,s);P(ctx,tx+tw-4,12,1,3,oc,s);P(ctx,tx+1,19,tw-2,tlen-8,oc,s);}
+  else {P(ctx,tx,12,tw,tlen,oc,s);}
+  P(ctx,tx,12,tw,1,ocL,s);
+  P(ctx,tx+tw-1,12,1,tlen,ocD,s);
+  P(ctx,tx,12+tlen-1,tw,1,ocDD,s);
+  if(pump)P(ctx,tx+2,20,tw-4,4,shade(oc,.92),s);
+  if(hoodie){P(ctx,tx+3,22,tw-6,3,ocD,s);P(ctx,15,12,1,3,'#e8e8e0',s);P(ctx,16,12,1,3,'#d0d0c8',s);}
+  if(!skinTop&&sw>=2)P(ctx,15,13,2,3,ocD,s);
+  if(!skinTop&&sw>=4)P(ctx,tx+2,12+tlen-3,tw-4,1,ocD,s);
+  if(skinTop&&sw>=2){P(ctx,15,14,1,2,skinD,s);}                 // visible pec line
+  if(skinTop&&sw>=4){P(ctx,14,17,4,1,skinD,s);P(ctx,14,19,4,1,skinD,s);} // abs
+
+  // arms
+  const at=2+Math.round(sw*1.1);
+  const lax=tx-at, rax=tx+tw;
+  const longSleeve=av.outfit===3||av.outfit===5;
+  const sleeveEnd=longSleeve?22:15;
+  if(!skinTop){
+    P(ctx,lax,12,at,sleeveEnd-12,oc,s);P(ctx,rax,12,at,sleeveEnd-12,oc,s);
+    P(ctx,rax+at-1,12,1,sleeveEnd-12,ocD,s);
+  }
+  P(ctx,lax,sleeveEnd,at,24-sleeveEnd,skin,s);
+  P(ctx,rax,sleeveEnd,at,24-sleeveEnd,skin,s);
+  P(ctx,rax+at-1,sleeveEnd,1,24-sleeveEnd,skinD,s);
+  if(sw>=2){P(ctx,lax,sleeveEnd,at,2,skinL,s);P(ctx,rax,sleeveEnd,at,2,skinL,s);}
+  if(sw>=4)P(ctx,rax+at-2,sleeveEnd+3,1,2,'#907858',s);
+  P(ctx,lax,24,at,2,skinD,s);P(ctx,rax,24,at,2,skinD,s);
+
+  // legs + shoes
+  const lw=(fem?2:3)+Math.floor(sw/2);
+  if(fem){P(ctx,16-lw-2,26,lw+2,3,'#30364a',s);P(ctx,16,26,lw+2,3,'#30364a',s);P(ctx,16-lw-2,26,lw+2,1,'#3a4058',s);P(ctx,16,26,lw+2,1,'#3a4058',s);P(ctx,16-lw-1,29,lw,6,'#30364a',s);P(ctx,17,29,lw,6,'#30364a',s);}
+  else {P(ctx,16-lw-1,26,lw,9,'#30364a',s);P(ctx,17,26,lw,9,'#30364a',s);
+  P(ctx,16-lw-1,26,lw,1,'#3a4058',s);P(ctx,17,26,lw,1,'#3a4058',s);}
+  P(ctx,16-lw-1,35,lw+1,2,'#e8e8e8',s);P(ctx,17,35,lw+1,2,'#d0d0d0',s);
+  P(ctx,16-lw-1,37,lw+1,1,'#181c28',s);P(ctx,17,37,lw+1,1,'#181c28',s);
+}
+
+// --- item sprites (16x16 grid) ---
+function drawItem(ctx, id, s){
+  const W='#e8e8e8', D='#181c28';
+  if(id==='shaker'){P(ctx,6,2,4,2,'#2848c0',s);P(ctx,5,4,6,10,'#b8d8f0',s);P(ctx,5,4,6,1,'#fff',s);P(ctx,5,12,6,2,'#88b8d8',s);P(ctx,6,6,4,1,'#88b8d8',s);P(ctx,6,8,4,1,'#88b8d8',s);}
+  else if(id==='energy'){P(ctx,5,2,6,12,'#30a858',s);P(ctx,5,2,6,1,'#c8c8c8',s);P(ctx,5,13,6,1,'#188040',s);P(ctx,8,4,2,3,'#f8f800',s);P(ctx,7,7,3,2,'#f8f800',s);P(ctx,8,9,2,3,'#f8f800',s);}
+  else if(id==='pre'){P(ctx,4,4,8,10,'#d03028',s);P(ctx,4,2,8,2,'#30364a',s);P(ctx,4,4,8,1,'#f06058',s);P(ctx,5,7,6,4,'#fff',s);P(ctx,6,8,4,2,'#d03028',s);}
+  else if(id==='foam'){P(ctx,3,5,10,6,'#2848c0',s);P(ctx,3,5,10,1,'#4a68d8',s);P(ctx,3,10,10,1,'#1a3490',s);P(ctx,2,6,1,4,'#1a3490',s);P(ctx,13,6,1,4,'#1a3490',s);}
+  else if(id==='wraps'){P(ctx,3,4,10,3,'#d03028',s);P(ctx,3,8,10,3,'#b02820',s);P(ctx,3,12,6,2,'#d03028',s);P(ctx,4,5,8,1,'#f06058',s);P(ctx,4,9,8,1,'#e05048',s);}
+  else if(id==='belt'){P(ctx,2,5,12,6,'#8a5a30',s);P(ctx,2,5,12,1,'#a87848',s);P(ctx,2,10,12,1,'#5c3a1e',s);P(ctx,6,6,4,4,'#c8c8c8',s);P(ctx,7,7,2,2,'#8a5a30',s);}
+  else if(id==='chalk'){P(ctx,4,5,8,7,'#f0f0e8',s);P(ctx,4,5,8,1,'#fff',s);P(ctx,3,3,1,1,'#fff',s);P(ctx,12,4,1,1,'#fff',s);P(ctx,13,2,1,1,'#e8e8e8',s);}
+  else if(id==='sleeves'){P(ctx,3,4,4,9,'#8030a0',s);P(ctx,9,4,4,9,'#8030a0',s);P(ctx,3,4,4,1,'#a058c0',s);P(ctx,9,4,4,1,'#a058c0',s);P(ctx,3,12,4,1,'#50186a',s);P(ctx,9,12,4,1,'#50186a',s);}
+  else if(id==='gymbag'){P(ctx,2,7,12,6,'#30364a',s);P(ctx,5,4,6,3,'#30364a',s);P(ctx,6,5,4,1,'#0e1230',s);P(ctx,2,7,12,1,'#4a5478',s);P(ctx,2,12,12,1,'#181c28',s);P(ctx,11,8,2,2,'#d03028',s);}
+  else if(id==='phones'){P(ctx,4,3,8,2,D,s);P(ctx,3,5,3,6,D,s);P(ctx,10,5,3,6,D,s);P(ctx,4,6,1,3,'#d03028',s);P(ctx,11,6,1,3,'#d03028',s);P(ctx,5,4,6,1,'#4a4a58',s);}
+  else if(id==='gold'){P(ctx,2,7,12,2,'#f8b800',s);P(ctx,2,4,3,8,'#d89a00',s);P(ctx,11,4,3,8,'#d89a00',s);P(ctx,2,4,1,2,'#fff0a8',s);P(ctx,12,11,1,1,'#fff',s);P(ctx,13,3,1,1,'#fff',s);}
+  else if(id==='pizza'){P(ctx,3,3,10,3,'#e8b858',s);P(ctx,4,6,8,3,'#e8b858',s);P(ctx,5,9,6,3,'#e8b858',s);P(ctx,7,12,3,2,'#e8b858',s);P(ctx,3,3,10,1,'#c8923a',s);P(ctx,5,4,2,2,'#d03028',s);P(ctx,9,5,2,2,'#d03028',s);P(ctx,7,8,2,2,'#d03028',s);}
+}
+
+// --- tile icons (16x16 grid, richer) ---
+function drawIcon(cid, kind, color){
+  const cv=document.getElementById(cid);const ctx=cv.getContext('2d');
+  const s=cv.width/16;
+  ctx.clearRect(0,0,cv.width,cv.height);
+  const cd=shade(color,.7), cl=shade(color,1.3);
+  if(kind==='barbell'){P(ctx,0,7,16,2,'#30364a',s);P(ctx,0,7,16,1,'#5a6480',s);P(ctx,1,4,3,8,color,s);P(ctx,4,5,2,6,cd,s);P(ctx,12,4,3,8,color,s);P(ctx,10,5,2,6,cd,s);P(ctx,1,4,3,1,cl,s);P(ctx,12,4,3,1,cl,s);}
+  else if(kind==='bolt'){P(ctx,8,0,5,3,color,s);P(ctx,6,3,5,3,color,s);P(ctx,4,6,6,3,color,s);P(ctx,6,9,4,2,cd,s);P(ctx,7,9,3,2,color,s);P(ctx,5,11,4,3,color,s);P(ctx,3,13,4,3,cd,s);P(ctx,8,0,2,1,cl,s);}
+  else if(kind==='arm'){P(ctx,2,8,5,7,color,s);P(ctx,6,3,6,5,color,s);P(ctx,11,5,3,4,color,s);P(ctx,11,2,3,3,cl,s);P(ctx,3,9,3,2,cl,s);P(ctx,2,14,5,1,cd,s);P(ctx,7,7,3,1,cd,s);}
+  else if(kind==='flame'){P(ctx,7,0,3,4,color,s);P(ctx,5,3,7,5,color,s);P(ctx,4,6,8,4,color,s);P(ctx,6,8,5,5,cd,s);P(ctx,7,10,3,3,cl,s);P(ctx,9,2,2,2,color,s);}
+  else if(kind==='shield'){P(ctx,3,1,10,3,color,s);P(ctx,3,4,10,5,color,s);P(ctx,4,9,8,2,color,s);P(ctx,5,11,6,2,cd,s);P(ctx,7,13,2,2,cd,s);P(ctx,4,2,2,7,cl,s);P(ctx,7,3,2,9,cd,s);}
+  else if(kind==='rock'){P(ctx,5,3,7,3,color,s);P(ctx,3,6,10,6,color,s);P(ctx,4,12,8,2,cd,s);P(ctx,10,6,2,4,cd,s);P(ctx,5,4,3,2,cl,s);P(ctx,4,8,2,3,cl,s);}
+  else {P(ctx,7,1,2,10,'#8a5a30',s);P(ctx,7,1,1,10,'#a87848',s);P(ctx,4,10,8,4,color,s);P(ctx,5,14,6,2,cd,s);P(ctx,4,10,8,1,cl,s);P(ctx,5,0,6,2,'#30364a',s);}
+}
+
+// --- views ---
+function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
+  const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';}
+
+const CROWS=[
+  {k:'sex',   lbl:'STYLE',   kind:'text',   vals:SEXES},
+  {k:'skin',  lbl:'SKIN',    kind:'swatch', vals:SKINS},
+  {k:'hair',  lbl:'HAIR',    kind:'text',   vals:HAIRS},
+  {k:'hairc', lbl:'HAIR CLR',kind:'swatch', vals:HAIRCS},
+  {k:'beard', lbl:'BEARD',   kind:'text',   vals:BEARDS},
+  {k:'glasses',lbl:'GLASSES',kind:'text',   vals:GLASSESN},
+  {k:'outfit',lbl:'OUTFIT',  kind:'text',   vals:OUTFITS},
+  {k:'outc',  lbl:'FIT COLOR',kind:'swatch',vals:OUTCS},
+];
+function buildCreatorRows(){
+  const el=document.getElementById('creatorRows');
+  el.innerHTML='';
+  CROWS.forEach(r=>{
+    const div=document.createElement('div');div.className='crow';
+    div.innerHTML='<span class="lbl">'+r.lbl+'</span>'+
+      '<button class="arr" data-k="'+r.k+'" data-d="-1">&#9664;</button>'+
+      (r.kind==='swatch'?'<span class="swatch" id="sw-'+r.k+'"></span>':'<span class="optname" id="nm-'+r.k+'"></span>')+
+      '<button class="arr" data-k="'+r.k+'" data-d="1">&#9654;</button>';
+    el.appendChild(div);
+  });
+  el.querySelectorAll('.arr').forEach(b=>b.addEventListener('click',()=>{
+    const k=b.dataset.k,d=+b.dataset.d;
+    let len=CROWS.find(r=>r.k===k).vals.length;
+    if(k==='hair')len=(AV.sex===1?FHAIRS:HAIRS).length;
+    if(k==='sex'){AV.hair=Math.min(AV.hair,(d>0?FHAIRS:HAIRS).length-1);}
+    AV[k]=(AV[k]+d+len)%len;
+    renderCreator();
+  }));
+}
+function renderCreator(){
+  drawAvatar('createAvatar', AV, 0);
+  CROWS.forEach(r=>{
+    if(r.kind==='swatch')document.getElementById('sw-'+r.k).style.background=r.vals[AV[r.k]];
+    else if(r.k==='hair')document.getElementById('nm-hair').textContent=(AV.sex===1?FHAIRS:HAIRS)[AV.hair];
+    else document.getElementById('nm-'+r.k).textContent=r.vals[AV[r.k]];
+  });
+  document.getElementById('nameInput').value=AV.name;
+  document.getElementById('startBtn').textContent=(loadAv()&&loadAv().name)?'SAVE AND GO HOME':'START ADVENTURE';
+}
+
+function renderLoot(){
+  const box=document.getElementById('lootBox');
+  if(!NEWLOOT.length){box.innerHTML='';return;}
+  let h='<div class="loot"><h3>NEW LOOT!</h3><div class="lootrow">';
+  NEWLOOT.forEach((d,i)=>{
+    h+='<div class="lootitem"><canvas id="li'+i+'" width="48" height="48"></canvas><div class="rar-'+d.item.rar+'">'+d.item.name+(d.n>1?' x'+d.n:'')+'</div></div>';
+  });
+  box.innerHTML=h+'</div></div>';
+  NEWLOOT.forEach((d,i)=>{const c=document.getElementById('li'+i);drawItem(c.getContext('2d'),d.item.id,c.width/16);});
+}
+
+function renderBag(){
+  const g=document.getElementById('bagGrid');
+  const owned=ITEMS.filter(i=>AV.items[i.id]>0);
+  if(!owned.length){g.className='';g.innerHTML='<div class="bagempty">EMPTY - FINISH WORKOUTS TO EARN GEAR</div>';return;}
+  g.className='baggrid';
+  g.innerHTML='';
+  owned.forEach((it,i)=>{
+    const slot=document.createElement('div');
+    slot.className='slot '+it.rar;
+    slot.innerHTML='<canvas id="bg'+i+'" width="40" height="40"></canvas>'+(AV.items[it.id]>1?'<span class="cnt">x'+AV.items[it.id]+'</span>':'');
+    g.appendChild(slot);
+  });
+  owned.forEach((it,i)=>{const c=document.getElementById('bg'+i);drawItem(c.getContext('2d'),it.id,c.width/16);});
+}
+
+function renderHome(){
+  const days=totalDays();
+  const si=stageFor(days);
+  const st=STAGES[si];
+  drawAvatar('homeAvatar', AV, si);
+  document.getElementById('homeName').textContent=AV.name.toUpperCase();
+  document.getElementById('homeStage').innerHTML=st.name+'<span class="lvchip">LV '+lvlFor(days)+'</span><span class="skillchip">'+skTierName()+'</span>';
+  document.getElementById('homeDays').textContent=days;
+  const next=STAGES[si+1];
+  const fill=document.getElementById('meterFill'), txt=document.getElementById('meterTxt');
+  if(next){
+    const pct=Math.round(100*(days-st.min)/(next.min-st.min));
+    fill.style.width=pct+'%';
+    txt.textContent=next.min-days+' DAY'+(next.min-days===1?'':'S')+' TO '+next.name;
+  } else { fill.style.width='100%'; txt.textContent='MAX SWOLE ACHIEVED'; }
+  const tiles=document.getElementById('tiles');
+  tiles.innerHTML='';
+  let ti=0;
+  const addTile=(p)=>{
+    const d=daysFor(p.key);
+    const a=document.createElement('a');
+    a.className='tile';a.href=p.url;
+    a.innerHTML='<canvas id="tic'+ti+'" width="64" height="64" style="margin:0 auto"></canvas>'+
+      '<div class="tname">'+p.name+'</div>'+
+      '<div class="tdays">'+d+' DAY'+(d===1?'':'S')+' LOGGED</div>'+
+      '<span class="go" style="background:'+p.color+';'+(p.dark?'color:#0e1230;text-shadow:none':'')+'">OPEN &#9654;</span>';
+    tiles.appendChild(a);
+    drawIcon('tic'+ti, p.icon, p.color);
+    ti++;
+  };
+  PROGRAMS.forEach(addTile);
+  const lh=document.createElement('div');
+  lh.style.cssText='width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:#8f96c8;margin:14px 0 2px';
+  lh.textContent='- LEGACY VAULT -';
+  tiles.appendChild(lh);
+  LEGACY.forEach(addTile);
+  renderLoot();
+  renderBag();
+  renderTrophies();
+}
+
+
+/* ================= BATCH 2: skill check, levels, trophies, gains, plates, radio, feedback ================= */
+/* --- SKILL CHECK (key: forge.hub.skill.v1 - new key, existing stores untouched) --- */
+const SKKEY='forge.hub.skill.v1';
+const SKTIERS=['ROOKIE','GYM BRO','VETERAN','BEAST','FREAK'];
+const SKLIFTS=[['SQUAT','squat'],['BENCH','bench'],['DEADLIFT','dead'],['OVERHEAD PRESS','ohp']];
+/* ratios of e1RM to bodyweight per tier. Published strength-standards table (male) + scaled female.
+   SWAP with his MegaMind movement data when it lands. */
+const SKSTD={
+ 0:{squat:[.75,1.25,1.5,2,2.5],bench:[.5,.85,1.15,1.5,1.85],dead:[1,1.5,1.85,2.35,2.75],ohp:[.35,.55,.75,1,1.25]},
+ 1:{squat:[.5,.9,1.1,1.45,1.8],bench:[.25,.55,.75,1,1.3],dead:[.75,1.05,1.3,1.65,2],ohp:[.2,.35,.5,.65,.85]}
+};
+function skLoad(){try{const s=JSON.parse(localStorage.getItem(SKKEY));if(s&&s.v===1)return s;}catch(e){}return {v:1,bw:null,lifts:{},tier:-1};}
+function skSave(s){try{localStorage.setItem(SKKEY,JSON.stringify(s));}catch(e){}}
+function e1rm(w,r){w=parseFloat(w)||0;r=parseInt(r)||1;if(w<=0)return 0;return r<=1?w:w*(1+r/30);}
+function skTierName(){const s=skLoad();return s.tier>=0?SKTIERS[s.tier]:'UNRANKED';}
+function skBuild(){
+  const el=document.getElementById('skLifts');if(!el||el.dataset.built)return;el.dataset.built='1';
+  el.innerHTML=SKLIFTS.map(function(l,i){return '<div class="cfield"><span class="lbl">'+l[0]+' - WEIGHT x REPS</span><span style="display:flex;gap:6px"><input id="skW'+i+'" inputmode="decimal" placeholder="225" style="width:50%"><input id="skR'+i+'" inputmode="decimal" placeholder="5" style="width:50%"></span></div>';}).join('');
+}
+function skCompute(){
+  const bw=parseFloat(document.getElementById('skBw').value)||0;
+  if(bw<=0){document.getElementById('skOut').style.display='block';document.getElementById('skOut').innerHTML='ENTER YOUR BODYWEIGHT';return;}
+  const std=SKSTD[AV.sex===1?1:0], s=skLoad();s.bw=bw;let sum=0;
+  let rows='';
+  SKLIFTS.forEach(function(l,i){
+    const w=document.getElementById('skW'+i).value, r=document.getElementById('skR'+i).value;
+    const e=e1rm(w,r);s.lifts[l[1]]=e>0?{e:Math.round(e),ratio:+(e/bw).toFixed(2)}:null;
+    let sc=0;
+    if(e>0){const ratio=e/bw;sc=0;for(let k=0;k<5;k++){if(ratio>=std[l[1]][k])sc=k+1;}sc=Math.min(sc,4);rows+='<div>'+l[0]+': '+Math.round(e)+' LB e1RM - '+SKTIERS[sc]+'</div>';}
+    else{rows+='<div>'+l[0]+': SKIPPED - ROOKIE</div>';}
+    sum+=sc;
+  });
+  s.tier=Math.round(sum/4);skSave(s);
+  const out=document.getElementById('skOut');out.style.display='block';
+  out.innerHTML=rows+'<div style="margin-top:6px;font-size:12px">RANK: '+SKTIERS[s.tier]+'</div>';
+  renderHome();
+}
+/* --- AVATAR LEVEL --- */
+function lvlFor(days){return Math.floor(Math.sqrt(days))+1;}
+function lvlProgress(days){const lv=lvlFor(days),base=(lv-1)*(lv-1),next=lv*lv;return Math.round(100*(days-base)/(next-base));}
+/* --- TROPHY CASE (personal uniques - silhouettes until earned) --- */
+function strLoadHub(){try{const s=JSON.parse(localStorage.getItem('forge.hub.strength.v1'));if(s&&s.ex)return s;}catch(e){}return {v:1,ex:{}};}
+function strBest(pat,neg){const s=strLoadHub();let best=0;for(const k in s.ex){if(k.indexOf(pat)<0)continue;if(neg&&k.indexOf(neg)>=0)continue;best=Math.max(best,s.ex[k].w||0);}return best;}
+function trophyData(){
+  const days=totalDays();
+  const perProg=PROGRAMS.concat(LEGACY).map(p=>daysFor(p.key));
+  const used=perProg.filter(d=>d>0).length;
+  const bench=strBest('BENCH PRESS'), squat=strBest('SQUAT','SPLIT'), dead=strBest('DEADLIFT','ROMANIAN');
+  const sk=skLoad();
+  return [
+    {id:'firstblood',name:'FIRST BLOOD',desc:'Log 1 workout',got:days>=1},
+    {id:'doubleduty',name:'DOUBLE DUTY',desc:'Log in 2 programs',got:used>=2},
+    {id:'fullhouse',name:'FULL HOUSE',desc:'Log in all 4 programs',got:used>=4},
+    {id:'twoplate',name:'TWO-PLATE CLUB',desc:'Bench 225',got:bench>=225},
+    {id:'threeplate',name:'THREE-PLATE SQUAT',desc:'Squat 315',got:squat>=315},
+    {id:'fourplate',name:'FOUR-PLATE PULL',desc:'Deadlift 405',got:dead>=405},
+    {id:'club1k',name:'1000 LB CLUB',desc:'S+B+D total 1000',got:(bench+squat+dead)>=1000},
+    {id:'bwbench',name:'BODYWEIGHT BENCH',desc:'Bench your bodyweight',got:!!(sk.bw&&bench>=sk.bw)},
+  ];
+}
+function drawTrophy(cid,earned){
+  const cv=document.getElementById(cid);if(!cv)return;const ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);
+  const s=cv.width/16,c=earned?'#c8a028':'#14142a',c2=earned?'#e8d080':'#1e2040';
+  P(ctx,4,2,8,2,c,s);P(ctx,4,2,8,1,c2,s);P(ctx,4,4,8,5,c,s);P(ctx,2,3,2,4,c,s);P(ctx,12,3,2,4,c,s);
+  P(ctx,6,9,4,2,c,s);P(ctx,5,11,6,1,c,s);P(ctx,4,12,8,2,c,s);P(ctx,4,12,8,1,c2,s);
+}
+function renderTrophies(){
+  const g=document.getElementById('trophyGrid');if(!g)return;g.innerHTML='';
+  trophyData().forEach(function(tr,i){
+    const d=document.createElement('div');d.className='trophy'+(tr.got?' earned':'');
+    d.title=tr.got?tr.name+' - EARNED':tr.desc;
+    d.innerHTML='<canvas id="trc'+i+'" width="32" height="28" style="margin:0 auto"></canvas><div class="tname2">'+(tr.got?tr.name:'???')+'</div>';
+    g.appendChild(d);drawTrophy('trc'+i,tr.got);
+  });
+}
+/* --- GAINS LEDGER (progress charts from the 3 Jeff-app history stores; trenched slots in later) --- */
+function gainsCollect(){
+  const EX={};
+  [['ess3x-v1','ESSENTIALS'],['pbbfb-v1','PURE BB'],['pbsys-v1','POWERBUILDING']].forEach(function(pk){
+    let st=null;try{st=JSON.parse(localStorage.getItem(pk[0]));}catch(e){}
+    if(!st||!Array.isArray(st.history))return;
+    st.history.forEach(function(h){
+      if(!h||!h.date||!Array.isArray(h.ex))return;
+      h.ex.forEach(function(e){
+        const k=String(e.n).toUpperCase().replace(/\([^)]*\)/g,'').replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+        if(!k)return;
+        const w=Math.max(0,...e.sets.map(x=>parseFloat(x.w)||0));
+        if(w<=0)return;
+        if(!EX[k])EX[k]={label:k,pts:{}};
+        EX[k].pts[h.date]=Math.max(EX[k].pts[h.date]||0,w);
+      });
+    });
+  });
+  for(const k in EX){EX[k].series=Object.keys(EX[k].pts).sort().map(d=>({d:d,w:EX[k].pts[d]}));}
+  return EX;
+}
+let GAINSEX={};
+function gainsRender(){
+  GAINSEX=gainsCollect();
+  const sel=document.getElementById('gainsEx');sel.innerHTML='';
+  const keys=Object.keys(GAINSEX).sort(function(a,b){return (GAINSEX[b].series.slice(-1)[0]||{d:''}).d.localeCompare((GAINSEX[a].series.slice(-1)[0]||{d:''}).d);});
+  if(!keys.length){sel.innerHTML='<option>NO LOGGED SETS YET</option>';gainsDraw(null);return;}
+  keys.forEach(function(k){const o=document.createElement('option');o.value=k;o.textContent=k+' ('+GAINSEX[k].series.length+' days)';sel.appendChild(o);});
+  gainsDraw(keys[0]);
+}
+function gainsDraw(k){
+  const cv=document.getElementById('gainsChart'),ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,cv.width,cv.height);
+  const meta=document.getElementById('gainsMeta');
+  if(!k||!GAINSEX[k]||!GAINSEX[k].series.length){meta.textContent='Log sets in any program and they chart here.';return;}
+  const sr=GAINSEX[k].series,W=cv.width,H=cv.height,pad=28;
+  const ws=sr.map(p=>p.w),mn=Math.min(...ws),mx=Math.max(...ws),span=Math.max(1,mx-mn);
+  ctx.strokeStyle='#3a3f66';ctx.lineWidth=1;ctx.strokeRect(pad,10,W-pad-8,H-30);
+  ctx.fillStyle='#aeb6e8';ctx.font='9px monospace';
+  ctx.fillText(mx+'',2,16);ctx.fillText(mn+'',2,H-22);
+  ctx.fillText(sr[0].d.slice(5),pad,H-8);ctx.fillText(sr[sr.length-1].d.slice(5),W-44,H-8);
+  ctx.strokeStyle='#c8a028';ctx.lineWidth=2;ctx.beginPath();
+  sr.forEach(function(p,i){
+    const x=pad+(sr.length===1?0.5:i/(sr.length-1))*(W-pad-8), y=10+(1-(p.w-mn)/span)*(H-40);
+    if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  ctx.fillStyle='#e8d080';
+  sr.forEach(function(p,i){
+    const x=pad+(sr.length===1?0.5:i/(sr.length-1))*(W-pad-8), y=10+(1-(p.w-mn)/span)*(H-40);
+    ctx.fillRect(x-2,y-2,4,4);
+  });
+  const first=sr[0].w,last=sr[sr.length-1].w,d=last-first;
+  meta.textContent=k+' - '+sr.length+' sessions - '+(d>0?'+':'')+Math.round(d)+' lb since '+sr[0].d;
+}
+/* --- PLATE MATH --- */
+function plateCalc(){
+  const t=parseFloat(document.getElementById('plW').value)||0,bar=45;
+  const out=document.getElementById('plOut');out.style.display='block';
+  if(t<=bar){out.innerHTML='Target must beat the 45 lb bar.';return;}
+  let per=(t-bar)/2;const sizes=[45,35,25,10,5,2.5],got=[];
+  sizes.forEach(function(p){while(per>=p-1e-9){got.push(p);per-=p;}});
+  if(Math.abs(per)>0.01){out.innerHTML='No exact load for '+t+' - closest: '+(t-2*per)+' lb.';}
+  const cols={45:'#c8262b',35:'#2848c0',25:'#c8a028',10:'#888',5:'#bbb','2.5':'#eee'};
+  const hts={45:52,35:42,25:34,10:26,5:20,2.5:16};
+  out.innerHTML='<div class="platevis">'+got.map(function(p){return '<span class="plate" style="height:'+hts[p]+'px;background:'+cols[p]+'"></span>';}).join('')+'</div>'+
+    '<div style="text-align:center">PER SIDE: '+(got.length?got.join(' + '):'NONE')+'</div>';
+}
+/* --- RADIO TOWER (curated library - he + Tyler send raw SoundCloud track URLs.
+   ADD A TRACK: append {u:'https://soundcloud.com/.../song', t:'TITLE', by:'B' or 'T'} to TRACKS, republish. --- */
+const TRACKS=[];
+function radioRender(){
+  const el=document.getElementById('radioBody');if(!el)return;
+  if(!TRACKS.length){
+    el.innerHTML='<h3 style="font-size:10px">NOW SPINNING</h3><div class="small" style="color:#aeb6e8;line-height:1.7">The crate is empty - for now. The creators hand-pick every track; first drops incoming.<br><br>One song surfaces per day, straight from their likes.</div>';
+    return;
+  }
+  const day=Math.floor(Date.now()/86400000), tr=TRACKS[day%TRACKS.length];
+  el.innerHTML='<h3 style="font-size:10px">NOW SPINNING - TRACK OF THE DAY</h3>'+
+    '<div class="small" style="color:#e8d080;margin:4px 0 8px">'+tr.t+' - picked by '+(tr.by==='T'?'TYLER':'BRANDON')+'</div>'+
+    '<iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url='+encodeURIComponent(tr.u)+'&color=%23c8262b&inverse=true&auto_play=false&show_user=true"></iframe>'+
+    '<div class="small" style="color:#aeb6e8;margin-top:6px">'+(TRACKS.length)+' tracks in the crate - new one every day.</div>';
+}
+/* --- FEEDBACK WIDGET ---
+   FORMSPREE_ENDPOINT empty = save locally (forge.hub.feedback.v1) until his Formspree signup lands.
+   Setup: he makes a free Formspree form with his email, we paste the endpoint here, republish. --- */
+const FORMSPREE_ENDPOINT='';
+const FBKEY='forge.hub.feedback.v1';
+function fbSend(){
+  const name=(document.getElementById('fbName').value||'').trim(), msg=(document.getElementById('fbMsg').value||'').trim();
+  const note=document.getElementById('fbNote');
+  if(!msg){note.textContent='TYPE SOMETHING FIRST';return;}
+  const entry={ts:new Date().toISOString(),name:name,msg:msg,app:'forge-hub'};
+  try{const arr=JSON.parse(localStorage.getItem(FBKEY)||'[]');arr.push(entry);localStorage.setItem(FBKEY,JSON.stringify(arr));}catch(e){}
+  if(FORMSPREE_ENDPOINT){
+    fetch(FORMSPREE_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:name||'anonymous',message:msg,_subject:'FORGE feedback'})}).catch(function(){});
+    note.textContent='SENT - THANKS';
+  }else{
+    note.textContent='SAVED - DELIVERY PIPE COMING ONLINE SOON';
+  }
+  document.getElementById('fbMsg').value='';
+  setTimeout(function(){document.getElementById('fbpanel').classList.remove('open');},1200);
+}
+/* ================= END BATCH 2 ================= */
+
+// --- wire up ---
+buildCreatorRows();
+document.getElementById('v-title').addEventListener('click',()=>{
+  checkLoot();
+  if(loadAv()&&loadAv().name){
+    const si=stageFor(totalDays());
+    if(si>AV.evo){playEvolution(AV.evo,si,()=>{AV.evo=si;saveAv(AV);renderHome();show('v-home');});}
+    else{renderHome();show('v-home');}
+  }else{AV.evo=stageFor(totalDays());renderCreator();show('v-create');}
+});
+document.getElementById('nameInput').addEventListener('input',e=>{AV.name=e.target.value.toUpperCase().slice(0,10)||'BRANDON';});
+document.getElementById('startBtn').addEventListener('click',()=>{
+  AV.name=(document.getElementById('nameInput').value||'BRANDON').toUpperCase().slice(0,10);
+  saveAv(AV);renderHome();show('v-home');
+});
+document.getElementById('editAvatar').addEventListener('click',()=>{renderCreator();show('v-create');});
+
+// --- evolution sequence ---
+function silDraw(src, color){
+  const off=document.createElement('canvas');off.width=src.width;off.height=src.height;
+  off.getContext('2d').drawImage(src,0,0);
+  const octx=off.getContext('2d');octx.globalCompositeOperation='source-in';octx.fillStyle=color;octx.fillRect(0,0,off.width,off.height);
+  return off;
+}
+function playEvolution(fromSt, toSt, done){
+  const ov=document.getElementById('evo'), msg=document.getElementById('evoMsg'), sub=document.getElementById('evoSub');
+  const cv=document.getElementById('evoCanvas'), ctx=cv.getContext('2d');
+  const oldC=document.createElement('canvas');oldC.width=192;oldC.height=240;const oc=oldC.getContext('2d');
+  const tmp=document.createElement('canvas');tmp.id='evoTmp';tmp.width=192;tmp.height=240;tmp.style.display='none';document.body.appendChild(tmp);
+  drawAvatar(tmp, AV, fromSt);
+  oc.drawImage(tmp,0,0);
+  const newC=document.createElement('canvas');newC.width=192;newC.height=240;
+  const tmp2=document.createElement('canvas');tmp2.id='evoTmp2';tmp2.width=192;tmp2.height=240;tmp2.style.display='none';document.body.appendChild(tmp2);
+  drawAvatar(tmp2, AV, toSt);
+  newC.getContext('2d').drawImage(tmp2,0,0);
+  document.body.removeChild(tmp);document.body.removeChild(tmp2);
+  ov.style.display='block';sub.style.visibility='hidden';
+  msg.innerHTML='What?<br>'+AV.name.toUpperCase()+' is evolving!';
+  let f=0;const frames=14;
+  ctx.imageSmoothingEnabled=false;
+  const tick=()=>{
+    ctx.clearRect(0,0,cv.width,cv.height);
+    const showNew=f>frames/2 && (f%2===0);
+    const src=showNew?newC:oldC;
+    if(f%3===2){ctx.drawImage(silDraw(src,'#ffffff'),0,0);}
+    else{ctx.drawImage(src,0,0);}
+    f++;
+    if(f<frames){setTimeout(tick, 90+f*22);}
+    else{
+      ctx.clearRect(0,0,cv.width,cv.height);ctx.drawImage(newC,0,0);
+      msg.innerHTML='CONGRATULATIONS!<br>Your '+AV.name.toUpperCase()+' evolved into<br>'+STAGES[toSt].name+'!';
+      sub.style.visibility='visible';
+    }
+  };
+  setTimeout(tick, 1100);
+  const end=()=>{ov.style.display='none';ov.removeEventListener('click',end);done();};
+  ov.addEventListener('click',end);
+}
+
+// --- extras map ---
+function drawMap(){
+  const cv=document.getElementById('mapCanvas');const ctx=cv.getContext('2d');
+  const s=cv.width/32;const g=cv.height/ Math.round(cv.height/s);const u=cv.width/32;const v=cv.height/28;
+  const R=(x,y,w,h,c)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(x*u),Math.round(y*v),Math.round(w*u),Math.round(h*v));};
+  R(0,0,32,28,'#2878c8');                       // sea
+  R(2,3,20,18,'#58a848');R(3,4,18,16,'#68c058'); // island L
+  R(16,14,14,12,'#58a848');R(17,15,12,10,'#68c058'); // island R
+  for(let i=0;i<12;i++){R(3+i*1.2,20+i*.4,1,1,'#e8d890');}   // path
+  R(6,8,4,3,'#8890a8');R(6,8,4,1,'#aab2c8');R(7,10,2,1,'#404860'); // iron city
+  R(21,18,4,3,'#c86828');R(21,18,4,1,'#e08848');R(22,20,2,1,'#785030'); // fuel town
+  R(12,5,1,1,'#fff');R(26,8,1,1,'#fff');R(9,16,1,1,'#fff'); // sparkle
+}
+
+// --- calculators ---
+function calc1rm(){
+  const w=parseFloat(document.getElementById('ormW').value), r=parseFloat(document.getElementById('ormR').value);
+  const out=document.getElementById('ormOut');
+  if(!(w>0&&r>0&&r<=15)){out.style.display='block';out.innerHTML='ENTER A WEIGHT AND REPS (1-15).';return;}
+  const e=w*(1+r/30), b=r>=10?e:w*36/(37-r);
+  const one=Math.round(((e+b)/2)/2.5)*2.5;
+  let h='EST. 1RM: <b>'+one+' LB</b><br><span style="color:#606870">EPLEY '+Math.round(e)+' / BRZYCKI '+Math.round(b)+'</span>';
+  h+='<table class="pctable"><tr>';
+  [95,90,85,80].forEach(p=>{h+='<td>'+p+'%<br><b>'+(Math.round(one*p/100/2.5)*2.5)+'</b></td>';});
+  h+='</tr><tr>';
+  [75,70,60,50].forEach(p=>{h+='<td>'+p+'%<br><b>'+(Math.round(one*p/100/2.5)*2.5)+'</b></td>';});
+  out.style.display='block';out.innerHTML=h+'</tr></table>';
+}
+const ACTS=[['SEDENTARY',1.2],['LIGHT 1-3X/WK',1.375],['LIFT 3-5X/WK',1.55],['HARD 6-7X/WK',1.725],['2X/DAY',1.9]];
+let calSexI=0, calActI=2;
+function calcCal(){
+  const a=parseFloat(document.getElementById('calAge').value);
+  const hIn=parseFloat(document.getElementById('calH').value);
+  const wLb=parseFloat(document.getElementById('calW').value);
+  const out=document.getElementById('calOut');
+  if(!(a>0&&hIn>0&&wLb>0)){out.style.display='block';out.innerHTML='FILL IN AGE, HEIGHT AND WEIGHT.';return;}
+  const kg=wLb*0.453592, cm=hIn*2.54;
+  let bmr=10*kg+6.25*cm-5*a+(calSexI===0?5:-161);
+  bmr=Math.round(bmr);
+  const tdee=Math.round(bmr*ACTS[calActI][1]);
+  out.style.display='block';
+  out.innerHTML='BMR: <b>'+bmr+'</b> KCAL<br>MAINTAIN: <b>'+tdee+'</b> KCAL ('+ACTS[calActI][0]+')<br>CUT: <b>'+(tdee-500)+'</b> / BULK: <b>'+(tdee+250)+'</b>';
+}
+
+// --- extras wiring ---
+document.getElementById('navFly').addEventListener('click',()=>{show('v-map');drawMap();});
+document.getElementById('navHome').addEventListener('click',()=>{
+  if(document.getElementById('v-create').style.display==='block'){
+    AV.name=(document.getElementById('nameInput').value||'BRANDON').toUpperCase().slice(0,10);saveAv(AV);
+  }
+  if(loadAv()&&loadAv().name){renderHome();show('v-home');}else{renderCreator();show('v-create');}
+});
+document.getElementById('mapBack').addEventListener('click',()=>{renderHome();show('v-home');});
+document.getElementById('node-1rm').addEventListener('click',()=>show('v-1rm'));
+document.getElementById('node-cal').addEventListener('click',()=>show('v-fuel'));
+document.getElementById('ormBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('calBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('ormGo').addEventListener('click',calc1rm);
+document.getElementById('calGo').addEventListener('click',calcCal);
+document.getElementById('calSexL').addEventListener('click',()=>{calSexI=(calSexI+1)%2;document.getElementById('calSex').textContent=calSexI===0?'MALE':'FEMALE';});
+document.getElementById('calSexR').addEventListener('click',()=>{calSexI=(calSexI+1)%2;document.getElementById('calSex').textContent=calSexI===0?'MALE':'FEMALE';});
+const actStep=d=>{calActI=(calActI+d+ACTS.length)%ACTS.length;document.getElementById('calAct').textContent=ACTS[calActI][0];};
+document.getElementById('calActL').addEventListener('click',()=>actStep(-1));
+document.getElementById('calActR').addEventListener('click',()=>actStep(1));
+document.getElementById('skillBtn').addEventListener('click',()=>{skBuild();show('v-skill');});
+document.getElementById('skillBtn2').addEventListener('click',()=>{skBuild();show('v-skill');});
+document.getElementById('gainsBtn').addEventListener('click',()=>{gainsRender();show('v-gains');});
+document.getElementById('skBack').addEventListener('click',()=>{renderHome();show('v-home');});
+document.getElementById('gainsBack').addEventListener('click',()=>{renderHome();show('v-home');});
+document.getElementById('skGo').addEventListener('click',skCompute);
+document.getElementById('gainsEx').addEventListener('change',e=>gainsDraw(e.target.value));
+document.getElementById('plGo').addEventListener('click',plateCalc);
+document.getElementById('node-radio').addEventListener('click',()=>{radioRender();show('v-radio');});
+document.getElementById('radioBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('fbbubble').addEventListener('click',()=>{document.getElementById('fbpanel').classList.toggle('open');});
+document.getElementById('fbSend').addEventListener('click',fbSend);
+
+// init
+drawAvatar('titleAvatar', AV, 3);
+show('v-title');
+/* Baked-in gym-staple food dataset (values derived from USDA FoodData Central, public domain).
+   Per listed serving. p/c/f in grams, k in kcal. */
+const FOODS=[
+// PROTEINS
+{n:"Chicken Breast (cooked)",s:"4 oz",k:187,p:35,c:0,f:4},
+{n:"Chicken Thigh (cooked)",s:"4 oz",k:232,p:26,c:0,f:13},
+{n:"Ground Beef 93/7 (cooked)",s:"4 oz",k:204,p:27,c:0,f:10},
+{n:"Ground Beef 85/15 (cooked)",s:"4 oz",k:243,p:26,c:0,f:15},
+{n:"Ground Turkey 93/7 (cooked)",s:"4 oz",k:192,p:27,c:0,f:9},
+{n:"Sirloin Steak (cooked)",s:"4 oz",k:206,p:31,c:0,f:8},
+{n:"Salmon (cooked)",s:"4 oz",k:206,p:29,c:0,f:9},
+{n:"Tuna (canned in water)",s:"1 can (5 oz)",k:120,p:27,c:0,f:1},
+{n:"Tilapia (cooked)",s:"4 oz",k:145,p:30,c:0,f:3},
+{n:"Shrimp (cooked)",s:"4 oz",k:112,p:24,c:0,f:1},
+{n:"Eggs (large)",s:"1 egg",k:72,p:6,c:0,f:5},
+{n:"Egg Whites",s:"3 tbsp (1 white)",k:17,p:4,c:0,f:0},
+{n:"Greek Yogurt 0% (plain)",s:"3/4 cup",k:100,p:17,c:6,f:0},
+{n:"Greek Yogurt 2% (plain)",s:"3/4 cup",k:130,p:17,c:7,f:3},
+{n:"Cottage Cheese 2%",s:"1/2 cup",k:90,p:12,c:5,f:2},
+{n:"Whey Protein Powder",s:"1 scoop (30g)",k:120,p:24,c:3,f:1},
+{n:"Casein Protein Powder",s:"1 scoop (32g)",k:120,p:24,c:3,f:1},
+{n:"Deli Turkey Breast",s:"3 slices (2 oz)",k:60,p:12,c:1,f:1},
+{n:"Tofu (firm)",s:"4 oz",k:91,p:10,c:2,f:5},
+{n:"Jerky (beef)",s:"1 oz",k:80,p:11,c:2,f:1},
+{n:"Protein Bar (average)",s:"1 bar",k:210,p:20,c:22,f:7},
+{n:"Milk 2%",s:"1 cup",k:122,p:8,c:12,f:5},
+{n:"Fairlife-style Protein Shake",s:"1 bottle (11.5 oz)",k:150,p:30,c:4,f:2},
+// CARBS
+{n:"White Rice (cooked)",s:"1 cup",k:205,p:4,c:45,f:0},
+{n:"Brown Rice (cooked)",s:"1 cup",k:216,p:5,c:45,f:2},
+{n:"Oats (dry)",s:"1/2 cup",k:150,p:5,c:27,f:3},
+{n:"Bread (whole wheat)",s:"1 slice",k:81,p:4,c:14,f:1},
+{n:"Bread (white)",s:"1 slice",k:75,p:3,c:14,f:1},
+{n:"Bagel (plain)",s:"1 bagel",k:270,p:10,c:53,f:2},
+{n:"Pasta (cooked)",s:"1 cup",k:220,p:8,c:43,f:1},
+{n:"White Potato (baked)",s:"1 medium",k:161,p:4,c:37,f:0},
+{n:"Sweet Potato (baked)",s:"1 medium",k:103,p:2,c:24,f:0},
+{n:"Tortilla (flour, 8in)",s:"1 tortilla",k:146,p:4,c:25,f:4},
+{n:"Banana",s:"1 medium",k:105,p:1,c:27,f:0},
+{n:"Apple",s:"1 medium",k:95,p:0,c:25,f:0},
+{n:"Blueberries",s:"1 cup",k:84,p:1,c:21,f:0},
+{n:"Strawberries",s:"1 cup",k:49,p:1,c:12,f:0},
+{n:"White Rice (cooked, big scoop)",s:"2 cups",k:410,p:8,c:90,f:1},
+{n:"Honey",s:"1 tbsp",k:64,p:0,c:17,f:0},
+{n:"Cereal (Cheerios-type)",s:"1 cup",k:105,p:3,c:21,f:2},
+{n:"Cream of Rice (dry)",s:"1/4 cup",k:160,p:3,c:36,f:0},
+{n:"English Muffin",s:"1 muffin",k:129,p:5,c:25,f:1},
+{n:"Pancakes (from mix)",s:"2 medium",k:180,p:5,c:33,f:3},
+{n:"Quinoa (cooked)",s:"1 cup",k:222,p:8,c:39,f:4},
+{n:"Rice Cakes",s:"1 cake",k:35,p:1,c:7,f:0},
+// FATS
+{n:"Peanut Butter",s:"2 tbsp",k:188,p:8,c:7,f:16},
+{n:"Almond Butter",s:"2 tbsp",k:196,p:7,c:6,f:18},
+{n:"Almonds",s:"1 oz (23 nuts)",k:164,p:6,c:6,f:14},
+{n:"Olive Oil",s:"1 tbsp",k:119,p:0,c:0,f:14},
+{n:"Avocado",s:"1/2 avocado",k:120,p:1,c:6,f:11},
+{n:"Cheddar Cheese",s:"1 oz",k:114,p:7,c:0,f:9},
+{n:"Mozzarella (part-skim)",s:"1 oz",k:72,p:7,c:1,f:5},
+{n:"Butter",s:"1 tbsp",k:102,p:0,c:0,f:12},
+{n:"Walnuts",s:"1 oz",k:185,p:4,c:4,f:18},
+{n:"Trail Mix",s:"1/4 cup",k:173,p:5,c:17,f:11},
+// GYM-BRO STAPLES / COMBOS
+{n:"Chipotle-style Burrito Bowl (chicken)",s:"1 bowl",k:705,p:53,c:71,f:23},
+{n:"Protein Oats (oats + whey)",s:"1 bowl",k:270,p:29,c:30,f:4},
+{n:"PB&J Sandwich",s:"1 sandwich",k:380,p:12,c:50,f:17},
+{n:"Chicken + Rice (basic prep meal)",s:"1 meal",k:480,p:43,c:50,f:9},
+{n:"Double Cheeseburger (fast food)",s:"1 burger",k:550,p:30,c:35,f:30},
+{n:"Chicken Wings (plain, cooked)",s:"6 wings",k:430,p:38,c:0,f:29},
+{n:"Slice of Pizza (cheese)",s:"1 slice",k:285,p:12,c:36,f:10},
+{n:"Burrito (bean + beef, fast casual)",s:"1 burrito",k:750,p:38,c:85,f:28},
+{n:"Ramen (instant)",s:"1 pack",k:380,p:8,c:52,f:14},
+{n:"Granola",s:"1/2 cup",k:240,p:5,c:36,f:9}
+];
+
+/* Original house recipes. Macros per serving. */
+const RECIPES=[
+{cat:"BULK",name:"Anabolic French Toast",serves:1,k:410,p:38,c:48,f:6,
+ ing:["3 slices thick-cut bread","2 whole eggs + 2 whites","1/2 scoop vanilla whey","splash of milk","cinnamon","cooking spray"],
+ steps:["Whisk eggs, whites, whey, milk, cinnamon in a shallow dish.","Soak bread 20 seconds per side.","Griddle on medium, 2-3 min per side until golden.","Top with berries or a drizzle of honey."]},
+{cat:"BULK",name:"Beef + Rice Brick",serves:1,k:640,p:45,c:62,f:20,
+ ing:["5 oz 93/7 ground beef","1.5 cups cooked white rice","soy sauce","garlic powder","1 fried egg (optional but correct)"],
+ steps:["Brown the beef, season hard.","Rice in bowl, beef on top.","Soy sauce + garlic powder.","Egg on top if you're doing it right."]},
+{cat:"BULK",name:"PB Banana Weight-Gainer Shake",serves:1,k:610,p:42,c:62,f:22,
+ ing:["1.5 scoops whey","1 banana","2 tbsp peanut butter","1 cup 2% milk","1/2 cup oats","ice"],
+ steps:["Everything in the blender.","Blend 45 seconds.","Drink it like you mean it."]},
+{cat:"CUT",name:"Egg White Power Scramble",serves:1,k:240,p:36,c:12,f:5,
+ ing:["1 cup egg whites","1 whole egg","spinach","salsa","salt + pepper"],
+ steps:["Spray pan, medium heat.","Whites + egg in, scramble low and slow.","Fold in spinach, top with salsa."]},
+{cat:"CUT",name:"Chicken Rice Cake Stackers",serves:1,k:280,p:35,c:26,f:3,
+ ing:["4 rice cakes","4 oz sliced chicken breast","laughing cow wedge","hot sauce"],
+ steps:["Spread cheese on cakes.","Layer chicken.","Hot sauce. Done - crunchy and huge volume for the macros."]},
+{cat:"CUT",name:"Greek Yogurt Protein Bowl",serves:1,k:310,p:40,c:28,f:4,
+ ing:["1.5 cups 0% greek yogurt","1/2 scoop whey (stirred in)","1 cup strawberries","1 tbsp honey"],
+ steps:["Stir whey into yogurt until smooth.","Berries on top, honey drizzle.","Tastes like dessert, macros like a chicken breast."]},
+{cat:"PREP",name:"Sunday Prep Burrito Boxes",serves:4,k:520,p:42,c:55,f:14,
+ ing:["1.5 lb chicken breast, diced","3 cups cooked rice","1 can black beans","fajita peppers + onions","8 low-carb tortillas","salsa + shredded cheese"],
+ steps:["Sheet-pan the chicken + peppers at 425F for 20 min.","Build 4 boxes: rice, beans, chicken, veg.","Tortillas + salsa on the side so nothing gets soggy.","Fridge: 4 days of grab-and-go."]},
+{cat:"PREP",name:"Overnight Oats Base",serves:1,k:340,p:30,c:44,f:7,
+ ing:["1/2 cup oats","3/4 cup 0% greek yogurt","1/2 scoop whey","splash of milk","chia seeds (optional)"],
+ steps:["Everything in a jar, stir.","Fridge overnight.","Cold, thick, zero morning effort."]},
+{cat:"SNACK",name:"Cottage Cheese Ranch Dip",serves:2,k:120,p:16,c:5,f:3,
+ ing:["1 cup 2% cottage cheese","1 tbsp ranch seasoning","carrots + cucumbers for dipping"],
+ steps:["Blend cottage cheese + ranch seasoning until smooth.","Dip vegetables like chips.","16g protein in a 'snack'."]},
+{cat:"SNACK",name:"Microwave Protein Mug Cake",serves:1,k:190,p:26,c:18,f:3,
+ ing:["1 scoop chocolate whey","1 tbsp cocoa powder","1/2 tsp baking powder","1 egg white","splash of milk"],
+ steps:["Mix everything in a mug.","Microwave 60-75 seconds.","Do not overcook - lava center is the goal."]},
+{cat:"BULK",name:"Steak + Potato Plate",serves:1,k:590,p:44,c:40,f:24,
+ ing:["6 oz sirloin","1 large baked potato","butter + sour cream (measured, not vibes)","salt, pepper, garlic"],
+ steps:["Sear steak 3-4 min per side, rest 5.","Potato: microwave 8 min or bake 45.","Load it. This is the bulk special."]},
+{cat:"CUT",name:"Tuna Melt Lettuce Wraps",serves:1,k:260,p:34,c:8,f:10,
+ ing:["1 can tuna","1 tbsp light mayo","mustard","1 slice cheese","butter lettuce leaves"],
+ steps:["Mix tuna, mayo, mustard.","Spoon into lettuce cups, cheese on top.","Broil 2 min if you want the melt."]},
+{cat:"PREP",name:"Freezer Breakfast Sandwiches",serves:6,k:310,p:24,c:28,f:11,
+ ing:["6 english muffins","6 eggs","6 slices canadian bacon","6 slices cheese"],
+ steps:["Bake eggs in a sheet pan, cut into rounds.","Assemble sandwiches, wrap in foil.","Freeze. Reheat 90 seconds."]},
+{cat:"SNACK",name:"Jerky + Fruit Trail Pack",serves:1,k:220,p:22,c:30,f:3,
+ ing:["1.5 oz beef jerky","1 apple or banana","rice cake"],
+ steps:["No cooking. This is the gym bag special.","Salty + sweet + crunch."]}
+];
+
+/* ================= BATCH 3: extras ================= */
+function lsGet(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function lsSet(k,v){localStorage.setItem(k,JSON.stringify(v))}
+
+/* --- MACRO TRACK --- */
+const MT_KEY='forge.hub.macrotargets.v1', ML_KEY='forge.hub.macrolog.v1';
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function derivedTargets(kcal,lbs){const p=Math.round(lbs);const f=Math.round(kcal*0.25/9);const c=Math.round((kcal-p*4-f*9)/4);return {k:kcal,p:p,c:Math.max(c,0),f:f}}
+function renderMacros(){
+  const body=document.getElementById('macroBody');const T=lsGet(MT_KEY,null);
+  if(!T){
+    body.innerHTML='<h3 style="font-size:10px">SET YOUR TARGETS</h3><p class="small" style="color:#aeb6e8;margin-top:6px;line-height:1.6">Run the calorie calc and hit SET AS MY TARGETS, or enter numbers by hand.</p>'+
+    '<button class="btn-red" id="mUseCalc" style="width:100%;margin-top:10px">OPEN CALORIE CALC</button>'+
+    '<div class="cfield" style="margin-top:12px"><span class="lbl">CALORIES</span><input id="mK" inputmode="decimal" placeholder="2500"></div>'+
+    '<div class="cfield"><span class="lbl">PROTEIN (G)</span><input id="mP" inputmode="decimal" placeholder="180"></div>'+
+    '<div class="cfield"><span class="lbl">CARBS (G)</span><input id="mC" inputmode="decimal" placeholder="250"></div>'+
+    '<div class="cfield"><span class="lbl">FAT (G)</span><input id="mF" inputmode="decimal" placeholder="70"></div>'+
+    '<button class="btn-red" id="mSaveT" style="width:100%;margin-top:8px">SAVE TARGETS</button>';
+    document.getElementById('mUseCalc').onclick=()=>show('v-cal');
+    document.getElementById('mSaveT').onclick=()=>{
+      const g=id=>parseFloat(document.getElementById(id).value)||0;
+      const t={k:g('mK'),p:g('mP'),c:g('mC'),f:g('mF')};
+      if(t.k>0&&t.p>0){lsSet(MT_KEY,t);renderMacros();}
+    };
+    return;
+  }
+  const log=lsGet(ML_KEY,{days:{}});const day=todayISO();const entries=(log.days[day]||[]);
+  const tot=entries.reduce((a,e)=>({k:a.k+e.k,p:a.p+e.p,c:a.c+e.c,f:a.f+e.f}),{k:0,p:0,c:0,f:0});
+  const bar=(lbl,cur,tgt,unit)=>{const pct=tgt>0?Math.min(100,Math.round(cur/tgt*100)):0;const over=tgt>0&&cur>tgt;
+    return '<div class="mbar'+(over?' over':'')+'"><div class="mlbl"><span>'+lbl+'</span><span>'+Math.round(cur)+(unit||'')+' / '+tgt+(unit||'')+'</span></div><div class="mtrack"><div class="mfill" style="width:'+pct+'%"></div></div></div>';};
+  let h='<div class="small" style="color:#aeb6e8;text-align:center">'+new Date().toDateString().toUpperCase()+'</div>';
+  h+=bar('CALORIES',tot.k,T.k,'')+bar('PROTEIN',tot.p,T.p,'G')+bar('CARBS',tot.c,T.c,'G')+bar('FAT',tot.f,T.f,'G');
+  h+='<h3 style="font-size:10px;margin-top:14px">ADD FOOD</h3><input id="mSearch" placeholder="SEARCH GYM STAPLES..." style="width:100%;margin-top:6px"><div id="mHits"></div>';
+  h+='<details style="margin-top:10px"><summary class="small" style="color:#aeb6e8;cursor:pointer">+ CUSTOM ENTRY</summary>'+
+     '<div class="cfield" style="margin-top:6px"><span class="lbl">NAME</span><input id="cN" placeholder="My burrito"></div>'+
+     '<div class="cfield"><span class="lbl">CALORIES</span><input id="cK" inputmode="decimal"></div>'+
+     '<div class="cfield"><span class="lbl">PROTEIN</span><input id="cP" inputmode="decimal"></div>'+
+     '<div class="cfield"><span class="lbl">CARBS</span><input id="cC" inputmode="decimal"></div>'+
+     '<div class="cfield"><span class="lbl">FAT</span><input id="cF" inputmode="decimal"></div>'+
+     '<button class="btn-red" id="cAdd" style="width:100%;margin-top:6px">LOG IT</button></details>';
+  h+='<h3 style="font-size:10px;margin-top:14px">TODAY\'S LOG</h3><div id="mLog"></div>';
+  h+='<div style="text-align:center;margin-top:10px"><button class="htab" id="mEditT">EDIT TARGETS</button></div>';
+  body.innerHTML=h;
+  const hits=document.getElementById('mHits');
+  document.getElementById('mSearch').addEventListener('input',e=>{
+    const q=e.target.value.trim().toLowerCase();
+    if(q.length<2){hits.innerHTML='';return}
+    const m=FOODS.filter(f=>f.n.toLowerCase().includes(q)).slice(0,8);
+    hits.innerHTML=m.map((f,i)=>'<div class="foodhit" data-i="'+FOODS.indexOf(f)+'"><span>'+f.n+' <span style="color:#5c648f">'+f.s+'</span></span><span class="fm">'+f.k+' / '+f.p+'P</span></div>').join('');
+    hits.querySelectorAll('.foodhit').forEach(el=>el.onclick=()=>{addEntry(FOODS[+el.dataset.i]);});
+  });
+  document.getElementById('cAdd').onclick=()=>{
+    const g=id=>parseFloat(document.getElementById(id).value)||0;
+    const n=document.getElementById('cN').value.trim();
+    if(n&&g('cK')>0){addEntry({n:n,s:'custom',k:g('cK'),p:g('cP'),c:g('cC'),f:g('cF')});}
+  };
+  document.getElementById('mEditT').onclick=()=>{localStorage.removeItem(MT_KEY);renderMacros();};
+  renderLog();
+}
+function addEntry(f){const log=lsGet(ML_KEY,{days:{}});const day=todayISO();(log.days[day]=log.days[day]||[]).push({n:f.n,s:f.s,k:f.k,p:f.p,c:f.c,f:f.f});lsSet(ML_KEY,log);renderMacros();}
+function renderLog(){const log=lsGet(ML_KEY,{days:{}});const day=todayISO();const entries=log.days[day]||[];
+  const el=document.getElementById('mLog');if(!el)return;
+  el.innerHTML=entries.length?entries.map((e,i)=>'<div class="logrow"><span>'+e.n+'</span><span style="color:#7cf29c">'+e.k+' / '+e.p+'P</span><span class="del" data-i="'+i+'">&#10005;</span></div>').join(''):'<div class="small" style="color:#5c648f;padding:8px 0">Nothing logged yet. Day is young.</div>';
+  el.querySelectorAll('.del').forEach(d=>d.onclick=()=>{entries.splice(+d.dataset.i,1);lsSet(ML_KEY,log);renderMacros();});
+}
+/* hook SET AS MY TARGETS into the calorie calc output */
+function hookCalcTargets(){
+  const out=document.getElementById('calOut');if(!out)return;
+  const obs=new MutationObserver(()=>{
+    if(out.style.display!=='none'&&!document.getElementById('calSetT')){
+      const b=document.createElement('button');b.className='btn-red';b.id='calSetT';b.style.cssText='width:100%;margin-top:8px';b.textContent='SET AS MY TARGETS';
+      b.onclick=()=>{
+        const txt=out.textContent;const m=txt.match(/([\d,]+)\s*(kcal|CAL)/i);
+        const kcal=m?parseInt(m[1].replace(/,/g,'')):0;
+        const lbs=parseFloat(document.getElementById('calW').value)||0;
+        if(kcal>0&&lbs>0){lsSet(MT_KEY,derivedTargets(kcal,lbs));b.textContent='TARGETS SAVED &#10003;';setTimeout(()=>show('v-macros'),600);}
+      };
+      out.appendChild(b);
+    }
+  });
+  obs.observe(out,{attributes:true,childList:true,subtree:true});
+}
+
+/* --- THE KITCHEN --- */
+let kFilter='ALL';
+function renderKitchen(){
+  const cats=['ALL','BULK','CUT','PREP','SNACK'];
+  document.getElementById('kChips').innerHTML=cats.map(c=>'<button class="chip'+(kFilter===c?' on':'')+'" data-c="'+c+'">'+c+'</button>').join('');
+  document.getElementById('kChips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{kFilter=b.dataset.c;renderKitchen();});
+  const list=RECIPES.filter(r=>kFilter==='ALL'||r.cat===kFilter);
+  document.getElementById('kList').innerHTML=list.map((r,i)=>'<div class="rcard" data-i="'+RECIPES.indexOf(r)+'"><div class="rn">'+r.name+'</div><div class="rm">'+r.k+' kcal - '+r.p+'P / '+r.c+'C / '+r.f+'F - serves '+r.serves+'</div><div class="rd"><b>INGREDIENTS</b><ul>'+r.ing.map(x=>'<li>'+x+'</li>').join('')+'</ul><b>STEPS</b><ol>'+r.steps.map(x=>'<li>'+x+'</li>').join('')+'</ol></div></div>').join('');
+  document.getElementById('kList').querySelectorAll('.rcard').forEach(c=>c.onclick=()=>c.classList.toggle('open'));
+}
+
+/* --- SUPP SHOP --- */
+const SUPPS=[
+{n:"Creatine Monohydrate",g:"proven",gl:"PROVEN",d:"<b>5g daily, any time.</b> The most studied supplement in the sport. More phosphocreatine = more reps at the top end = more growth over months. Loading phase optional. Skip the fancy versions - monohydrate wins on price and evidence."},
+{n:"Whey Protein",g:"proven",gl:"PROVEN",d:"<b>As needed to hit daily protein.</b> It's food, not magic - just the cheapest, fastest gram of complete protein you can buy. If you already hit ~0.7-1g per lb from meals, you don't need it."},
+{n:"Caffeine",g:"proven",gl:"PROVEN",d:"<b>3-6 mg per kg bodyweight, 30-60 min pre-lift.</b> Real, measurable performance boost for strength and volume. Coffee counts. Respect the half-life - late doses tax your sleep, and sleep is the real anabolic."},
+{n:"Vitamin D3",g:"cond",gl:"IF DEFICIENT",d:"<b>1,000-4,000 IU daily if bloodwork says low.</b> Deficiency is common (indoor life, northern winters) and fixing it matters. If levels are fine, extra does nothing for your lifts."},
+{n:"Fish Oil (EPA/DHA)",g:"cond",gl:"IF LOW FISH INTAKE",d:"<b>1-2g combined EPA+DHA daily.</b> Worth it if you never eat fatty fish. General health play more than a gains play."},
+{n:"Magnesium",g:"cond",gl:"IF SLEEP/CRAMPS",d:"<b>200-400mg in the evening.</b> Reasonable when sleep quality or cramps are an issue and diet is light on greens and nuts."},
+{n:"BCAAs / EAAs",g:"skip",gl:"SKIP",d:"If your daily protein is on target, you're already eating all the BCAAs you need. This is renting amino acids you already own."},
+{n:"Glutamine",g:"skip",gl:"SKIP",d:"Great marketing, weak human data for muscle or recovery in healthy lifters."},
+{n:"Test Boosters",g:"skip",gl:"SKIP",d:"No legal over-the-counter booster moves testosterone enough to matter for muscle. Save the $40 for steak."},
+{n:"Mass Gainers",g:"skip",gl:"SKIP",d:"Expensive sugar. Blend oats + whey + peanut butter + banana and you built a better gainer in 60 seconds (see The Kitchen)."}
+];
+function renderSupps(){
+  document.getElementById('suppBody').innerHTML=SUPPS.map(s=>'<div class="scard"><span class="sn">'+s.n+'</span><span class="grade g-'+s.g+'">'+s.gl+'</span><div class="sd">'+s.d+'</div></div>').join('');
+}
+
+/* --- THEATER + UNIVERSITY (curated video crates; he sends links, we publish) --- */
+/* Format per entry: {shelf:'IRON CHURCH'|'GAME DAY'|'SERMON', id:'youtubeId', t:'Title'} */
+const THEATER_VIDEOS=[];
+const THEATER_SHELVES=[
+ {name:'IRON CHURCH',desc:'Heavy barbell church. Old-school lifting edits.'},
+ {name:'GAME DAY',desc:'Sports highlights with cinematic scoring.'},
+ {name:'SERMON',desc:'Speeches over training footage. Volume up.'}];
+const UNIV_VIDEOS=[];
+const UNIV_SHELVES=[
+ {name:'FORM SCHOOL',desc:'Form guides for the big lifts, rep by rep.'},
+ {name:'PROGRAMMING 101',desc:'Why the plan is the plan - volume, intensity, progression.'},
+ {name:'TECHNIQUE DEEP DIVES',desc:'The small fixes that add plates.'}];
+function ytThumb(id){return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg'}
+function renderVidShelves(bodyId,shelves,vids,emptyMsg){
+  const body=document.getElementById(bodyId);let h='';
+  shelves.forEach(sh=>{
+    const items=vids.filter(v=>v.shelf===sh.name);
+    h+='<div class="shelfname">'+sh.name+'</div><div class="small" style="color:#5c648f;margin-top:2px">'+sh.desc+'</div>';
+    if(!items.length){h+='<div class="crate">'+emptyMsg+'</div>';}
+    else{
+      h+='<div class="vidgrid">'+items.map((v,i)=>'<div class="vfacade" data-id="'+v.id+'"><img src="'+ytThumb(v.id)+'" alt=""><div class="vplay">&#9654;</div><div class="vt">'+v.t+'</div></div>').join('')+'</div>';
+    }
+  });
+  if(vids.length)h+='<button class="btn-red" id="vidShuffle" style="width:100%;margin-top:12px">SURPRISE ME</button>';
+  body.innerHTML=h;
+  body.querySelectorAll('.vfacade').forEach(f=>f.onclick=()=>{
+    f.outerHTML='<iframe style="width:100%;aspect-ratio:16/9;border:2px solid #2a3160" src="https://www.youtube-nocookie.com/embed/'+f.dataset.id+'?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  });
+  const sh=document.getElementById('vidShuffle');
+  if(sh)sh.onclick=()=>{const v=vids[Math.floor(Math.random()*vids.length)];const el=body.querySelector('.vfacade[data-id="'+v.id+'"]');if(el){el.scrollIntoView({behavior:'smooth'});el.click();}};
+}
+
+/* --- wiring --- */
+document.getElementById('doorCalc').addEventListener('click',()=>show('v-cal'));
+document.getElementById('doorMacros').addEventListener('click',()=>{renderMacros();show('v-macros');});
+document.getElementById('doorKitchen').addEventListener('click',()=>{renderKitchen();show('v-kitchen');});
+document.getElementById('fuelBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('macroBack').addEventListener('click',()=>show('v-fuel'));
+document.getElementById('kBack').addEventListener('click',()=>show('v-fuel'));
+document.getElementById('node-supp').addEventListener('click',()=>{renderSupps();show('v-supp');});
+document.getElementById('suppBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('node-theater').addEventListener('click',()=>{renderVidShelves('theaterBody',THEATER_SHELVES,THEATER_VIDEOS,'Crate empty. The curators are picking records - check back after the first drop.');show('v-theater');});
+document.getElementById('theaterBack').addEventListener('click',()=>show('v-map'));
+document.getElementById('node-univ').addEventListener('click',()=>{renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');});
+document.getElementById('univBack').addEventListener('click',()=>show('v-map'));
+hookCalcTargets();
+
+</script>
+</body>
+</html>
