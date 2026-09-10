@@ -82,9 +82,7 @@ canvas{image-rendering:pixelated;display:block}
 #pop,#gatepop{position:fixed;inset:0;background:rgba(10,12,32,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:24px}
 #pop .card,#gatepop .card{background:var(--paper);border:4px solid #000;box-shadow:6px 6px 0 rgba(0,0,0,.45);padding:14px;max-width:320px;text-align:center}
 #gatepop .card{background:linear-gradient(135deg,#fff8d8,#ffe8f4 45%,#e8f4ff);border-color:#c8a028;box-shadow:0 0 26px 6px rgba(248,184,0,.6),6px 6px 0 rgba(0,0,0,.45)}
-#gatepop .pbanner{padding:4px 2px;font-size:8px;letter-spacing:2px;margin-bottom:4px}
-#gatepop .ptitle{font-size:10px;letter-spacing:1px;line-height:1.6}
-#gatepop .pdesc{font-size:8px;line-height:1.7;margin-top:6px;color:#3a3f50}
+#gatepop .pbanner{padding:4px 2px}
 #pop .ptitle{font-size:11px;letter-spacing:1px}
 #pop .prar{font-size:7px;letter-spacing:2px;margin-top:2px}
 #pop .pbanner{font-size:8px;letter-spacing:2px;margin-bottom:6px}
@@ -93,7 +91,7 @@ canvas{image-rendering:pixelated;display:block}
 .tile.locked{filter:grayscale(1);opacity:.55}
 .tile.locked .go{background:#5c648f !important;color:#e8e8f0 !important;text-shadow:none}
 .gatein{width:100%;font-family:inherit;font-size:10px;padding:8px;margin-top:10px;border:3px solid #000;background:#fff;box-sizing:border-box;text-transform:uppercase}
-.gateerr{font-size:6px;color:var(--red);margin-top:6px;min-height:0}
+.gateerr{font-size:7px;color:var(--red);margin-top:6px;min-height:10px}
 #pop.myth .card{border-color:#c8a028;box-shadow:0 0 26px 6px rgba(248,184,0,.6),6px 6px 0 rgba(0,0,0,.45)}
 #pop.myth .ptitle{color:#b020a8}
 .rar-mythical{color:#b020a8}
@@ -112,6 +110,24 @@ canvas{image-rendering:pixelated;display:block}
 #evoCanvas{margin:26px auto 0}
 /* map */
 #v-map .panel{padding:10px}
+.mappanel{padding:8px}
+.mapplate{background:#0e1230;border:3px solid #8890a8;color:#e8e8f0;padding:8px 10px;text-align:center;margin-top:4px}
+.mpName{font-size:11px;letter-spacing:1px;color:var(--gold)}
+.mpSub{font-size:7px;color:#8890c8;margin-top:4px;letter-spacing:1px}
+#mapCanvas{width:100%;display:block;image-rendering:pixelated}
+.mapnode.sel .pin{background:var(--gold);animation:pinblink 1s steps(2) infinite}
+.mapnode.sel::before{content:'\25BC';position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);color:var(--gold);font-size:10px;text-shadow:1px 1px 0 #000;animation:cursorbob .6s steps(2) infinite}
+@keyframes pinblink{50%{background:#fff}}
+@keyframes cursorbob{50%{margin-bottom:3px}}
+@media(max-width:520px){
+  .mappanel{padding:6px;border-width:3px}
+  .mapplate{padding:10px}
+  .mpName{font-size:13px}
+  .mpSub{font-size:8px}
+  #mapCanvas{height:56vh}
+  .mapnode .pin{font-size:11px;padding:6px 8px}
+  .mapnode .sub2{font-size:8px}
+}
 .mapbox{position:relative;border:4px solid #000;margin-top:10px}
 .mapnode{position:absolute;transform:translate(-50%,-50%);text-align:center;background:none;border:none;box-shadow:none;padding:0}
 .mapnode:active{transform:translate(-50%,-50%) scale(.94)}
@@ -131,21 +147,6 @@ canvas{image-rendering:pixelated;display:block}
 #navbar{position:fixed;bottom:0;left:0;right:0;z-index:40;display:none;justify-content:center;gap:10px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:rgba(14,18,48,.94);border-top:4px solid #000}
 #navbar button{font-size:9px;padding:8px 16px}
 .navhome{background:var(--paper)}
-#navRail{display:none}
-#gateGo{margin-top:0!important;position:relative;top:-3px}
-#gatepop .phint{font-size:6px;color:#8890a8;letter-spacing:1px;margin-top:8px}
-@media(max-width:700px){
-  #navbar{top:50%;bottom:auto;left:auto;right:8px;transform:translateY(-50%);width:min(52vw,250px);padding:8px 54px 8px 8px;box-sizing:border-box;border:3px solid #000;background:rgba(14,18,48,.97);box-shadow:5px 5px 0 rgba(0,0,0,.45);flex-direction:column;gap:7px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .12s linear}
-  #navbar.open{visibility:visible;opacity:1;pointer-events:auto}
-  #navbar button{width:100%;font-size:7px;padding:9px 5px;white-space:nowrap}
-  #navClose{display:block;position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px!important;height:44px;padding:0!important;background:#20264c;color:#f8b800;border:3px solid #000;box-shadow:3px 3px 0 rgba(0,0,0,.45);font-size:14px!important}
-  #navRail{position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:41;display:none;flex-direction:column;gap:6px;padding:6px;background:rgba(14,18,48,.97);border:3px solid #000;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
-  #navRail button{width:38px;height:38px;padding:0;background:var(--paper);color:#0e1230;border:3px solid #000;box-shadow:2px 2px 0 rgba(0,0,0,.45);font-size:15px;line-height:1}
-  #navRail .railfly{background:var(--gold)}
-  body.nav-open #navRail{visibility:hidden}
-  #fbbubble{bottom:12px}
-  #fbpanel{bottom:64px}
-}
 
 .lvchip{display:inline-block;background:#2848c0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
 .skillchip{display:inline-block;background:#8030a0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
@@ -261,9 +262,8 @@ canvas{image-rendering:pixelated;display:block}
 
   <section id="v-map" style="display:none">
     <div class="panel">
-      <h2 style="font-size:12px;text-align:center">EXTRAS</h2>
-      <p class="small" style="text-align:center;margin-top:6px">Pick a spot to FLY to.</p>
-      <div class="mapbox"><canvas id="mapCanvas" width="350" height="300" style="width:100%"></canvas>
+      <div class="mapplate"><div class="mpName" id="mpName">WHERE TO?</div><div class="mpSub" id="mpSub">PICK A SPOT TO FLY TO</div></div>
+      <div class="mapbox"><canvas id="mapCanvas" width="350" height="300"></canvas>
         <button class="mapnode" id="node-1rm" style="left:26%;top:34%"><span class="pin">IRON CITY</span><div class="sub2">1-REP-MAX CALC</div></button>
         <button class="mapnode" id="node-cal" style="left:72%;top:62%"><span class="pin">FUEL TOWN</span><div class="sub2">3 STATIONS</div></button>
         <button class="mapnode" id="node-radio" style="left:50%;top:12%"><span class="pin">RADIO TOWER</span><div class="sub2">NOW SPINNING</div></button>
@@ -377,8 +377,7 @@ canvas{image-rendering:pixelated;display:block}
     <div style="text-align:center;margin-top:8px"><button class="backlink" id="univBack">&lt; BACK TO MAP</button></div>
   </section>
 
-<div id="navbar" aria-label="Quick navigation"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button><button id="navClose" aria-label="Close quick navigation" title="Close">&#9654;</button></div>
-<div id="navRail" aria-label="Open quick navigation"><button class="railhome" aria-label="Open Save and Home menu" title="Save + Home">&#9632;</button><button class="railfly" aria-label="Open Fly menu" title="Fly">&#9992;</button></div>
+<div id="navbar"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button></div>
 <button id="fbbubble" title="Send feedback">&#128172;</button>
 <div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
 <div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
@@ -391,7 +390,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-1240';
+const BUILD='b20260910-1920';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -620,10 +619,7 @@ function drawIcon(cid, kind, color){
 
 // --- views ---
 function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
-  const nb=document.getElementById('navbar'),rail=document.getElementById('navRail');
-  if(nb){nb.style.display=(id==='v-title')?'none':'flex';nb.classList.remove('open');}
-  if(rail)rail.style.display=(id==='v-title')?'none':'flex';
-  document.body.classList.remove('nav-open');}
+  const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';}
 
 const CROWS=[
   {k:'sex',lbl:'GENDER',kind:'text',vals:SEXES},
@@ -1075,15 +1071,23 @@ function playEvolution(fromSt, toSt, done){
 // --- extras map ---
 function drawMap(){
   const cv=document.getElementById('mapCanvas');const ctx=cv.getContext('2d');
-  const s=cv.width/32;const g=cv.height/ Math.round(cv.height/s);const u=cv.width/32;const v=cv.height/28;
+  const u=cv.width/35, v=cv.height/30;
   const R=(x,y,w,h,c)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(x*u),Math.round(y*v),Math.round(w*u),Math.round(h*v));};
-  R(0,0,32,28,'#2878c8');                       // sea
-  R(2,3,20,18,'#58a848');R(3,4,18,16,'#68c058'); // island L
-  R(16,14,14,12,'#58a848');R(17,15,12,10,'#68c058'); // island R
-  for(let i=0;i<12;i++){R(3+i*1.2,20+i*.4,1,1,'#e8d890');}   // path
-  R(6,8,4,3,'#8890a8');R(6,8,4,1,'#aab2c8');R(7,10,2,1,'#404860'); // iron city
-  R(21,18,4,3,'#c86828');R(21,18,4,1,'#e08848');R(22,20,2,1,'#785030'); // fuel town
-  R(12,5,1,1,'#fff');R(26,8,1,1,'#fff');R(9,16,1,1,'#fff'); // sparkle
+  R(0,0,35,30,'#18386e');                        // deep ocean
+  R(0,0,35,2,'#10285a');R(0,28,35,2,'#10285a');  // dark horizon bands
+  for(let i=0;i<26;i++){const wx=(i*137)%35,wy=(i*89)%30;R(wx+.2,wy+.5,.9,.3,'#2a5a9e');} // waves
+  R(4,3,27,24,'#d8c878');                        // sand rim
+  R(5,4,25,22,'#4f9e4f');                        // grass
+  R(7,6,8,5,'#3f8e46');R(20,14,8,6,'#3f8e46');R(9,20,7,4,'#3f8e46'); // forest patches
+  [[8,7],[9,8],[8,9],[22,15],[24,17],[21,18],[10,21],[12,22],[26,8],[15,10]].forEach(p=>{R(p[0],p[1],1,1,'#2f6e36');}); // trees
+  [[14,6],[15,6],[16,6],[15,5],[24,11],[25,11],[24,10]].forEach(p=>{R(p[0],p[1],1,1,'#9aa2b8');}); // mountains
+  R(15,5,1,1,'#e8ecf4');                         // snowcap
+  R(12,14,3,2,'#2a5a9e');R(13,13,1,1,'#2a5a9e'); // lake
+  const pts=[[9.1,10.2],[25.2,18.6],[17.5,3.6],[5.6,19.8],[28,6],[17.5,25.2]];
+  const links=[[2,4],[4,1],[1,5],[5,3],[3,0],[0,2]]; // dotted routes between spots
+  links.forEach(L=>{const a=pts[L[0]],b=pts[L[1]];const d=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let t=0;t<d;t+=1.1){R(a[0]+(b[0]-a[0])*t/d,a[1]+(b[1]-a[1])*t/d,.5,.5,'#e8d890');}});
+  pts.forEach(p=>{R(p[0]-.4,p[1]-.4,.8,.8,'#fff');}); // spot markers
+  R(12,5,1,1,'#fff');R(30,9,1,1,'#fff');R(7,16,1,1,'#fff'); // sparkle
 }
 
 // --- calculators ---
@@ -1117,20 +1121,16 @@ function calcCal(){
 }
 
 // --- extras wiring ---
-function setQuickNav(open){document.getElementById('navbar').classList.toggle('open',open);document.body.classList.toggle('nav-open',open);}
-document.getElementById('navRail').addEventListener('click',()=>setQuickNav(true));
-document.getElementById('navClose').addEventListener('click',()=>setQuickNav(false));
-document.getElementById('navFly').addEventListener('click',()=>{setQuickNav(false);show('v-map');drawMap();});
+document.getElementById('navFly').addEventListener('click',()=>{mapSel=null;document.querySelectorAll('.mapnode').forEach(x=>x.classList.remove('sel'));mapPlateSet('WHERE TO?','PICK A SPOT TO FLY TO');show('v-map');drawMap();});
 document.getElementById('navHome').addEventListener('click',()=>{
-  setQuickNav(false);
   if(document.getElementById('v-create').style.display==='block'){
     AV.name=(document.getElementById('nameInput').value||'BRANDON').toUpperCase().slice(0,10);saveAv(AV);
   }
   if(loadAv()&&loadAv().name){renderHome();show('v-home');}else{renderCreator();show('v-create');}
 });
 document.getElementById('mapBack').addEventListener('click',()=>{renderHome();show('v-home');});
-document.getElementById('node-1rm').addEventListener('click',()=>show('v-1rm'));
-document.getElementById('node-cal').addEventListener('click',()=>show('v-fuel'));
+
+
 document.getElementById('ormBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('calBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('ormGo').addEventListener('click',calc1rm);
@@ -1148,11 +1148,33 @@ document.getElementById('gainsBack').addEventListener('click',()=>{renderHome();
 document.getElementById('skGo').addEventListener('click',skCompute);
 document.getElementById('gainsEx').addEventListener('change',e=>gainsDraw(e.target.value));
 document.getElementById('plGo').addEventListener('click',plateCalc);
-document.getElementById('node-radio').addEventListener('click',()=>{radioRender();show('v-radio');});
+
 document.getElementById('radioBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('fbbubble').addEventListener('click',()=>{document.getElementById('fbpanel').classList.toggle('open');});
 document.getElementById('fbSend').addEventListener('click',fbSend);
 
+const MAPNODES={
+  'node-1rm':['IRON CITY','1-REP-MAX CALC',()=>show('v-1rm')],
+  'node-cal':['FUEL TOWN','3 STATIONS',()=>show('v-fuel')],
+  'node-radio':['RADIO TOWER','NOW SPINNING',()=>{radioRender();show('v-radio');}],
+  'node-supp':['SUPP SHOP','WHAT WORKS',()=>{renderSupps();show('v-supp');}],
+  'node-theater':['THEATER','HYPE REELS',()=>{renderStage();show('v-theater');}],
+  'node-univ':['UNIVERSITY','SCHOOL OF IRON',()=>{renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}],
+};
+let mapSel=null;
+function mapPlateSet(n,s){document.getElementById('mpName').textContent=n;document.getElementById('mpSub').textContent=s;}
+Object.keys(MAPNODES).forEach(id=>{
+  const b=document.getElementById(id);
+  b.addEventListener('click',()=>{
+    if(mapSel===id){MAPNODES[id][2]();return;}
+    mapSel=id;
+    document.querySelectorAll('.mapnode').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    mapPlateSet(MAPNODES[id][0],MAPNODES[id][1]+' - TAP AGAIN TO FLY');
+  });
+  b.addEventListener('mouseenter',()=>{if(!mapSel)mapPlateSet(MAPNODES[id][0],MAPNODES[id][1]);});
+  b.addEventListener('mouseleave',()=>{if(!mapSel)mapPlateSet('WHERE TO?','PICK A SPOT TO FLY TO');});
+});
 // init
 drawAvatar('titleAvatar', AV, 3);
 show('v-title');
@@ -1444,11 +1466,11 @@ document.getElementById('doorKitchen').addEventListener('click',()=>{renderKitch
 document.getElementById('fuelBack').addEventListener('click',()=>show('v-map'));
 document.getElementById('macroBack').addEventListener('click',()=>show('v-fuel'));
 document.getElementById('kBack').addEventListener('click',()=>show('v-fuel'));
-document.getElementById('node-supp').addEventListener('click',()=>{renderSupps();show('v-supp');});
+
 document.getElementById('suppBack').addEventListener('click',()=>show('v-map'));
-document.getElementById('node-theater').addEventListener('click',()=>{renderStage();show('v-theater');});
+
 document.getElementById('theaterBack').addEventListener('click',()=>show('v-map'));
-document.getElementById('node-univ').addEventListener('click',()=>{renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');});
+
 document.getElementById('univBack').addEventListener('click',()=>show('v-map'));
 hookCalcTargets();
 
