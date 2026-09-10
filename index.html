@@ -161,6 +161,7 @@ canvas{image-rendering:pixelated;display:block}
 #fbpanel{position:fixed;left:12px;bottom:calc(116px + env(safe-area-inset-bottom));z-index:60;width:250px;background:#171a30;border:2px solid #3a3f66;border-radius:6px;padding:10px;display:none}
 #fbpanel.open{display:block}
 #fbpanel textarea{width:100%;height:64px;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:9px;padding:6px;resize:none}
+@media(max-width:520px){body.on-map #fbpanel{left:8px;right:8px;width:auto;bottom:calc(70px + env(safe-area-inset-bottom));max-height:24vh;overflow:auto}}
 #fbpanel input{width:100%;background:#0e1230;border:1px solid #3a3f66;color:#e8e8f0;font-family:inherit;font-size:9px;padding:5px;margin-bottom:6px}
 .scprof{display:block;margin:6px 0;padding:8px;border:1px solid #3a3f66;border-radius:4px;color:#ff5500;text-decoration:none;font-size:9px;text-align:center}
 .scprof:hover{background:#1a1c30}
@@ -390,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-1920';
+const BUILD='b20260910-1933';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -619,7 +620,9 @@ function drawIcon(cid, kind, color){
 
 // --- views ---
 function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
-  const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';}
+  const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';
+  const fbp=document.getElementById('fbpanel');if(fbp&&id==='v-map')fbp.classList.remove('open');
+  document.body.classList.toggle('on-map',id==='v-map');}
 
 const CROWS=[
   {k:'sex',lbl:'GENDER',kind:'text',vals:SEXES},
