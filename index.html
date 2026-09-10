@@ -129,6 +129,21 @@ canvas{image-rendering:pixelated;display:block}
 #navbar{position:fixed;bottom:0;left:0;right:0;z-index:40;display:none;justify-content:center;gap:10px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:rgba(14,18,48,.94);border-top:4px solid #000}
 #navbar button{font-size:9px;padding:8px 16px}
 .navhome{background:var(--paper)}
+#navRail{display:none}
+#gateGo{margin-top:0!important;position:relative;top:-7px}
+#gatepop .phint{margin-top:0;position:relative;top:-1px}
+@media(max-width:700px){
+  #navbar{top:50%;bottom:auto;left:auto;right:8px;transform:translateY(-50%);width:min(52vw,250px);padding:8px 54px 8px 8px;box-sizing:border-box;border:3px solid #000;background:rgba(14,18,48,.97);box-shadow:5px 5px 0 rgba(0,0,0,.45);flex-direction:column;gap:7px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .12s linear}
+  #navbar.open{visibility:visible;opacity:1;pointer-events:auto}
+  #navbar button{width:100%;font-size:7px;padding:9px 5px;white-space:nowrap}
+  #navClose{display:block;position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px!important;height:44px;padding:0!important;background:#20264c;color:#f8b800;border:3px solid #000;box-shadow:3px 3px 0 rgba(0,0,0,.45);font-size:14px!important}
+  #navRail{position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:41;display:none;flex-direction:column;gap:6px;padding:6px;background:rgba(14,18,48,.97);border:3px solid #000;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+  #navRail button{width:38px;height:38px;padding:0;background:var(--paper);color:#0e1230;border:3px solid #000;box-shadow:2px 2px 0 rgba(0,0,0,.45);font-size:15px;line-height:1}
+  #navRail .railfly{background:var(--gold)}
+  body.nav-open #navRail{visibility:hidden}
+  #fbbubble{bottom:12px}
+  #fbpanel{bottom:64px}
+}
 
 .lvchip{display:inline-block;background:#2848c0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
 .skillchip{display:inline-block;background:#8030a0;color:#fff;font-size:8px;padding:3px 6px;margin-left:6px;vertical-align:middle}
@@ -360,7 +375,8 @@ canvas{image-rendering:pixelated;display:block}
     <div style="text-align:center;margin-top:8px"><button class="backlink" id="univBack">&lt; BACK TO MAP</button></div>
   </section>
 
-<div id="navbar"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button></div>
+<div id="navbar" aria-label="Quick navigation"><button class="navhome" id="navHome">&#9632; SAVE + HOME</button><button class="flybtn" id="navFly">&#9992; FLY</button><button id="navClose" aria-label="Close quick navigation" title="Close">&#9654;</button></div>
+<div id="navRail" aria-label="Open quick navigation"><button class="railhome" aria-label="Open Save and Home menu" title="Save + Home">&#9632;</button><button class="railfly" aria-label="Open Fly menu" title="Fly">&#9992;</button></div>
 <button id="fbbubble" title="Send feedback">&#128172;</button>
 <div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
 <div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
@@ -373,7 +389,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-1304';
+const BUILD='b20260910-1226';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -602,7 +618,10 @@ function drawIcon(cid, kind, color){
 
 // --- views ---
 function show(id){['v-title','v-create','v-home','v-map','v-1rm','v-cal','v-skill','v-gains','v-radio','v-fuel','v-macros','v-kitchen','v-supp','v-theater','v-university'].forEach(v=>{const el=document.getElementById(v);if(el)el.style.display=(v===id?'block':'none');});
-  const nb=document.getElementById('navbar');if(nb)nb.style.display=(id==='v-title')?'none':'flex';}
+  const nb=document.getElementById('navbar'),rail=document.getElementById('navRail');
+  if(nb){nb.style.display=(id==='v-title')?'none':'flex';nb.classList.remove('open');}
+  if(rail)rail.style.display=(id==='v-title')?'none':'flex';
+  document.body.classList.remove('nav-open');}
 
 const CROWS=[
   {k:'sex',lbl:'GENDER',kind:'text',vals:SEXES},
@@ -1096,8 +1115,12 @@ function calcCal(){
 }
 
 // --- extras wiring ---
-document.getElementById('navFly').addEventListener('click',()=>{show('v-map');drawMap();});
+function setQuickNav(open){document.getElementById('navbar').classList.toggle('open',open);document.body.classList.toggle('nav-open',open);}
+document.getElementById('navRail').addEventListener('click',()=>setQuickNav(true));
+document.getElementById('navClose').addEventListener('click',()=>setQuickNav(false));
+document.getElementById('navFly').addEventListener('click',()=>{setQuickNav(false);show('v-map');drawMap();});
 document.getElementById('navHome').addEventListener('click',()=>{
+  setQuickNav(false);
   if(document.getElementById('v-create').style.display==='block'){
     AV.name=(document.getElementById('nameInput').value||'BRANDON').toUpperCase().slice(0,10);saveAv(AV);
   }
