@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-2333';
+const BUILD='b20260910-2350';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -416,7 +416,7 @@ const PROGRAMS=[
 const LEGACY=[
   {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
   {name:'POWER- BUILDING', url:'/powerbuilding-system/', key:'pbsys-v1', color:'#c8262b', icon:'barbell'},
-  {name:'ESSENTIALS 3X/WK', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'},
+  {name:'MVD', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'potion'}, /* MVD rebrand 2026-09-10: his Essentials recreation = minimum viable dose minimalist; key+url unchanged so logged days carry over */
   {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
 ];
 const ITEMS=[
@@ -615,6 +615,7 @@ function drawIcon(cid, kind, color){
   else if(kind==='flame'){P(ctx,7,0,3,4,color,s);P(ctx,5,3,7,5,color,s);P(ctx,4,6,8,4,color,s);P(ctx,6,8,5,5,cd,s);P(ctx,7,10,3,3,cl,s);P(ctx,9,2,2,2,color,s);}
   else if(kind==='shield'){P(ctx,3,1,10,3,color,s);P(ctx,3,4,10,5,color,s);P(ctx,4,9,8,2,color,s);P(ctx,5,11,6,2,cd,s);P(ctx,7,13,2,2,cd,s);P(ctx,4,2,2,7,cl,s);P(ctx,7,3,2,9,cd,s);}
   else if(kind==='rock'){P(ctx,5,3,7,3,color,s);P(ctx,3,6,10,6,color,s);P(ctx,4,12,8,2,cd,s);P(ctx,10,6,2,4,cd,s);P(ctx,5,4,3,2,cl,s);P(ctx,4,8,2,3,cl,s);}
+  else if(kind==='potion'){P(ctx,7,0,2,2,'#8a5a30',s);P(ctx,7,0,1,1,'#a87848',s);P(ctx,6,2,4,3,color,s);P(ctx,5,5,6,2,color,s);P(ctx,4,7,8,6,color,s);P(ctx,5,13,6,2,color,s);P(ctx,5,9,6,4,cd,s);P(ctx,6,13,4,1,cd,s);P(ctx,5,6,1,5,cl,s);P(ctx,9,10,1,1,cl,s);}
   else {P(ctx,7,1,2,10,'#8a5a30',s);P(ctx,7,1,1,10,'#a87848',s);P(ctx,4,10,8,4,color,s);P(ctx,5,14,6,2,cd,s);P(ctx,4,10,8,1,cl,s);P(ctx,5,0,6,2,'#30364a',s);}
 }
 
