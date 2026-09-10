@@ -79,13 +79,19 @@ canvas{image-rendering:pixelated;display:block}
 .wk-pip.on{border-color:#000}
 .wk-day.today{color:#0e1230}
 .wk-day.today .wk-pip{outline:2px solid #2848c0;outline-offset:1px}
-#pop{position:fixed;inset:0;background:rgba(10,12,32,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:24px}
-#pop .card{background:var(--paper);border:4px solid #000;box-shadow:6px 6px 0 rgba(0,0,0,.45);padding:14px;max-width:320px;text-align:center}
+#pop,#gatepop{position:fixed;inset:0;background:rgba(10,12,32,.85);z-index:60;display:none;align-items:center;justify-content:center;padding:24px}
+#pop .card,#gatepop .card{background:var(--paper);border:4px solid #000;box-shadow:6px 6px 0 rgba(0,0,0,.45);padding:14px;max-width:320px;text-align:center}
+#gatepop .card{background:linear-gradient(135deg,#fff8d8,#ffe8f4 45%,#e8f4ff);border-color:#c8a028;box-shadow:0 0 26px 6px rgba(248,184,0,.6),6px 6px 0 rgba(0,0,0,.45)}
+#gatepop .pbanner{padding:4px 2px}
 #pop .ptitle{font-size:11px;letter-spacing:1px}
 #pop .prar{font-size:7px;letter-spacing:2px;margin-top:2px}
 #pop .pbanner{font-size:8px;letter-spacing:2px;margin-bottom:6px}
 #pop .pdesc{font-size:8px;line-height:1.9;margin-top:10px;color:#3a3f50}
 #pop .phint{font-size:6px;color:#8890a8;margin-top:12px;letter-spacing:1px}
+.tile.locked{filter:grayscale(1);opacity:.55}
+.tile.locked .go{background:#5c648f !important;color:#e8e8f0 !important;text-shadow:none}
+.gatein{width:100%;font-family:inherit;font-size:10px;padding:8px;margin-top:10px;border:3px solid #000;background:#fff;box-sizing:border-box;text-transform:uppercase}
+.gateerr{font-size:7px;color:var(--red);margin-top:6px;min-height:10px}
 #pop.myth .card{border-color:#c8a028;box-shadow:0 0 26px 6px rgba(248,184,0,.6),6px 6px 0 rgba(0,0,0,.45)}
 #pop.myth .ptitle{color:#b020a8}
 .rar-mythical{color:#b020a8}
@@ -358,6 +364,7 @@ canvas{image-rendering:pixelated;display:block}
 <button id="fbbubble" title="Send feedback">&#128172;</button>
 <div id="fbpanel"><div style="font-size:9px;margin-bottom:6px">FEEDBACK FOR THE CREATORS</div><input id="fbName" maxlength="20" placeholder="NAME (OPTIONAL)"><textarea id="fbMsg" maxlength="500" placeholder="What should we add or fix?"></textarea><button class="btn-red" id="fbSend" style="width:100%;margin-top:6px">SEND IT</button><div class="small" id="fbNote" style="margin-top:6px;color:#aeb6e8"></div></div>
 <div id="pop"><div class="card"><div class="pbanner rar-mythical" id="popBanner" style="display:none">BETA RELIC ACQUIRED</div><div class="ptitle" id="popTitle"></div><div class="prar" id="popRar"></div><canvas id="popCv" width="64" height="64" style="margin:8px auto 0"></canvas><div class="pdesc" id="popDesc"></div><div class="phint">TAP ANYWHERE TO CLOSE</div></div></div>
+<div id="gatepop"><div class="card"><div class="pbanner" style="display:block;background:var(--gold);color:#0e1230;text-shadow:none">MARKETPLACE - COMING SOON</div><div class="ptitle" id="gateTitle"></div><div class="pdesc">WOAH. BRO. You need to pay for this one on the marketplace.<br>COMING SOON.</div><input class="gatein" id="gatePw" maxlength="32" placeholder="PASSWORD" autocomplete="off"><div class="gateerr" id="gateErr"></div><button class="btn-red" id="gateGo" style="width:100%;margin-top:6px">UNLOCK</button><div class="phint">TAP OUTSIDE TO CLOSE</div></div></div>
 <div id="evo">
   <div class="msg" id="evoMsg">What?</div>
   <canvas id="evoCanvas" width="192" height="240"></canvas>
@@ -366,7 +373,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260909-2047';
+const BUILD='b20260910-1304';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -710,6 +717,27 @@ function showItemPop(it,isBeta){
   drawItem(ctx,it.id,4);
 }
 document.getElementById('pop').addEventListener('click',()=>{document.getElementById('pop').style.display='none';});
+/* --- PAID PROGRAM GATE (LEGACY vault) --- */
+const PAYGATE_HASH='651c5f3dfb8f8e69dc4fbe8d3bcb30b6baa0cf96ece72003236a9d38d680a8f1';
+function paygateKey(){return 'forge.hub.paygate.v1';}
+function isUnlocked(){return PAYGATE_HASH!=='__PENDING__'&&localStorage.getItem(paygateKey())===PAYGATE_HASH;}
+async function sha256hex(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+function showGate(name){
+  document.getElementById('gateTitle').textContent=name;
+  document.getElementById('gateErr').textContent='';
+  document.getElementById('gatePw').value='';
+  document.getElementById('gatepop').style.display='flex';
+  setTimeout(()=>document.getElementById('gatePw').focus(),60);
+}
+async function tryGate(){
+  const v=document.getElementById('gatePw').value.trim();if(!v)return;
+  const h=await sha256hex(v);
+  if(h===PAYGATE_HASH){localStorage.setItem(paygateKey(),h);document.getElementById('gatepop').style.display='none';renderHome();}
+  else{document.getElementById('gateErr').textContent='NOPE. WRONG CODE, BRO.';}
+}
+document.getElementById('gateGo').addEventListener('click',tryGate);
+document.getElementById('gatePw').addEventListener('keydown',(e)=>{if(e.key==='Enter')tryGate();});
+document.getElementById('gatepop').addEventListener('click',(e)=>{if(e.target.id==='gatepop')document.getElementById('gatepop').style.display='none';});
 /* --- BETA RELIC: one-time mythical login reward --- */
 function checkBetaRelic(){if(AV.items&&AV.items.firstscoop>0)return false;AV.items.firstscoop=1;saveAv(AV);return true;}
 
@@ -740,10 +768,14 @@ function renderHome(){
     const d=daysFor(p.key);
     const a=document.createElement('a');
     a.className='tile';a.href=p.url;
+    if(LEGACY.includes(p)&&!isUnlocked()){
+      a.classList.add('locked');a.removeAttribute('href');
+      a.addEventListener('click',(e)=>{e.preventDefault();showGate(p.name);});
+    }
     a.innerHTML='<canvas id="tic'+ti+'" width="64" height="64" style="margin:0 auto"></canvas>'+
       '<div class="tname">'+p.name+'</div>'+
       '<div class="tdays">'+d+' DAY'+(d===1?'':'S')+' LOGGED</div>'+
-      '<span class="go" style="background:'+p.color+';'+(p.dark?'color:#0e1230;text-shadow:none':'')+'">OPEN &#9654;</span>';
+      '<span class="go" style="background:'+p.color+';'+(p.dark?'color:#0e1230;text-shadow:none':'')+'">'+((LEGACY.includes(p)&&!isUnlocked())?'LOCKED':'OPEN &#9654;')+'</span>';
     tiles.appendChild(a);
     drawIcon('tic'+ti, p.icon, p.color);
     ti++;
