@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-1933';
+const BUILD='b20260910-2333';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -805,7 +805,7 @@ function renderHome(){
   lh.style.cssText='width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:#8f96c8;margin:14px 0 2px';
   lh.textContent='- LEGACY VAULT -';
   tiles.appendChild(lh);
-  LEGACY.forEach(addTile);
+  LEGACY.filter(p=>p.key!=='trenched2.v1').forEach(addTile); /* marketplace scrub 2026-09-10: Trench pulled from sale; key kept in LEGACY so his logged Trench days still count in totalDays/progress */
   renderWeek();
   renderLoot();
   renderBag();
