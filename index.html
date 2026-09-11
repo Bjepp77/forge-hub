@@ -1185,7 +1185,6 @@ Object.keys(MAPNODES).forEach(id=>{
 // init
 drawAvatar('titleAvatar', AV, 3);
 show('v-title');
-if(location.hash==='#university'){try{if(loadAv()&&loadAv().name){renderHome();renderResearchDesk();renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}}catch(e){}}
 /* Baked-in gym-staple food dataset (values derived from USDA FoodData Central, public domain).
    Per listed serving. p/c/f in grams, k in kcal. */
 const FOODS=[
@@ -1542,6 +1541,7 @@ document.getElementById('theaterBack').addEventListener('click',()=>show('v-map'
 
 document.getElementById('univBack').addEventListener('click',()=>show('v-map'));
 hookCalcTargets();
+if(location.hash==='#university'){try{if(loadAv()&&loadAv().name){renderHome();renderResearchDesk();renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}}catch(e){}}
 
 </script>
 </body>
