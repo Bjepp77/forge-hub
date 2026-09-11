@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260911-0013';
+const BUILD='b20260911-0016';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -410,7 +410,7 @@ const STAGES=[
 const PROGRAMS=[
   {name:'FURNACE', url:'/furnace/', key:'forge.furnace.v1', color:'#ff7a2f', icon:'flame'},
   {name:'IRONCLAD', url:'/ironclad/', key:'forge.ironclad.v1', color:'#5fb4ff', icon:'shield'},
-  {name:'BEDROCK', url:'/bedrock/', key:'forge.bedrock.v1', color:'#9dc88d', icon:'rock'},
+  {name:'FOUNDATIONS', url:'/bedrock/', key:'forge.bedrock.v1', color:'#9dc88d', icon:'rock'}, /* renamed 2026-09-11 per his pick: BEDROCK survives as FOUNDATIONS, the minimalist custom; key+url unchanged */
 ];
 /* === LEGACY LAYER - temporary, quarantined. Rip-cord: delete this block + the legacy repos, republish. === */
 const LEGACY=[
@@ -418,8 +418,8 @@ const LEGACY=[
   {name:'ESSENTIALS 3X/WK', url:'/essentials-tracker/original/', key:'ess3x-jeff.v1', color:'#2f7cc4', icon:'bolt'}, /* Jeff's original Essentials (pre-Trench snapshot, attribution intact, own store) */
   {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
   {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
-  {name:'MY ESSENTIALS (3X A WEEK)', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'}, /* transitional: his recreation; moves to custom tier or retires on his minimalist pick */
 ];
+const RETIRED=[{key:'ess3x-v1'}]; /* My Essentials (3x a week) retired 2026-09-11 (lost minimalist slot to FOUNDATIONS): tile removed, key kept so his logged days still count in totals; tracker stays live at /essentials-tracker/ so his history remains viewable/exportable there */
 const ITEMS=[
   {id:'shaker', name:'SHAKER', rar:'common', desc:'BRO. This chalice has emulsified ten thousand scoops without a single clump. They say the whisk ball was forged from a collapsed neutron plate. Respect the rattle.'},
   {id:'energy', name:'NRG DRINK', rar:'common', desc:'Liquid electricity, bro. One sip and your eyelids file for divorce. The can is only cold because the gains inside are THAT hot.'},
@@ -452,7 +452,7 @@ function daysFor(key){
     return n;
   }catch(e){return 0}
 }
-function totalDays(){return PROGRAMS.concat(LEGACY).reduce((a,p)=>a+daysFor(p.key),0);}
+function totalDays(){return PROGRAMS.concat(LEGACY).concat(RETIRED).reduce((a,p)=>a+daysFor(p.key),0);}
 function stageFor(days){let s=0;STAGES.forEach((st,i)=>{if(days>=st.min)s=i;});return s;}
 
 // --- loot: one roll per newly-logged day since last visit ---
@@ -698,7 +698,7 @@ function wkLoad(){try{const s=JSON.parse(localStorage.getItem(WKKEY));if(s&&s.v=
 function wkSave(s){try{localStorage.setItem(WKKEY,JSON.stringify(s));}catch(e){}}
 function isoDay(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function syncWeek(){
-  const keys=PROGRAMS.concat(LEGACY).map(p=>p.key);
+  const keys=PROGRAMS.concat(LEGACY).concat(RETIRED).map(p=>p.key);
   let w=wkLoad();
   if(!w){w={v:1,days:{},snap:{}};keys.forEach(k=>w.snap[k]=daysFor(k));wkSave(w);return;}
   const t=isoDay(new Date());
@@ -882,7 +882,7 @@ function strLoadHub(){try{const s=JSON.parse(localStorage.getItem('forge.hub.str
 function strBest(pat,neg){const s=strLoadHub();let best=0;for(const k in s.ex){if(k.indexOf(pat)<0)continue;if(neg&&k.indexOf(neg)>=0)continue;best=Math.max(best,s.ex[k].w||0);}return best;}
 function trophyData(){
   const days=totalDays();
-  const perProg=PROGRAMS.concat(LEGACY).map(p=>daysFor(p.key));
+  const perProg=PROGRAMS.concat(LEGACY).concat(RETIRED).map(p=>daysFor(p.key));
   const used=perProg.filter(d=>d>0).length;
   const bench=strBest('BENCH PRESS'), squat=strBest('SQUAT','SPLIT'), dead=strBest('DEADLIFT','ROMANIAN');
   const sk=skLoad();
