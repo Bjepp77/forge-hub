@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260911-0002';
+const BUILD='b20260911-0013';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -414,10 +414,11 @@ const PROGRAMS=[
 ];
 /* === LEGACY LAYER - temporary, quarantined. Rip-cord: delete this block + the legacy repos, republish. === */
 const LEGACY=[
-  {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
   {name:'POWER- BUILDING', url:'/powerbuilding-system/', key:'pbsys-v1', color:'#c8262b', icon:'barbell'},
-  {name:'MY ESSENTIALS (3X A WEEK)', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'}, /* 2026-09-10: his Essentials recreation, named per his memo; key+url unchanged so logs carry over */
+  {name:'ESSENTIALS 3X/WK', url:'/essentials-tracker/original/', key:'ess3x-jeff.v1', color:'#2f7cc4', icon:'bolt'}, /* Jeff's original Essentials (pre-Trench snapshot, attribution intact, own store) */
   {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
+  {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
+  {name:'MY ESSENTIALS (3X A WEEK)', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'}, /* transitional: his recreation; moves to custom tier or retires on his minimalist pick */
 ];
 const ITEMS=[
   {id:'shaker', name:'SHAKER', rar:'common', desc:'BRO. This chalice has emulsified ten thousand scoops without a single clump. They say the whisk ball was forged from a collapsed neutron plate. Respect the rattle.'},
