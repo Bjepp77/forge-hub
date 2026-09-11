@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260911-0031';
+const BUILD='b20260911-0210';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -805,7 +805,7 @@ function renderHome(){
   };
   PROGRAMS.forEach(addTile);
   const lh=document.createElement('div');
-  lh.style.cssText='width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:#8f96c8;margin:14px 0 2px';
+  lh.style.cssText='grid-column:1/-1;width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:#8f96c8;margin:14px 0 2px';
   lh.textContent='- THE MARKETPLACE -';
   tiles.appendChild(lh);
   LEGACY.forEach(addTile); /* 2026-09-10 reversal: Trench scrub UNDONE per his ruling - Jeff's originals stay live in the marketplace */
