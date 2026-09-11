@@ -256,7 +256,7 @@ canvas{image-rendering:pixelated;display:block}
       <button class="htab" id="editAvatar">EDIT TRAINER</button>
       <button class="htab" id="skillBtn">SKILL CHECK</button>
       <button class="htab" id="gainsBtn">GAINS LEDGER</button>
-      <span class="small" style="color:#aeb6e8">3 FORGE + LEGACY VAULT</span>
+      <span class="small" style="color:#aeb6e8">3 FORGE + THE MARKETPLACE</span>
     </div>
     <div class="marq">PROGRESS SAVES ON THIS DEVICE.<br>FINISH WORKOUTS, EARN GEAR.<br>YOUR TRAINER GAINS SIZE WITH EVERY DAY. <span class="stars">*</span></div>
   </section>
@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260910-2350';
+const BUILD='b20260911-0002';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -416,7 +416,7 @@ const PROGRAMS=[
 const LEGACY=[
   {name:'TRENCHED', url:'/trenched-tracker/', key:'trenched2.v1', color:'#D8F651', dark:true, icon:'shovel'},
   {name:'POWER- BUILDING', url:'/powerbuilding-system/', key:'pbsys-v1', color:'#c8262b', icon:'barbell'},
-  {name:'MVD', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'potion'}, /* MVD rebrand 2026-09-10: his Essentials recreation = minimum viable dose minimalist; key+url unchanged so logged days carry over */
+  {name:'MY ESSENTIALS (3X A WEEK)', url:'/essentials-tracker/', key:'ess3x-v1', color:'#2f7cc4', icon:'bolt'}, /* 2026-09-10: his Essentials recreation, named per his memo; key+url unchanged so logs carry over */
   {name:'PURE BODY- BUILDING', url:'/pure-bodybuilding-tracker/', key:'pbbfb-v1', color:'#c4372f', icon:'arm'},
 ];
 const ITEMS=[
@@ -804,9 +804,9 @@ function renderHome(){
   PROGRAMS.forEach(addTile);
   const lh=document.createElement('div');
   lh.style.cssText='width:100%;text-align:center;font-size:10px;letter-spacing:2px;color:#8f96c8;margin:14px 0 2px';
-  lh.textContent='- LEGACY VAULT -';
+  lh.textContent='- THE MARKETPLACE -';
   tiles.appendChild(lh);
-  LEGACY.filter(p=>p.key!=='trenched2.v1').forEach(addTile); /* marketplace scrub 2026-09-10: Trench pulled from sale; key kept in LEGACY so his logged Trench days still count in totalDays/progress */
+  LEGACY.forEach(addTile); /* 2026-09-10 reversal: Trench scrub UNDONE per his ruling - Jeff's originals stay live in the marketplace */
   renderWeek();
   renderLoot();
   renderBag();
