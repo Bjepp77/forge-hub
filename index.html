@@ -256,7 +256,7 @@ canvas{image-rendering:pixelated;display:block}
       <button class="htab" id="editAvatar">EDIT TRAINER</button>
       <button class="htab" id="skillBtn">SKILL CHECK</button>
       <button class="htab" id="gainsBtn">GAINS LEDGER</button>
-      <span class="small" style="color:#aeb6e8">3 FORGE + THE MARKETPLACE</span>
+      <span class="small" style="color:#aeb6e8">4 FORGE + THE MARKETPLACE</span>
     </div>
     <div class="marq">PROGRESS SAVES ON THIS DEVICE.<br>FINISH WORKOUTS, EARN GEAR.<br>YOUR TRAINER GAINS SIZE WITH EVERY DAY. <span class="stars">*</span></div>
   </section>
@@ -391,7 +391,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260911-0016';
+const BUILD='b20260911-0031';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -411,6 +411,7 @@ const PROGRAMS=[
   {name:'FURNACE', url:'/furnace/', key:'forge.furnace.v1', color:'#ff7a2f', icon:'flame'},
   {name:'IRONCLAD', url:'/ironclad/', key:'forge.ironclad.v1', color:'#5fb4ff', icon:'shield'},
   {name:'FOUNDATIONS', url:'/bedrock/', key:'forge.bedrock.v1', color:'#9dc88d', icon:'rock'}, /* renamed 2026-09-11 per his pick: BEDROCK survives as FOUNDATIONS, the minimalist custom; key+url unchanged */
+  {name:'SWOLE', url:'/swole-tracker/', key:'forge.swole.v1', color:'#c86bff', icon:'potion'}, /* fresh hypertrophy build on the PB tracker format, influenced by PBB - name approved 2026-09-11 */
 ];
 /* === LEGACY LAYER - temporary, quarantined. Rip-cord: delete this block + the legacy repos, republish. === */
 const LEGACY=[
@@ -693,7 +694,7 @@ function renderBag(){
 
 /* --- WEEK TRACKER (hub-side: credits newly-logged days to today, per program) --- */
 const WKKEY='forge.hub.week.v1';
-const WKTAGS={'forge.furnace.v1':['FUR','#ff7a2f'],'forge.ironclad.v1':['IRO','#5fb4ff'],'forge.bedrock.v1':['BED','#9dc88d'],'trenched2.v1':['TRN','#D8F651'],'pbsys-v1':['PWR','#c8262b'],'ess3x-v1':['ESS','#2f7cc4'],'pbbfb-v1':['PBB','#c4372f']};
+const WKTAGS={'forge.furnace.v1':['FUR','#ff7a2f'],'forge.ironclad.v1':['IRO','#5fb4ff'],'forge.bedrock.v1':['BED','#9dc88d'],'forge.swole.v1':['SWO','#c86bff'],'trenched2.v1':['TRN','#D8F651'],'pbsys-v1':['PWR','#c8262b'],'ess3x-v1':['ESS','#2f7cc4'],'pbbfb-v1':['PBB','#c4372f']};
 function wkLoad(){try{const s=JSON.parse(localStorage.getItem(WKKEY));if(s&&s.v===1)return s;}catch(e){}return null;}
 function wkSave(s){try{localStorage.setItem(WKKEY,JSON.stringify(s));}catch(e){}}
 function isoDay(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
