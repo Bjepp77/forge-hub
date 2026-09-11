@@ -374,6 +374,7 @@ canvas{image-rendering:pixelated;display:block}
   </section>
   <section id="v-university" style="display:none">
     <div class="pagetop"><h2>UNIVERSITY</h2><span class="sub">SCHOOL OF IRON - LEARN THE WHY</span></div>
+    <div class="panel" style="margin-top:10px" id="univDesk"></div>
     <div class="panel" style="margin-top:10px" id="univBody"></div>
     <div style="text-align:center;margin-top:8px"><button class="backlink" id="univBack">&lt; BACK TO MAP</button></div>
   </section>
@@ -391,7 +392,7 @@ canvas{image-rendering:pixelated;display:block}
 <script>
 // ===== FORGE v2 (16-bit) =====
 const AKEY='forge.hub.v1';
-const BUILD='b20260911-0210';
+const BUILD='b20260911-0405';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -1165,7 +1166,7 @@ const MAPNODES={
   'node-radio':['RADIO TOWER','NOW SPINNING',()=>{radioRender();show('v-radio');}],
   'node-supp':['SUPP SHOP','WHAT WORKS',()=>{renderSupps();show('v-supp');}],
   'node-theater':['THEATER','HYPE REELS',()=>{renderStage();show('v-theater');}],
-  'node-univ':['UNIVERSITY','SCHOOL OF IRON',()=>{renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}],
+  'node-univ':['UNIVERSITY','SCHOOL OF IRON',()=>{renderResearchDesk();renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}],
 };
 let mapSel=null;
 function mapPlateSet(n,s){document.getElementById('mpName').textContent=n;document.getElementById('mpSub').textContent=s;}
@@ -1184,6 +1185,7 @@ Object.keys(MAPNODES).forEach(id=>{
 // init
 drawAvatar('titleAvatar', AV, 3);
 show('v-title');
+if(location.hash==='#university'){try{if(loadAv()&&loadAv().name){renderHome();renderResearchDesk();renderVidShelves('univBody',UNIV_SHELVES,UNIV_VIDEOS,'Syllabus in the mail. First lectures drop soon.');show('v-university');}}catch(e){}}
 /* Baked-in gym-staple food dataset (values derived from USDA FoodData Central, public domain).
    Per listed serving. p/c/f in grams, k in kcal. */
 const FOODS=[
@@ -1446,6 +1448,67 @@ function renderStage(){
   });
   document.getElementById('vidShuffle').onclick=()=>{const cards=[...body.querySelectorAll('.stageCard')];const c=cards[Math.floor(Math.random()*cards.length)];if(c){c.scrollIntoView({behavior:'smooth'});}};
 }
+const RESEARCH=[
+  {g:'THE DOSE - VOLUME &amp; FREQUENCY',items:[
+    {c:'VOL',t:'Weekly volume drives growth, graded',a:'Schoenfeld, Ogborn &amp; Krieger - J Sports Sci, 2017',f:'Graded dose-response: more weekly sets, more growth. Higher volumes outgrew lower ones - the ceiling is recovery, not the clock.',u:'https://pubmed.ncbi.nlm.nih.gov/27433992/'},
+    {c:'FREQ',t:'Frequency: 2x+ a week beats 1x',a:'Schoenfeld, Ogborn &amp; Krieger - Sports Med, 2016',f:'Training a muscle at least twice a week outgrew once a week. Frequency is a delivery system for volume, not magic.',u:'https://pubmed.ncbi.nlm.nih.gov/27102172/'},
+    {c:'FREQ-STR',t:'Frequency &amp; strength: split it how you like',a:'Grgic et al. - Sports Med, 2018',f:'With weekly volume equated, training frequency shows little effect on strength gains. Program the week you can actually keep.',u:'https://pubmed.ncbi.nlm.nih.gov/29470825/'},
+    {c:'MIN-DOSE',t:'The minimum effective dose',a:'Iversen, Norum, Schoenfeld &amp; Fimland - Sports Med, 2021',f:'You can grow on a tight clock: bilateral multi-joint lifts, a handful of hard sets per muscle per week, warm-ups kept specific. The FOUNDATIONS blueprint.',u:'https://pubmed.ncbi.nlm.nih.gov/34125411/'},
+  ]},
+  {g:'EFFORT - HOW HARD TO PUSH',items:[
+    {c:'RIR',t:'Closer to failure: small dose-response for size, none for strength',a:'Robinson et al. - Sports Med, 2024',f:'Exploratory meta-regression: hypertrophy trends up slightly as sets approach failure; strength gains show no such relationship. Most of the growth is already there at 1-3 RIR.',u:'https://pubmed.ncbi.nlm.nih.gov/38970765/'},
+    {c:'FAILURE',t:'Failure vs stopping short: a trivial edge',a:'Refalo, Helms, Trexler, Hamilton &amp; Fyfe - Sports Med, 2023',f:'Training to failure showed only a trivial hypertrophy advantage over stopping short. Failure is a tool, not a requirement.',u:'https://pubmed.ncbi.nlm.nih.gov/36334240/'},
+    {c:'NO-FAIL',t:'Failure not critical when work is matched',a:'Sampson &amp; Groeller - Scand J Med Sci Sports, 2016',f:'Non-failure training matched failure training for size and strength over 12 weeks at 85% 1RM.',u:'https://pubmed.ncbi.nlm.nih.gov/25809472/'},
+    {c:'RPE',t:'The RIR-based RPE scale is valid',a:'Zourdos et al. - J Strength Cond Res, 2016',f:'Lifters rate reps-in-reserve accurately - and more accurately the closer to failure they are. The table in your Guide is this scale.',u:'https://pubmed.ncbi.nlm.nih.gov/26049792/'},
+    {c:'RPE-USE',t:'Programming with RPE',a:'Helms, Cronin, Storey &amp; Zourdos - Strength Cond J, 2016',f:'How RIR-based RPE gets programmed: load auto-adjusts to your actual capacity, set to set, day to day.',u:'https://pubmed.ncbi.nlm.nih.gov/27531969/'},
+  ]},
+  {g:'REST &amp; RECOVERY',items:[
+    {c:'REST',t:'Longer rests win',a:'Schoenfeld et al. - J Strength Cond Res, 2016',f:'3-minute rests beat 1-minute rests for both strength and size in trained men over 8 weeks. Short rests are a clock strategy, not a growth strategy.',u:'https://pubmed.ncbi.nlm.nih.gov/26605807/'},
+    {c:'DELOAD',t:'How athletes actually deload',a:'Rogerson et al. - Sports Med Open, 2024',f:'Across 246 strength and physique athletes: about a week, roughly every 5-6 weeks, around half the work - planned, or when performance stalls.',u:'https://pubmed.ncbi.nlm.nih.gov/38499934/'},
+    {c:'SLEEP',t:'Sleep is the top recovery lever',a:'Bonnar, Bartel, Kakoschke &amp; Lang - Sports Med, 2018',f:'Sleep is crucial for physiological and psychological recovery; extending sleep improved subsequent athletic performance. Rest days are in the program on purpose.',u:'https://pubmed.ncbi.nlm.nih.gov/29352373/'},
+    {c:'ROLL',t:'Foam rolling: small, real, optional',a:'Wiewelhove et al. - Front Physiol, 2019',f:'Meta-analysis: small acute flexibility gains, trivial performance effects, some soreness relief after. A nice-to-have, not a requirement.',u:'https://pubmed.ncbi.nlm.nih.gov/31024339/'},
+  ]},
+  {g:'RANGE &amp; TECHNIQUE',items:[
+    {c:'LENGTH',t:'Long-length partials grow more',a:'Pedrosa et al. - Eur J Sport Sci, 2022',f:'Partial reps in the lengthened position produced greater quad hypertrophy than short-length partials - competitive with full ROM. The stretched half is money.',u:'https://pubmed.ncbi.nlm.nih.gov/33977835/'},
+    {c:'LENGTH-2',t:'Calves confirm it',a:'Kassiano et al. - J Strength Cond Res, 2023',f:'Calf raises at long muscle lengths outgrew both short-length partials and full ROM. Train muscles long.',u:'https://pubmed.ncbi.nlm.nih.gov/37015016/'},
+    {c:'STRETCH',t:'Stretch-mediated growth: real but impractical',a:'Warneke et al. - Front Physiol, 2022',f:'An hour of daily static stretching for 6 weeks grew muscle and strength in humans. The principle is real, the dose is brutal - loaded-stretch work borrows it in seconds.',u:'https://pubmed.ncbi.nlm.nih.gov/35694390/'},
+    {c:'TEMPO',t:'Rep speed: control beats counting',a:'Schoenfeld, Ogborn &amp; Krieger - Sports Med, 2015',f:'Tempos from about 0.5 to 8 seconds per rep produced similar hypertrophy; grinding past ~10 seconds is worse. Control the weight; don\'t count seconds.',u:'https://pubmed.ncbi.nlm.nih.gov/25601394/'},
+    {c:'WARMUP',t:'Warming up works',a:'Fradkin, Zazryn &amp; Smoliga - J Strength Cond Res, 2010',f:'Meta-analysis: warming up improved performance in the large majority of outcomes studied. Short, specific, done.',u:'https://pubmed.ncbi.nlm.nih.gov/19996770/'},
+  ]},
+  {g:'PROGRESSION',items:[
+    {c:'OVERLOAD',t:'Reps or load: both levers work',a:'Plotkin et al. - PeerJ, 2022',f:'Progressing reps vs progressing load produced similar hypertrophy and strength over 8 weeks. Double progression pulls both.',u:'https://pubmed.ncbi.nlm.nih.gov/36199287/'},
+    {c:'LOADS',t:'Heavy for strength, any load for size',a:'Schoenfeld, Grgic, Ogborn &amp; Krieger - J Strength Cond Res, 2017',f:'Light and heavy loads built similar muscle when sets were hard; maximal strength still requires heavy loads. Rep ranges are a spectrum, not silos.',u:'https://pubmed.ncbi.nlm.nih.gov/28834797/'},
+    {c:'PERIOD',t:'Periodized beats non-periodized',a:'Rhea &amp; Alderman - Res Q Exerc Sport, 2004',f:'Meta-analysis: planned variation outperformed running one gear for strength and power. Waves, not flatlines.',u:'https://pubmed.ncbi.nlm.nih.gov/15673040/'},
+    {c:'VARIETY',t:'Exercise variety: adherence, not extra growth',a:'Baz-Valle, Schoenfeld et al. - PLoS ONE, 2019',f:'Rotating exercises matched fixed exercises for size and strength, with higher motivation. Variety keeps you showing up - it doesn\'t restart growth.',u:'https://pubmed.ncbi.nlm.nih.gov/31881066/'},
+    {c:'TENSION',t:'Tension is the driver',a:'Schoenfeld - J Strength Cond Res, 2010',f:'The mechanisms review: mechanical tension is the primary driver of hypertrophy; metabolic stress is a supporting actor at best. Load the muscle, progress it.',u:'https://pubmed.ncbi.nlm.nih.gov/20847704/'},
+  ]},
+  {g:'INTENSITY TECHNIQUES',items:[
+    {c:'DROP-SETS',t:'Drop sets &amp; rest-pause: same muscle, less time',a:'Enes et al. - Appl Physiol Nutr Metab, 2022',f:'Matched for volume, drop sets and rest-pause grew the same muscle as traditional sets (rest-pause even won squat 1RM). Time-savers, not cheat codes.',u:'https://pubmed.ncbi.nlm.nih.gov/34260860/'},
+  ]},
+  {g:'THE CUT',items:[
+    {c:'CUT',t:'Lifting while dieting keeps the muscle',a:'Binmahfoz, Dighriri, Gray &amp; Gray - BMJ Open SEM, 2025',f:'Across 25 randomized trials, resistance exercise during dietary weight loss preserved lean mass and strength. The whole point of FURNACE.',u:'https://pubmed.ncbi.nlm.nih.gov/40909191/'},
+    {c:'PROTEIN',t:'Protein: the plateau number',a:'Morton et al. - Br J Sports Med, 2018',f:'Protein augmented training gains, with benefits plateauing around 1.6 g/kg/day. Hit it; the program handles the rest.',u:'https://pubmed.ncbi.nlm.nih.gov/28698222/'},
+    {c:'DIET-BREAK',t:'Diet breaks work',a:'Byrne, Sainsbury, King, Hills &amp; Wood - Int J Obes, 2018',f:'MATADOR: alternating 2-week diet blocks with 2-week maintenance blocks improved weight-loss efficiency vs continuous dieting in obese men.',u:'https://pubmed.ncbi.nlm.nih.gov/28925405/'},
+  ]},
+];
+function renderResearchDesk(){
+  const el=document.getElementById('univDesk');if(!el)return;
+  let h='<div class="shelfname">THE RESEARCH DESK</div>';
+  h+='<div class="small" style="color:#5c648f;margin:2px 0 4px">EVERY CLAIM IN THE FORGE STOCK PROGRAMS, CHECKED AGAINST THE PEER-REVIEWED LITERATURE. 27 PAPERS - TAP ONE, READ THE SOURCE.</div>';
+  RESEARCH.forEach(gr=>{
+    h+='<div class="shelfname" style="margin-top:12px">'+gr.g+'</div>';
+    gr.items.forEach(it=>{
+      h+='<div style="border:2px solid #2a3160;background:#141833;padding:8px;margin-top:6px;box-shadow:4px 4px 0 #0a0c1c">';
+      h+='<div><span style="background:#c8262b;color:#fff;font-size:8px;padding:2px 6px;letter-spacing:.08em">'+it.c+'</span> <span style="color:#ffd23f;font-size:9px">'+it.t+'</span></div>';
+      h+='<div style="color:#aeb6e8;font-size:8px;margin-top:4px">'+it.a+'</div>';
+      h+='<div style="color:#e8e8f0;font-size:9px;margin-top:5px;line-height:1.5">'+it.f+'</div>';
+      h+='<a href="'+it.u+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;font-size:8px;color:#7ee081">READ THE PAPER &#8599;</a>';
+      h+='</div>';
+    });
+  });
+  el.innerHTML=h;
+}
+
 function renderVidShelves(bodyId,shelves,vids,emptyMsg){
   const body=document.getElementById(bodyId);let h='';
   shelves.forEach(sh=>{
