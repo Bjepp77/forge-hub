@@ -217,7 +217,7 @@ canvas{image-rendering:pixelated;display:block}
 <body>
 <div class="wrap">
   <section id="v-title" style="display:none">
-    <div class="logo">THE<br><span class="q">SWOLEQUEST</span></div>
+    <div class="logo"><span class="q">SWOLEQUEST</span></div>
     <div style="display:flex;justify-content:center;margin-top:26px"><canvas id="titleAvatar" width="192" height="240"></canvas></div>
     <div class="pressstart">- TAP TO START -</div>
     <div class="version">SWOLEQUEST EDITION v1.0 (16-BIT)</div>
@@ -391,8 +391,10 @@ canvas{image-rendering:pixelated;display:block}
 </div>
 <script>
 // ===== SWOLEQUEST v2 (16-bit) =====
-const AKEY='forge.hub.v1';
-const BUILD='b20260911-0731';
+const AKEY='swolequest.hub.v1';
+/* one-time key migration: forge.* -> swolequest.* (2026-09-11 rename) - covers hub + tracker keys, same origin */
+(function(){const M={'forge.hub.v1':'swolequest.hub.v1','forge.hub.week.v1':'swolequest.hub.week.v1','forge.hub.paygate.v1':'swolequest.hub.paygate.v1','forge.hub.skill.v1':'swolequest.hub.skill.v1','forge.hub.strength.v1':'swolequest.hub.strength.v1','forge.hub.feedback.v1':'swolequest.hub.feedback.v1','forge.hub.macrotargets.v1':'swolequest.hub.macrotargets.v1','forge.hub.macrolog.v1':'swolequest.hub.macrolog.v1','forge.furnace.v1':'swolequest.furnace.v1','forge.ironclad.v1':'swolequest.ironclad.v1','forge.bedrock.v1':'swolequest.bedrock.v1','forge.swole.v1':'swolequest.swole.v1'};for(const o in M){try{const v=localStorage.getItem(o);if(v!==null){if(localStorage.getItem(M[o])===null)localStorage.setItem(M[o],v);localStorage.removeItem(o);}}catch(e){}}})();
+const BUILD='b20260911-0930';
 (function(){try{fetch('v.txt?cb='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{t=(t||'').trim();if(t&&t!==BUILD&&t.indexOf('b20')===0)location.reload();}).catch(()=>{});}catch(e){}})();
 
 const SKINS=['#f8d0b0','#e8b088','#c08858','#8a5a30','#5c3a1e'];
@@ -409,10 +411,10 @@ const STAGES=[
   {min:35,name:'BEAST'},{min:60,name:'SWOLE'},{min:100,name:'ULTRA SWOLE'},
 ];
 const PROGRAMS=[
-  {name:'FURNACE', url:'/furnace/', key:'forge.furnace.v1', color:'#ff7a2f', icon:'flame'},
-  {name:'IRONCLAD', url:'/ironclad/', key:'forge.ironclad.v1', color:'#5fb4ff', icon:'shield'},
-  {name:'FOUNDATIONS', url:'/bedrock/', key:'forge.bedrock.v1', color:'#9dc88d', icon:'rock'}, /* renamed 2026-09-11 per his pick: BEDROCK survives as FOUNDATIONS, the minimalist custom; key+url unchanged */
-  {name:'SWOLE', url:'/swole-tracker/', key:'forge.swole.v1', color:'#c86bff', icon:'potion'}, /* fresh hypertrophy build on the PB tracker format, influenced by PBB - name approved 2026-09-11 */
+  {name:'FURNACE', url:'/furnace/', key:'swolequest.furnace.v1', color:'#ff7a2f', icon:'flame'},
+  {name:'IRONCLAD', url:'/ironclad/', key:'swolequest.ironclad.v1', color:'#5fb4ff', icon:'shield'},
+  {name:'FOUNDATIONS', url:'/bedrock/', key:'swolequest.bedrock.v1', color:'#9dc88d', icon:'rock'}, /* renamed 2026-09-11 per his pick: BEDROCK survives as FOUNDATIONS, the minimalist custom; key+url unchanged */
+  {name:'SWOLE', url:'/swole-tracker/', key:'swolequest.swole.v1', color:'#c86bff', icon:'potion'}, /* fresh hypertrophy build on the PB tracker format, influenced by PBB - name approved 2026-09-11 */
 ];
 /* === LEGACY LAYER - temporary, quarantined. Rip-cord: delete this block + the legacy repos, republish. === */
 const LEGACY=[
@@ -423,7 +425,7 @@ const LEGACY=[
 ];
 const RETIRED=[{key:'ess3x-v1'}]; /* My Essentials (3x a week) retired 2026-09-11 (lost minimalist slot to FOUNDATIONS): tile removed, key kept so his logged days still count in totals; tracker stays live at /essentials-tracker/ so his history remains viewable/exportable there */
 const ITEMS=[
-  {id:'shaker', name:'SHAKER', rar:'common', desc:'BRO. This chalice has emulsified ten thousand scoops without a single clump. They say the whisk ball was forged from a collapsed neutron plate. Respect the rattle.'},
+  {id:'shaker', name:'SHAKER', rar:'common', desc:'BRO. This chalice has emulsified ten thousand scoops without a single clump. They say the whisk ball was pressed from a collapsed neutron plate. Respect the rattle.'},
   {id:'energy', name:'NRG DRINK', rar:'common', desc:'Liquid electricity, bro. One sip and your eyelids file for divorce. The can is only cold because the gains inside are THAT hot.'},
   {id:'pre',    name:'PRE-WORKOUT', rar:'common', desc:'Bro this is not a drink, this is a legal potion. The tingles are just your muscles loading. Side effects include PRs, tunnel vision, and reracking plates you do not own.'},
   {id:'foam',   name:'FOAM ROLLER', rar:'common', desc:'Bro, the pain cylinder. You roll on it, it ruins your life, you crawl back tomorrow. That is love. IT bands fear it. Tears hydrate it.'},
@@ -435,7 +437,7 @@ const ITEMS=[
   {id:'phones', name:'HEADPHONES', rar:'rare', desc:'Bro, the focus helmets. Once these go on the gym ceases to exist. Just you, the bar, and a playlist that makes your deadlift sentient.'},
   {id:'gold',   name:'GOLD DUMBBELL', rar:'rare', desc:'THE GOLD DUMBBELL, bro. Too heavy to lift, too beautiful to sell. It just sits there radiating alpha. Future archaeologists will find it and know a legend trained here.'},
   {id:'pizza',  name:'CHEAT MEAL', rar:'rare', desc:'Bro. The sacred cheat meal. Eight slices of bulking strategy. Carbs go straight to the quads, that is just science, do not look it up.'},
-  {id:'firstscoop', name:'THE FIRST SCOOP', rar:'mythical', desc:'BRO. THE FIRST SCOOP. They say it fell from the heavens the day the first gym opened, already heaping. Every scoop since is just a tribute act. You were here at the beginning - beta forged, eternally swole.'},
+  {id:'firstscoop', name:'THE FIRST SCOOP', rar:'mythical', desc:'BRO. THE FIRST SCOOP. They say it fell from the heavens the day the first gym opened, already heaping. Every scoop since is just a tribute act. You were here at the beginning - beta tested, eternally swole.'},
 ];
 
 function defaults(){return {v:4,name:'BRANDON',sex:0,style:0,startStage:1,pose:0,skin:0,hair:1,hairc:0,beard:0,glasses:0,outfit:1,outc:0,items:{},lastSeen:null,evo:0};}
@@ -694,8 +696,8 @@ function renderBag(){
 }
 
 /* --- WEEK TRACKER (hub-side: credits newly-logged days to today, per program) --- */
-const WKKEY='forge.hub.week.v1';
-const WKTAGS={'forge.furnace.v1':['FUR','#ff7a2f'],'forge.ironclad.v1':['IRO','#5fb4ff'],'forge.bedrock.v1':['BED','#9dc88d'],'forge.swole.v1':['SWO','#c86bff'],'trenched2.v1':['TRN','#D8F651'],'pbsys-v1':['PWR','#c8262b'],'ess3x-v1':['ESS','#2f7cc4'],'pbbfb-v1':['PBB','#c4372f']};
+const WKKEY='swolequest.hub.week.v1';
+const WKTAGS={'swolequest.furnace.v1':['FUR','#ff7a2f'],'swolequest.ironclad.v1':['IRO','#5fb4ff'],'swolequest.bedrock.v1':['BED','#9dc88d'],'swolequest.swole.v1':['SWO','#c86bff'],'trenched2.v1':['TRN','#D8F651'],'pbsys-v1':['PWR','#c8262b'],'ess3x-v1':['ESS','#2f7cc4'],'pbbfb-v1':['PBB','#c4372f']};
 function wkLoad(){try{const s=JSON.parse(localStorage.getItem(WKKEY));if(s&&s.v===1)return s;}catch(e){}return null;}
 function wkSave(s){try{localStorage.setItem(WKKEY,JSON.stringify(s));}catch(e){}}
 function isoDay(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
@@ -743,7 +745,7 @@ function showItemPop(it,isBeta){
 document.getElementById('pop').addEventListener('click',()=>{document.getElementById('pop').style.display='none';});
 /* --- PAID PROGRAM GATE (LEGACY vault) --- */
 const PAYGATE_HASH='651c5f3dfb8f8e69dc4fbe8d3bcb30b6baa0cf96ece72003236a9d38d680a8f1';
-function paygateKey(){return 'forge.hub.paygate.v1';}
+function paygateKey(){return 'swolequest.hub.paygate.v1';}
 function isUnlocked(){return PAYGATE_HASH!=='__PENDING__'&&localStorage.getItem(paygateKey())===PAYGATE_HASH;}
 async function sha256hex(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');}
 function showGate(name){
@@ -819,8 +821,8 @@ function renderHome(){
 
 
 /* ================= BATCH 2: skill check, levels, trophies, gains, plates, radio, feedback ================= */
-/* --- SKILL CHECK (key: forge.hub.skill.v1 - new key, existing stores untouched) --- */
-const SKKEY='forge.hub.skill.v1';
+/* --- SKILL CHECK (key: swolequest.hub.skill.v1 - new key, existing stores untouched) --- */
+const SKKEY='swolequest.hub.skill.v1';
 const SKTIERS=['ROOKIE','GYM BRO','VETERAN','BEAST','FREAK'];
 const SKLIFTS=[['SQUAT','squat'],['BENCH','bench'],['DEADLIFT','dead'],['OVERHEAD PRESS','ohp']];
 /* ratios of e1RM to bodyweight per tier. Published strength-standards table (male) + scaled female.
@@ -880,7 +882,7 @@ function drawAvatar(cid,av,stage){
 function lvlFor(days){return Math.floor(Math.sqrt(days))+1;}
 function lvlProgress(days){const lv=lvlFor(days),base=(lv-1)*(lv-1),next=lv*lv;return Math.round(100*(days-base)/(next-base));}
 /* --- TROPHY CASE (personal uniques - silhouettes until earned) --- */
-function strLoadHub(){try{const s=JSON.parse(localStorage.getItem('forge.hub.strength.v1'));if(s&&s.ex)return s;}catch(e){}return {v:1,ex:{}};}
+function strLoadHub(){try{const s=JSON.parse(localStorage.getItem('swolequest.hub.strength.v1'));if(s&&s.ex)return s;}catch(e){}return {v:1,ex:{}};}
 function strBest(pat,neg){const s=strLoadHub();let best=0;for(const k in s.ex){if(k.indexOf(pat)<0)continue;if(neg&&k.indexOf(neg)>=0)continue;best=Math.max(best,s.ex[k].w||0);}return best;}
 function trophyData(){
   const days=totalDays();
@@ -998,14 +1000,14 @@ function radioRender(){
     '<div class="small" style="color:#aeb6e8;margin-top:6px">'+(TRACKS.length)+' tracks in the crate - new one every day.</div>';
 }
 /* --- FEEDBACK WIDGET ---
-   Posts to FormSubmit -> brandonjeppson@mail.instinct.com. Also keeps a local copy (forge.hub.feedback.v1) as backup log. --- */
+   Posts to FormSubmit -> brandonjeppson@mail.instinct.com. Also keeps a local copy (swolequest.hub.feedback.v1) as backup log. --- */
 const FB_ENDPOINT='https://formsubmit.co/ajax/brandonjeppson@mail.instinct.com';
-const FBKEY='forge.hub.feedback.v1';
+const FBKEY='swolequest.hub.feedback.v1';
 function fbSend(){
   const name=(document.getElementById('fbName').value||'').trim(), msg=(document.getElementById('fbMsg').value||'').trim();
   const note=document.getElementById('fbNote');
   if(!msg){note.textContent='TYPE SOMETHING FIRST';return;}
-  const entry={ts:new Date().toISOString(),name:name,msg:msg,app:'forge-hub'};
+  const entry={ts:new Date().toISOString(),name:name,msg:msg,app:'swolequest'};
   try{const arr=JSON.parse(localStorage.getItem(FBKEY)||'[]');arr.push(entry);localStorage.setItem(FBKEY,JSON.stringify(arr));}catch(e){}
   note.textContent='SENDING...';
   fetch(FB_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'SWOLEQUEST FEEDBACK - '+(name||'ANONYMOUS LIFTER'),name:name||'ANONYMOUS LIFTER',message:msg,_captcha:'false',_template:'box'})})
@@ -1310,7 +1312,7 @@ function lsGet(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==nu
 function lsSet(k,v){localStorage.setItem(k,JSON.stringify(v))}
 
 /* --- MACRO TRACK --- */
-const MT_KEY='forge.hub.macrotargets.v1', ML_KEY='forge.hub.macrolog.v1';
+const MT_KEY='swolequest.hub.macrotargets.v1', ML_KEY='swolequest.hub.macrolog.v1';
 function todayISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function derivedTargets(kcal,lbs){const p=Math.round(lbs);const f=Math.round(kcal*0.25/9);const c=Math.round((kcal-p*4-f*9)/4);return {k:kcal,p:p,c:Math.max(c,0),f:f}}
 function renderMacros(){
